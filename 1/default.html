@@ -1,0 +1,244 @@
+<html>
+<head>
+	<link rel="stylesheet" href="css/th.css">
+	<link rel="stylesheet" href="css/login.css">
+	<link rel="stylesheet" href="css/floatingBox.css">
+    <link rel="stylesheet" href="css/select2.css" />
+	<link rel="shortcut icon" href="img/icon.ico">
+
+	<script src="js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4ff8a3c03178fcad"></script>
+    <script src="js/select2.js"></script>
+	<script src="js/th.js"></script>
+</head>
+<body>
+	<div id="pageContainer">
+		<header id="pageHeader">
+			<div id="pageHeaderTop">
+				<div id="pageHeaderTopLeft">
+					<div id="pageLogo">Logo</div>
+					<div class="addthis_toolbox addthis_default_style">
+						<!--
+						<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+						<a class="addthis_button_tweet"></a>
+						<a class="addthis_button_pinterest_pinit"></a>
+						-->
+						<a class="addthis_counter addthis_pill_style"></a>
+					</div>
+				</div>
+				<div id="pageHeaderTopRight">
+					<div id="accountMenu">
+						<a id="myAccount" href="#login-page" class="button-link">Log In</a>
+						<!--<span class="separator">|</span>-->
+						<input id="searchInput" type="text" value="Search..."></input>
+                        <div id="myAccountMenu" style="display: none; ">hello world</div>
+					</div>
+				</div>
+			</div>
+			<nav id="pageNav" class="pageNav"></nav>
+		</header>
+		<div id="contentContainer" class="clearfix">
+			<section id="pageSection">
+				<header class="sectionHeader"></header>
+				<article class="sectionArticle"></article>
+				<footer class="sectionFooter"></footer>
+			</section>
+			<aside id="pageAside"></aside>
+		</div>
+		<footer id="pageFooter"></footer>
+	</div>
+
+<!-- ******************** floating box ******************** -->
+<div id="floatingBoxContainer" style="display:none;">
+    <div id="floatingBox">
+		<div id="floatingBoxProgress">(Indicator of progress)</div>
+		<div id="floatingBoxText">Floating box text.</div>        
+		<div id="floatingBoxTip">
+			<img src="img/tip.png" style="margin: 5px 0 -5px 0; height: 17px; width: 20px;"></img>
+			<span id="floatingBoxTipText">Floating box tip text.</span>
+		</div>
+    </div>
+</div>
+<!-- ******************** /floating box ******************** -->
+
+<!-- ******************** login ******************** -->
+<div id="loginContainer" style="display:none;" class="login-container card-case vertical-shadow">
+	<div class="providers">
+		<h3>Log in to (TH) with</h3>
+		<div id="login-facebook" class="action-gradient provider">
+			<div class="img-container">
+				<img width="180" height="61" alt="Facebook" src="img/linkedin-logo-large.png">
+			</div>
+		</div>
+		<br>
+		<div id="login-google" class="action-gradient provider">
+			<div class="img-container">
+				<a href="#">
+					<img width="180" height="61" alt="Google" src="img/google-logo-large.png">
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="vertical-separator">
+		<span class="separator-text">OR</span>
+	</div>
+	<div class="pw-login">
+		<h3>Log in with a (TH) account:</h3>
+		<div style="float: left; width: 120px; padding: 5px 0 0 0; ">Email</div><input id="username" type="text"></input><br/>
+		<div style="float: left; width: 120px; padding: 5px 0 0 0; ">Password</div><input type="text"></input><br/>
+		<div style="float: left; margin: 0 0 0 124px; "><a href="#" style="font-size:11px;">Forgot password?<a></div><br/><br/>
+		<div><a id="login" href="#" class="button-link" style="margin: 0 0 0 220px">Log In</a></div>
+        <br/>
+        <hr/>
+		<div style="float: left; width: 120px; padding: 5px 0 0 0; margin: 0 0 0 0;">
+            <span style="margin: 0 95px 0 0;">Not yet a member?</span>
+            <a id="login-join-us" href="#join-us-page" class="button-link">Join Us</a>
+        </div>
+	</div>
+</div>
+<!-- ******************** /login ******************** -->
+
+<!-- ******************** joinUs ******************** -->
+<div id="joinUsContainer" style="display:none;" class="login-container card-case vertical-shadow">
+	<div class="providers">
+		<h3>Join (TH) with</h3>
+		<div id="login-facebook" class="action-gradient provider">
+			<div class="img-container">
+				<img width="180" height="61" alt="Facebook" src="img/linkedin-logo-large.png">
+			</div>
+		</div>
+		<br>
+		<div id="login-google" class="action-gradient provider">
+			<div class="img-container">
+				<a href="#">
+					<img width="180" height="61" alt="Google" src="img/google-logo-large.png">
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="vertical-separator">
+		<span class="separator-text">OR</span>
+	</div>
+	<div class="pw-login">
+		<h3>Create a (TH) account:</h3>
+		<div style="float: left; width: 120px; padding: 5px 0 0 0; ">First Name</div><input type="text"></input><br/>
+		<div style="float: left; width: 120px; padding: 5px 0 0 0; ">Last Name</div><input type="text"></input><br/>
+		<div style="float: left; width: 120px; padding: 5px 0 0 0; ">Email</div><input id="username" type="text"></input><br/>
+		<div style="float: left; width: 120px; padding: 5px 0 0 0; ">Password</div><input type="text"></input><br/>
+		<div style="float: left; width: 120px; padding: 10px 0 0 0; ">
+            <a id="joinUs" href="#" class="button-link" style="margin: 20px 0 0 215px">Join Us</a>
+        </div>
+	</div>
+</div>
+<!-- ******************** /joinUs ******************** -->
+
+<!-- ******************** teacherProfile ******************** -->
+<div id="teacherProfileContainer" style="display: none; padding: 0 0 200px 0;">
+    <div class="section section1">
+        <h4>What are you looking for?</h4>
+        <div>
+            <div class="type2">Subjects</div>
+			<select id="subjects" class="thselect2" multiple></select>
+        </div>
+        <div>
+            <div class="type2">Positions</div>
+            <input type="text" value="Use nice multi-select (e.g. select2)"></input>
+        </div>
+    </div>
+    <div class="section section2">
+        <h4>CV</h4>
+        <div class="type1">
+            <a href="#" class="button-link">Add CV</a>
+            <a id="cvDoLater" href="#" style="margin: 0 0 0 50px; " class="button-link">Do Later</a>
+        </div>
+    </div>
+    <div class="section section3">
+        <h4>Photo</h4>
+        <div>
+            <a href="#" class="button-link">Add Photo</a>
+            <a id="photoDoLater" href="#" style="margin: 0 0 0 50px; " class="button-link">Do Later</a>
+        </div>
+    </div>
+    <div class="section section4">
+        <h4>Key Details</h4>
+        <div>
+            <div class="type2">Country code</div>
+            <input id="countryCode" type="text" value="Use nice one from somewhere (e.g. skype)"></input>
+        </div>
+        <div>
+            <div class="type2">Phone</div>
+            <input id="phone" type="text" value=""></input>
+        </div>
+        <div>
+            <div class="type2">Nationality</div>
+            <input id="nationality" type="text" value="nice selector"></input>
+        </div>
+        <div>
+            <div class="type2">Country of qualification</div>
+            <input type="text" value="nice selector"></input>
+        </div>
+    </div>
+    <div class="section section5">
+        <h4>Your Job Search</h4>
+        <div>
+            <div class="type2">Availability</div>
+            <input type="text" value="traffic light selector (leave the rest of this section if red)"></input>
+        </div>
+        <div>
+            <div class="type2">Available from</div>
+            <input type="text" value="Date selector"></input>
+        </div>
+        <div>
+            <div class="type2">Locations considered</div>
+            <input type="text" value="Use nice multi-select (e.g. select2)"></input>
+        </div>
+        <div>
+            <div class="type2">Curriculum sought</div>
+            <input type="text" value="Use nice multi-select (e.g. select2)"></input>
+        </div>
+        <div>
+            <div class="type2">Grade sought</div>
+            <input type="text" value="Use nice multi-select (e.g. select2)"></input>
+        </div>
+        <div>
+            <div class="type2">Child discount on fees</div>
+            <input type="text" value="Use nice percentage selector (e.g. slider)"></input>
+        </div>
+        <div>
+            <div class="type2">Joint application</div>
+            <input type="text" value="Yes/No selector"></input>
+        </div>
+        <div>
+            <div class="type2">Member number</div>
+            <input type="text" value="numeric input (only display if above is 'yes')"></input>
+        </div>
+    </div>
+    <div class="section section6">
+        <h4>Professional Experience</h4>
+        <div>
+            <div class="type2">Number of years' experience</div>
+            <input type="text" value="0-40 slider"></input>
+        </div>
+        <div>
+            <div class="type2">Curriculum experience</div>
+            <input type="text" value="Use nice multi-select (e.g. select2)"></input>
+        </div>
+        <div style=" color: green; margin: 50px 0 0 0; ">
+			To do:
+			<ol>
+				<li>Add more fields and sections
+				<li>Add concertinaing (yes, this is a word)
+				<li>Add some different dynamic elements dependent on choices (e.g. senior position or not)
+				<li>Spec out the use of the floating box
+				<li>Position the floating box properly
+				<li>Refactor and improve the code
+				<li>...
+			</ol>
+		</div>
+    </div>
+</div>
+<!-- ******************** /teacherProfile ******************** -->
+
+
+</body>
+</html>

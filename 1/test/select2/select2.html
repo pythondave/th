@@ -1,0 +1,45 @@
+<html>
+<head>
+	<script src="../../js/jquery-1.7.2.min.js"></script>
+    <script src="select2.js"></script>
+
+	<link rel="stylesheet" href="../css/th.css" />
+    <link  rel="stylesheet" href="select2.css" />
+</head>
+<body>
+    <div class="section section1">
+        <h4>What are you looking for?</h4>
+        <div style="margin: 10px 0 10px 0; ">
+            <div style="float: left; width: 200px; ">Subjects</div>
+            <select id="subjects" multiple style="width:400px"></select>
+        </div>
+        <div>
+            <div style="float: left; width: 200px; ">Positions</div>
+            <select id="positions" multiple style="width:400px"></select>
+        </div>
+    </div>
+</body>
+
+<script>
+$(document).ready(function() {
+    var subjectsHtml = '';
+    $(test.models.subjects).each( function(index, item) {
+        subjectsHtml += '<option value="' + item + '">' + item + '</option>';
+    });
+    $('#subjects').html(subjectsHtml);
+    $('#subjects').select2();
+	
+    var positionsHtml = '';
+    $(test.models.positions).each( function(index, item) {
+        positionsHtml += '<option value="' + item + '">' + item + '</option>';
+    });
+    $('#positions').html(positionsHtml);
+    $('#positions').select2();
+});
+
+var test = {};
+test.models = {};
+test.models.subjects = [ 'Accounting', 'All', 'Archaeology', 'Architecture', 'Art and Design', 'Biology', 'Business Studies', 'Careers', 'Chemistry', 'Computing', 'Curriculum Manager', 'Design & Technology', 'Drama', 'Early Years', 'Economics', 'English as a Foreign Language', 'English', 'Environmental Systems and Societies (ESS)', 'Food Technology', 'Foreign Languages', 'French', 'Geography', 'German', 'History', 'Humanities', 'Information Technology', 'Italian', 'Law', 'Mathematics', 'Media Studies', 'Music', 'Not applicable', 'Pastoral Manager', 'Physical Education', 'Physics', 'Politics', 'Portuguese', 'Primary teacher', 'Psychology', 'Religious Education', 'Science', 'Senior Manager', 'Social Sciences', 'Spanish', 'Special Educational Needs (SEN)', 'Supply teacher', 'TOK' ];
+test.models.positions = [ 'Classroom teacher', 'Counsellor', 'Curriculum Coordinator', 'Deputy Head Teacher', 'Director of Studies', 'Early Years / Kindergarden Teacher', 'Educational Psychologist', 'ESL Teacher', 'Foundation 1 and 2 Teachers', 'Head of Department', 'Head of Primary', 'Head of School', 'Head of Secondary', 'Head of Section', 'Head of Year (pastoral)', 'IB Coordinator', 'KS1 Teacher - Year 1 and 2', 'Librarian', 'Other Position', 'Primary / Elementary Teacher', 'Reception Teacher', 'Special Needs Teacher', 'Subject leader', 'Subject teacher', 'Year 1 Teacher', 'Year 2 Teacher', 'Year 3 Teacher', 'Year 3 Year Group Leader and Teacher', 'Year 4 Teacher', 'Year 5 Teacher', 'Year 6 Teacher' ];
+
+</script>
