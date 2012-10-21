@@ -1,0 +1,30 @@
+<form name="form" ng-controller="mainController">
+    <div class="devHelper2"></div>
+
+    <div>(Static stuff)</div>
+    <div>
+        <label>Role(s)</label>
+        <!-- *** TODO: consider making a ui-select2 directive, OR improving the existing one -->
+        <select id="role" ui-select2 data-placeholder="Select a role..." multiple ng-model="user.roles.val" class="{{user.roles.getClass()}}" required>
+            <option ng-repeat="role in roles" value="{{role.id}}">{{role.name}}</option>
+        </select>
+    </div>
+    <div>
+        <label>Subject(s)</label>
+        <select id="subject" ui-select2 data-placeholder="Select a subject..." multiple ng-model="user.subjects.val" class="{{user.subjects.getClass()}}" required>
+            <option ng-repeat="subject in subjects" value="{{subject.id}}">{{subject.name}}</option>
+        </select>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="user.subscribe.val" ng-class="user.subscribe.getClass()">
+            Email me suitable jobs
+        </label>
+    </div>
+    <div>
+        <!-- *** TODO: consider making directives from the following -->
+        <button class="btn btn-primary" ng-click="setLocation(1, 2)" ng-disabled="!user.getPage(1, 1).getIsSufficient()">Continue</button>
+        <button class="btn" ng-click="doLater()">Do Later</button>
+    </div>
+</form>
+
