@@ -1,49 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="shortcut icon" href="img/favicon.ico">
 
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="css/th.css">
-	<link rel="stylesheet" href="css/tpp.css">
-
-	<script src="js/angular.js"></script>
-	<script src="js/jquery-1.7.2.min.js"></script>
-	<script src="js/randall.js"></script>
-	<script src="js/th-tpp-dataModel.js"></script>
-	<script src="js/th-tpp-viewModelConstructors.js"></script>
-	<script src="js/th-tpp-viewModel.js"></script>
-	<script src="js/th-tpp-controller.js"></script>
-	<script src="js/th-tpp-views.js"></script>
+    <link rel="stylesheet" href="lib/twitter/bootstrap.css">
+    <link rel="stylesheet" href="lib/select2/select2.css">
+    <link rel="stylesheet" href="css/tpp.css">
 </head>
 <body ng-app="tpp">
-	<div id="pageContainer">
-		<header id="pageHeader">
-			<div id="pageHeaderTop">
-				<div id="pageHeaderTopLeft">
-					<div id="pageLogo"></div>
-				</div>
-				<div id="pageHeaderTopRight">
-					<div id="accountMenu">
-					</div>
-				</div>
-			</div>
-			<nav id="pageNav" class="pageNav"></nav>
-		</header>
-		<div id="contentContainer" class="clearfix">
-            <section id="mainSection">
-                <div ng-view></div>
-            </section>
-			<aside id="pageAside">
-				<section id="tipsSection">
-					<article></article>
-				</section>
-				<section id="summarySection">
-					<article></article>
-				</section>
-			</aside>
-		</div>
-		<footer id="pageFooter"></footer>
-	</div>
-<body>
+    <header id="pageHeader">(Header)</header>
+    <div id="contentContainer" class="clearfix">
+        <section id="mainSection" ng-view></section>
+        <aside id="pageAside">
+            <div ui-scrollfix="-50" class="ui-scrollfix">
+                <section id="tipsSection" ng-controller="tipsController">{{user.tip}}</section>
+                <section id="summarySection" ng-controller="summaryController" ng-include="'partials/tpp-summary.html'" onload="'xxx()'"></section>
+            </div>
+        </aside>
+    </div>
+    <footer id="pageFooter">
+    </footer>
+    
+    <!-- scripts -->
+    <script src="lib/jquery/jquery-1.7.2.min.js"></script>
+    <script src="lib/select2/select2.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular/angular-ui.js"></script>
+    <script src="js/th-tpp-main.js"></script>
+    <script src="js/services/th-tpp-lib-services.js"></script>
+    <script src="js/services/th-tpp-db-services.js"></script>
+    <script src="js/services/th-tpp-list-services.js"></script>
+    <script src="js/services/th-tpp-section-service.js"></script>
+    <script src="js/services/th-tpp-user-service.js"></script>
+    <script src="js/services/th-tpp-misc-services.js"></script>
+    <script src="js/th-tpp-directives.js"></script>
+</body>
 </html>

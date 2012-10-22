@@ -1,3 +1,53 @@
+/*** Scrollfix ***/
+#pageAside.ui-scrollfix .ui-scrollfix {
+	top: -50px;
+}
+#pageAside .ui-scrollfix {
+	position: fixed;
+}
+
+/**** new ****/
+
+form div.isSufficient {
+    padding-right: 25px;
+	background-image: url(../img/green_tick_39x39.gif);
+	background-position: right;
+	background-repeat: no-repeat;
+	background-size: 20px;
+}
+
+form input[type=checkbox].isSufficient:before {
+    content: ""; display: inline-block; width: 12px; height: 15px;
+    padding-right: 25px;
+	background-image: url(../img/green_tick_39x39.gif);
+	background-position: right;
+	background-repeat: no-repeat;
+	background-size: 20px;
+}
+
+.select2-container {
+    min-width: 200px;
+}
+
+form inputx.ng-invalid.ng-dirty {
+    background-color: #FA787E;
+}
+form inputx.ng-valid.ng-dirty {
+    background-color: #78FA89;
+}
+
+.next {
+    margin: 20px 0 0 0;
+}
+
+form div {
+    padding: 10px 0 0 0;
+    /* border: 1px solid red; */
+}
+
+/**** /new ****/
+
+
 div, section, aside { border: 0px solid red; }
 header, footer { border: 0px solid green; }
 
@@ -11,20 +61,12 @@ header, footer { border: 0px solid green; }
 
 /**** structure ****/
 #contentContainer {
-    border-top: 10px dashed red;
-    border-left: 10px dashed red;
-    border-right: 10px dashed red;
-	background-image: url(http://images.colourbox.com/thumb_COLOURBOX4280667.jpg);
-	background-repeat: no-repeat;
-	background-position: top right;
 	background-size: 100px;
 }
 #mainSection {
 	display: inline-block;
 	width: 65%;
 	height: 600px;
-}
-#mainSection article {
 	border: 1px solid grey;
 	margin: 5px 5px 5px 5px;
 	padding: 5px 5px 5px 5px;
@@ -100,7 +142,7 @@ header, footer { border: 0px solid green; }
 }
 #summarySection .page-isSufficient {
 	padding: 0 22px 0 0;
-	background-image: url(http://www.rbwm.gov.uk/graphics/icon_wm_green_tick_39x39.gif);
+	background-image: url(../img/green_tick_39x39.gif);
 	background-position: right;
 	background-repeat: no-repeat;
 	background-size: 20px;

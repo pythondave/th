@@ -1,0 +1,92 @@
+<form novalidate ng-controller="mainController">
+    <div class="devHelper2"></div>
+    
+<form action="essentials_cv_and_photo.html" class="regForm">
+						
+    <!--one field-->
+    <div class="formField firstBox">
+        <label for="nationality">Nationality</label>
+        <!--inline js should be replaced by nicer solution-->
+        <select id="nationality" class="populate" onchange="document.getElementById('signChecked_3').style.display='inline-block';"> 
+            <option value="Zero" selected="selected">Select a nationality</option> 
+            <option ng-repeat="country in countries" value="{{country.id}}">{{country.name}}</option>
+        </select>
+        <span class="fieldChecked" style="display:none;" id="signChecked_3"></span>
+    </div>
+    <!--one field-->
+    <div class="formField">
+        <label for="country">Country of teaching qualification/certification</label>
+        <!--inline js should be replaced by nicer solution-->
+        <select id="country" class="populate" onchange="document.getElementById('signChecked_4').style.display='inline-block';"> 
+            <option value="Zero" selected="selected">Select a country</option> 
+            <option ng-repeat="country in countries" value="{{country.id}}">{{country.name}}</option>
+        </select>
+        <span class="fieldChecked" style="display:none;" id="signChecked_4"></span>
+    </div>
+    <!--one field checkboxes-->
+    <div class="formField checkButtons">
+        <label for="education">Education Levels Completed</label>
+        <div id="holder">
+            <div>
+                <input type="checkbox" id="PhD" class="regular-checkbox big-checkbox" ng-model="user.phd" /><label for="PhD">PhD</label>
+                <input type="checkbox" id="Masters" class="regular-checkbox big-checkbox" /><label for="Masters">Masters</label>
+                <input type="checkbox" id="Batchelors" class="regular-checkbox big-checkbox" /><label for="Batchelors">Batchelors</label>
+                <input type="checkbox" id="Teaching Qualification/Certification" class="regular-checkbox big-checkbox" /><label for="Teaching Qualification/Certification">Teaching Qualification/Certification</label>
+                <input type="checkbox" id="Secondary/High School" class="regular-checkbox big-checkbox" /><label for="Secondary/High School">Secondary/High School</label>
+                <input type="checkbox" id="CELTA/TEFL" class="regular-checkbox big-checkbox" /><label for="CELTA/TEFL">CELTA/TEFL</label>
+                <input type="checkbox" id="Other" class="regular-checkbox big-checkbox" /><label for="Other">Other</label>
+            </div>
+        </div>
+    </div>
+    <!--one radio field-->
+    <div class="formField">
+        <label>Availability</label>
+        <div id="holder">
+            <div>
+                <!--traffic lights radio buttons-->
+                <div class="button-holder">
+                    <div class="imgRadio available">
+                        <div class="trafficLightBox">
+                            <input type="radio" id="green" name="availability" class="regular-radio" checked /><label for="green"></label>
+                        </div>
+                        <span>Available immediately</span>
+                        Display my name and contact private
+                    </div>
+                    <div class="imgRadio openToSuggestion">
+                        <div class="trafficLightBox">
+                            <input type="radio" id="amber" name="availability" class="regular-radio" /><label for="amber"></label>
+                        </div>
+                        <span>Open to suggestion</span>
+                        Keep my name and contact private
+                    </div>
+                    <div class="imgRadio notAvailable">
+                        <div class="trafficLightBox">
+                            <input type="radio" id="red" name="availability" class="regular-radio" /><label for="red"></label>
+                        </div>
+                        <span>Not available</span>
+                        Do not contact me for now.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--one field checkbox-->
+    <div class="formField checkBoxes inlineBox">
+        <label for="have_job">Currently in a job?</label>
+        <input type="checkbox" id="have_job" checked />
+    </div>
+    <!--one field calendar-->
+    <div class="formField calendar">
+        <label for="available_date">Available from</label>
+        <input id="available_date" type="date" value="2013-01-01" /> 
+    </div>
+    <!--buttons-->
+    <div class="buttonField">
+        <input type="submit" id="continue_button" value="Continue" />
+        <input type="button" id="do_later_button" value="Do later" class="buttonSkip" />
+    </div>
+</form>
+                    
+    <button class="btn btn-primary" ng-click="setLocation(1, 4)">Continue</button>
+</form>
+
