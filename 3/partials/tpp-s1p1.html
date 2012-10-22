@@ -2,7 +2,7 @@
     <div class="devHelper2"></div>
 
     <div>(Static stuff)</div>
-    <div>
+    <div ng-click="user.tip = 'Role(s)...'"">
         <label>Role(s)</label>
         <!-- *** TODO: consider making a ui-select2 directive, OR improving the existing one -->
         <select id="role" ui-select2 data-placeholder="Select a role..." multiple ng-model="user.roles.val" class="{{user.roles.getClass()}}" required>

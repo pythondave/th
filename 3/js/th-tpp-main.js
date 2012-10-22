@@ -65,6 +65,11 @@ angular.module('tpp', ['ui']).
         
         ////
     }).
+    controller('tipsController', function($scope, userService) {
+        ////scope variables
+        $scope.user = userService.user;
+        ////
+    }).
     controller('summaryController', function($scope, $location, userService) {
         //reminder: controllers should not touch the dom (instead use directives)
 

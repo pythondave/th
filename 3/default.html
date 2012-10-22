@@ -13,7 +13,7 @@
         <section id="mainSection" ng-view></section>
         <aside id="pageAside">
             <div ui-scrollfix="-50" class="ui-scrollfix">
-                <section id="tipsSection"></section>
+                <section id="tipsSection" ng-controller="tipsController">{{user.tip}}</section>
                 <section id="summarySection" ng-controller="summaryController" ng-include="'partials/tpp-summary.html'" onload="'xxx()'"></section>
             </div>
         </aside>
