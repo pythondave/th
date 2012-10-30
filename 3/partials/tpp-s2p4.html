@@ -1,6 +1,179 @@
 <form novalidate ng-controller="mainController">
-    <div class="devHelper1" click="setLocation(2, 5)"></div>
+  <div class="devHelper2"></div>
     
-    <button class="btn btn-primary" ng-click="setLocation(2, 5)">Next!</button>
+  <!--one field checkboxes-->
+  <div class="formField checkButtons firstCheckBoxesBlock">
+    <label>Locations considered</label>
+    <div id="holder">
+      <div>
+        <input type="checkbox" id="Africa" class="regular-checkbox big-checkbox" /><label for="Africa">Africa</label>
+        <input type="checkbox" id="Central_America" class="regular-checkbox big-checkbox" /><label for="Central_America">Central America</label>
+        <input type="checkbox" id="North_America" class="regular-checkbox big-checkbox" /><label for="North_America">North America</label>
+        <input type="checkbox" id="South_America" class="regular-checkbox big-checkbox" /><label for="South_America">South America</label>
+        <input type="checkbox" id="Asia" class="regular-checkbox big-checkbox" /><label for="Asia">Asia</label>
+        <input type="checkbox" id="Middle_East" class="regular-checkbox big-checkbox" /><label for="Middle_East">Middle East</label>
+      </div>
+    </div>
+  </div>
+  
+  <!--one field checkboxes-->
+  <div class="formField checkButtons">
+    <label>Curricula of interest</label>
+    <!--inline js should be replaced by nicer solution-->
+    <div id="holder2">
+      <div>
+        <input type="checkbox" id="DP" class="regular-checkbox big-checkbox" /><label for="DP">International Baccalaureate (DP)</label>
+        <input type="checkbox" id="MYP" class="regular-checkbox big-checkbox" /><label for="MYP">International Baccalaureate (MYP)</label>
+        <input type="checkbox" id="PYP" class="regular-checkbox big-checkbox" /><label for="PYP">International Baccalaureate (PYP)</label>
+        <input type="checkbox" id="ALevels" class="regular-checkbox big-checkbox" /><label for="ALevels">A-Levels</label>
+        <input type="checkbox" id="IGCSE" class="regular-checkbox big-checkbox" /><label for="IGCSE">IGCSE</label>
+        <input type="checkbox" id="SAT" class="regular-checkbox big-checkbox" /><label for="SAT">SAT Reasoning Test</label>
+        <input type="checkbox" id="American_College_testing" class="regular-checkbox big-checkbox" /><label for="American_College_testing">American College Testing</label>
+        <input type="checkbox" id="French_Baccalaureate" class="regular-checkbox big-checkbox" /><label for="French_Baccalaureate">French Baccalaureate</label>
+        <input type="checkbox" id="German_Abitur" class="regular-checkbox big-checkbox" /><label for="German_Abitur">German Abitur</label>
+        <input type="checkbox" id="Titulo_de_Bachiller" class="regular-checkbox big-checkbox" /><label for="Titulo_de_Bachiller">Titulo de Bachiller</label>
+        <input type="checkbox" id="Australian_SSCE" class="regular-checkbox big-checkbox" /><label for="Australian_SSCE">Australian SSCE</label>
+        <input type="checkbox" id="Indian_School_Certificate" class="regular-checkbox big-checkbox" /><label for="Indian_School_Certificate">Indian School Certificate</label>
+        <input type="checkbox" id="Advanced_Placement" class="regular-checkbox big-checkbox" /><label for="Advanced_Placement">Advanced Placement</label>
+        <input type="checkbox" id="EYFS" class="regular-checkbox big-checkbox" /><label for="EYFS">Early Years Foundation Stage (EYFS)</label>
+        <input type="checkbox" id="IPC" class="regular-checkbox big-checkbox" /><label for="IPC">International Primary Curriculum (IPC)</label>
+        <input type="checkbox" id="British_National_Curriculum" class="regular-checkbox big-checkbox" /><label for="British_National_Curriculum">British National Curriculum</label>
+      </div>
+    </div>
+  </div>
+
+  <!--one field checkboxes-->
+  <div class="formField checkButtons zeroBottomSpace">
+    <label>Age Level</label>
+    <div id="holder3">
+      <div>
+        <input type="checkbox" id="Pre_School_KG" class="regular-checkbox big-checkbox" /><label for="Pre_School_KG">Pre-School/KG</label>
+        <input type="checkbox" id="Elementary_Primary" class="regular-checkbox big-checkbox" /><label for="Elementary_Primary">Elementary/Primary</label>
+        <input type="checkbox" id="Middle_School" class="regular-checkbox big-checkbox" /><label for="Middle_School">Middle School</label>
+        <input type="checkbox" id="Secondary" class="regular-checkbox big-checkbox" /><label for="Secondary">Secondary</label>
+        <input type="checkbox" id="High_School" class="regular-checkbox big-checkbox" /><label for="High_School">High School</label>
+      </div>
+    </div>
+  </div>
+  <div class="clr" ></div>
+  <!--one field radiobuttons-->
+  <div class="formField checkBoxes">
+    <label for="Joint_application">Joint application</label>
+    <input type="radio" id="Joint_application_yes" value="yes" name="Joint_application"/>Yes<br />
+    <input type="radio" id="Joint_application_no" value="no" name="Joint_application"/>No<br />
+  </div>
+  <div class="firstCol">
+    <!--one field-->
+    <div class="formField">
+      <label for="partner_member_number">Partner's member number</label>
+      <!--inline js should be replaced by nicer solution-->
+      <input id="partner_member_number" type="text" onchange="document.getElementById('signChecked_17').style.display='inline-block';">
+      <span class="fieldChecked" style="display:none;" id="signChecked_17"></span>
+    </div>
+    <!--one field-->
+    <div class="formField">
+      <label for="number_of_dependent_children">Number of dependent children</label>
+      <!--inline js should be replaced by nicer solution-->
+      <select id="number_of_dependent_children" onchange="document.getElementById('signChecked_20').style.display='inline-block';">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5+">5+</option>
+      </select>
+      <span class="fieldChecked" style="display:none;" id="signChecked_20"></span>
+    </div>
+  </div>
+  <div class="secondCol">
+    <!--one field-->
+    <div class="formField">
+      <label for="year_of_birth">Year of Birth</label>
+      <!--inline js should be replaced by nicer solution-->
+      <select id="year_of_birth" onchange="document.getElementById('signChecked_19').style.display='inline-block';">
+        <option value="1940">1940</option>
+        <option value="1941">1941</option>
+        <option value="1942">1942</option>
+        <option value="1943">1943</option>
+        <option value="1944">1944</option>
+        <option value="1945">1945</option>
+        <option value="1946">1946</option>
+        <option value="1947">1947</option>
+        <option value="1948">1948</option>
+        <option value="1949">1949</option>
+        <option value="1950">1950</option>
+        <option value="1951">1951</option>
+        <option value="1952">1952</option>
+        <option value="1953">1953</option>
+        <option value="1954">1954</option>
+        <option value="1955">1955</option>
+        <option value="1956">1956</option>
+        <option value="1957">1957</option>
+        <option value="1958">1958</option>
+        <option value="1959">1959</option>
+        <option value="1960">1960</option>
+        <option value="1961">1961</option>
+        <option value="1962">1962</option>
+        <option value="1963">1963</option>
+        <option value="1964">1964</option>
+        <option value="1965">1965</option>
+        <option value="1966">1966</option>
+        <option value="1967">1967</option>
+        <option value="1968">1968</option>
+        <option value="1969">1969</option>
+        <option value="1970">1970</option>
+        <option value="1971">1971</option>
+        <option value="1972">1972</option>
+        <option value="1973">1973</option>
+        <option value="1974">1974</option>
+        <option value="1975">1975</option>
+        <option value="1976">1976</option>
+        <option value="1977">1977</option>
+        <option value="1978">1978</option>
+        <option value="1979">1979</option>
+        <option value="1980" selected>1980</option>
+        <option value="1981">1981</option>
+        <option value="1982">1982</option>
+        <option value="1983">1983</option>
+        <option value="1984">1984</option>
+        <option value="1985">1985</option>
+        <option value="1986">1986</option>
+        <option value="1987">1987</option>
+        <option value="1988">1988</option>
+        <option value="1989">1989</option>
+        <option value="1990">1990</option>
+        <option value="1991">1991</option>
+        <option value="1992">1992</option>
+        <option value="1993">1993</option>
+        <option value="1994">1994</option>
+        <option value="1995">1995</option>
+        <option value="1996">1996</option>
+        <option value="1997">1997</option>
+        <option value="1998">1998</option>
+        <option value="1999">1999</option>
+        <option value="2000">2000</option>
+        </select>
+      <span class="fieldChecked" style="display:none;" id="signChecked_19"></span>
+    </div>
+    <!--one field-->
+    
+    <div class="formField">
+      <label for="marital_status">Marital status</label>
+      <!--inline js should be replaced by nicer solution-->
+      <select id="marital_status" onchange="document.getElementById('signChecked_18').style.display='inline-block';">
+        <option value="Single">Single</option>
+        <option value="Married">Married</option>
+        <option value="Living with Partner">Living with Partner</option>
+        <option value="Other">Other</option>
+      </select>
+      <span class="fieldChecked" style="display:none;" id="signChecked_18"></span>
+    </div>
+  </div>
+  <div class="clr"></div>
+
+  <div>
+    <button class="btn btn-primary" ng-click="setLocation(2, 4)" ng-disabled="!user.getPage(2, 3).getIsSufficient()">Continue</button>
+    <button class="btn" ng-click="doLater()">Do Later</button>
+  </div>
 </form>
 

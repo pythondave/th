@@ -4,27 +4,27 @@
 */
 
 angular.module('tpp').
-    service('lib', function() {
-        return {
-            // Function: createNestedObject( base, names[, value] )
-            //      taken from http://stackoverflow.com/questions/5484673
-            //      base: the object on which to create the hierarchy
-            //      names: an array of strings contaning the names of the objects
-            //      value (optional): if given, will be the last object in the hierarchy
-            createNestedObject: function( base, names, value ) { 
-                // If a value is given, remove the last name and keep it for later:
-                var lastName = arguments.length === 3 ? names.pop() : false;
+    service('libService', function() {
+        var lib = {};
 
-                // Walk the hierarchy, creating new objects where needed.
-                // If the lastName was removed, then the last object is not set yet:
-                for( var i in names ) base = base[ names[i] ] = base[ names[i] ] || { };
+        lib.createNestedObject = function(base, names, value) {
+            //creates a nested object - see http://stackoverflow.com/questions/5484673
+            //e.g. lib.createNestedObject({}, ['a', 'b'], 1)) -> { a: { b: 1 } }
+            //e.g. lib.createNestedObject({ a: { b: 1 } }, ['a', 'c', 'd'], 2)) -> { a: { b: 1, c: { d: 2 } } }
+            var x = base, lastName = (arguments.length === 3 ? names.pop() : false);
+            for (var i in names) { x = x[names[i]] = (x[names[i]] || {}) };
+            if (lastName) { x[lastName] = value };
+            return base;
+        };
 
-                // If a value was given, set it with the last name:
-                if( lastName ) base = base[ lastName ] = value;
+        lib.deleteObjectFunctions = function(obj) {
+            for (var key in obj) {
+                if (typeof obj[key] == 'function') {
+                    delete obj[key];
+                }
+            };
+        };
 
-                // Return the last object in the hierarchy:
-                return base;
-            }
-        }
+        return lib;
     });
     

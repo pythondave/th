@@ -1,6 +1,51 @@
 <form novalidate ng-controller="mainController">
-    <div class="devHelper1" click="setLocation(9, 9)"></div>
-    
-    <button class="btn btn-primary" ng-click="setLocation(3, 3)">...</button>
+  <div class="devHelper2"></div>
+  
+  <!--one field-->
+  <div class="formField firstBox">
+    <label for="add_teaching_certificate">Add Teaching certificate</label>
+    <input id="add_teaching_certificate" type="file" onchange="document.getElementById('signChecked_33').style.display='inline-block';"> 
+    <span class="fieldChecked" style="display:none;" id="signChecked_33"></span>
+  </div>
+  <!--one field-->
+  <div class="formField">
+    <label for="add_degree_certificates">Add Degree certificates</label>
+    <input id="add_degree_certificates" type="file" onchange="document.getElementById('signChecked_34').style.display='inline-block';"> 
+    <span class="fieldChecked" style="display:none;" id="signChecked_34"></span>
+  </div>
+  <!--one field-->
+  <div class="formField">
+    <label for="add_police_clearance">Add Police clearance</label>
+    <input id="add_police_clearance" type="file" onchange="document.getElementById('signChecked_35').style.display='inline-block';"> 
+    <span class="fieldChecked" style="display:none;" id="signChecked_35"></span>
+  </div>
+  <!--one field-->
+  <div class="formField">
+    <label for="add_recommendation">Add Performance review or recommendation</label>
+    <input id="add_recommendation" type="file" onchange="document.getElementById('signChecked_36').style.display='inline-block';"> 
+    <span class="fieldChecked" style="display:none;" id="signChecked_36"></span>
+  </div>
+  <!--one field-->
+  <div class="formField">
+    <label for="add_statement">Add Teaching Philosophy Statement</label>
+    <input id="add_statement" type="file" onchange="document.getElementById('signChecked_37').style.display='inline-block';"> 
+    <span class="fieldChecked" style="display:none;" id="signChecked_37"></span>
+  </div>
+  <!--one field-->
+  <div class="formField">
+    <label for="add_video">Add video</label>
+    <input id="add_video" type="file" onchange="document.getElementById('signChecked_38').style.display='inline-block';"> 
+    <span class="fieldChecked" style="display:none;" id="signChecked_38"></span>
+  </div>
+  <!--final section text, appear when section  is completed-->
+  <div class="finalText blue">
+    <p>That's it! To come top of school's searches, make sure your profile is 100% complete.</p>
+    <p>Thanks for signing up and please tell your friends about us!</p>
+  </div>
+            
+  <div>
+    <button class="btn btn-primary" ng-click="setLocation(3, 3)" ng-disabled="!user.getPage(3, 2).getIsSufficient()">Continue</button>
+    <button class="btn" ng-click="doLater()">Do Later</button>
+  </div>
 </form>
 

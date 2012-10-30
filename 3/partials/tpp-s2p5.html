@@ -1,6 +1,75 @@
 <form novalidate ng-controller="mainController">
-    <div class="devHelper1" click="setLocation(2, 6)"></div>
-    
-    <button class="btn btn-primary" ng-click="setLocation(2, 6)">Next!</button>
+  <div class="devHelper2"></div>
+      
+  <!--one field-->
+  <div class="formField firstBox">
+    <label for="reduced_tuition">Reduced tuition fees for my children</label>
+    <!--inline js should be replaced by nicer solution-->
+    <select id="reduced_tuition" onchange="document.getElementById('signChecked_21').style.display='inline-block';">
+      <option value="Essential">Essential</option>
+      <option value="Important">Important</option>
+      <option value="Preferred">Preferred</option>
+      <option value="Not important">Not important</option>
+      <option value="Not applicable">Not applicable</option>
+    </select>
+    <span class="fieldChecked" style="display:none;" id="signChecked_21"></span>
+  </div>
+  <!--one field-->
+  <div class="formField">
+    <label for="save_money">Ability to save money each month</label>
+    <!--inline js should be replaced by nicer solution-->
+    <select id="save_money" onchange="document.getElementById('signChecked_22').style.display='inline-block';">
+      <option value="Essential">Essential</option>
+      <option value="Important">Important</option>
+      <option value="Preferred">Preferred</option>
+      <option value="Not important">Not important</option>
+      <option value="Not applicable">Not applicable</option>
+    </select>
+    <span class="fieldChecked" style="display:none;" id="signChecked_22"></span>
+  </div>
+  <!--one field-->
+  <div class="formField">
+    <label for="accommodation">Accommodation(or support) provided</label>
+    <!--inline js should be replaced by nicer solution-->
+    <select id="accommodation" onchange="document.getElementById('signChecked_23').style.display='inline-block';">
+      <option value="Essential">Essential</option>
+      <option value="Important">Important</option>
+      <option value="Preferred">Preferred</option>
+      <option value="Not important">Not important</option>
+      <option value="Not applicable">Not applicable</option>
+    </select>
+    <span class="fieldChecked" style="display:none;" id="signChecked_23"></span>
+  </div>
+  <!--one field-->
+  <div class="formField">
+    <label for="health_insurance">Health insurance provided</label>
+    <!--inline js should be replaced by nicer solution-->
+    <select id="health_insurance" onchange="document.getElementById('signChecked_24').style.display='inline-block';">
+      <option value="Essential">Essential</option>
+      <option value="Important">Important</option>
+      <option value="Preferred">Preferred</option>
+      <option value="Not important">Not important</option>
+      <option value="Not applicable">Not applicable</option>
+    </select>
+    <span class="fieldChecked" style="display:none;" id="signChecked_24"></span>
+  </div>
+  <!--one field-->
+  <div class="formField">
+    <label for="professional_development">Professional development support provided</label>
+    <!--inline js should be replaced by nicer solution-->
+    <select id="professional_development" onchange="document.getElementById('signChecked_25').style.display='inline-block';">
+      <option value="Essential">Essential</option>
+      <option value="Important">Important</option>
+      <option value="Preferred">Preferred</option>
+      <option value="Not important">Not important</option>
+      <option value="Not applicable">Not applicable</option>
+    </select>
+    <span class="fieldChecked" style="display:none;" id="signChecked_25"></span>
+  </div>
+
+  <div>
+    <button class="btn btn-primary" ng-click="setLocation(2, 6)" ng-disabled="!user.getPage(2, 5).getIsSufficient()">Continue</button>
+    <button class="btn" ng-click="doLater()">Do Later</button>
+  </div>
 </form>
 

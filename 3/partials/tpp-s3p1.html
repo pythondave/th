@@ -1,6 +1,22 @@
 <form novalidate ng-controller="mainController">
-    <div class="devHelper1" click="setLocation(3, 2)"></div>
-    
-    <button class="btn btn-primary" ng-click="setLocation(3, 2)">Next!</button>
+  <div class="devHelper2"></div>
+
+  <div>
+    <label>Computer skills</label>
+    <div checkboxes list="computerSkills" selection="user.computerSkills.val" checked-class="btn-info"></div>
+  </div>
+  <div>
+    <label>Teaching skills</label>
+    <div checkboxes list="teachingSkills" selection="user.teachingSkills.val" checked-class="btn-info"></div>
+  </div>
+  <div>
+    <label>Languages spoken fluently</label>
+    <div checkboxes list="languages" selection="user.languages.val" checked-class="btn-info"></div>
+  </div>
+  
+  <div>
+    <button class="btn btn-primary" ng-click="setLocation(3, 2)" ng-disabled="!user.getPage(3, 1).getIsSufficient()">Continue</button>
+    <button class="btn" ng-click="doLater()">Do Later</button>
+  </div>
 </form>
 

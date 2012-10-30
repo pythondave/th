@@ -8,8 +8,19 @@
 
 /**** new ****/
 
+div[checkboxes] label { margin: 5px; }
+
 form div.isSufficient {
-    padding-right: 25px;
+  padding-right: 25px;
+	background-image: url(../img/green_tick_39x39.gif);
+	background-position: right;
+	background-repeat: no-repeat;
+	background-size: 20px;
+}
+
+form label.isSufficient:after {
+  content: ""; display: inline-block; height: 15px;
+  padding-right: 25px;
 	background-image: url(../img/green_tick_39x39.gif);
 	background-position: right;
 	background-repeat: no-repeat;
@@ -17,8 +28,8 @@ form div.isSufficient {
 }
 
 form input[type=checkbox].isSufficient:before {
-    content: ""; display: inline-block; width: 12px; height: 15px;
-    padding-right: 25px;
+  content: ""; display: inline-block; width: 12px; height: 15px;
+  padding-right: 25px;
 	background-image: url(../img/green_tick_39x39.gif);
 	background-position: right;
 	background-repeat: no-repeat;
@@ -26,23 +37,23 @@ form input[type=checkbox].isSufficient:before {
 }
 
 .select2-container {
-    min-width: 200px;
+  min-width: 200px;
 }
 
-form inputx.ng-invalid.ng-dirty {
-    background-color: #FA787E;
+form zz_input.ng-invalid.ng-dirty {
+  background-color: #FA787E;
 }
-form inputx.ng-valid.ng-dirty {
-    background-color: #78FA89;
+form zz_input.ng-valid.ng-dirty {
+  background-color: #78FA89;
 }
 
 .next {
-    margin: 20px 0 0 0;
+  margin: 20px 0 0 0;
 }
 
 form div {
-    padding: 10px 0 0 0;
-    /* border: 1px solid red; */
+  padding: 10px 0 0 0;
+  /* border: 1px solid red; */
 }
 
 /**** /new ****/
@@ -53,8 +64,8 @@ header, footer { border: 0px solid green; }
 
 /**** dev (comment/uncomment display to toggle) ****/
 .dev {
-    display: none; /**/
-    color: red; margin: 10px;
+  display: none; /**/
+  color: red; margin: 10px;
 }
 /**** /dev ****/
 
@@ -78,6 +89,7 @@ header, footer { border: 0px solid green; }
 }
 #tipsSection {
 	border: 1px solid grey;
+  height: 100px;
 	margin: 5px 5px 5px 5px;
 	padding: 5px 5px 5px 5px;
 }
@@ -95,33 +107,33 @@ header, footer { border: 0px solid green; }
 
 /**** tipsSection ****/
 #tipsSection {
-    min-height: 50px;
+  min-height: 50px;
 }
 #tipsSection .emphasise {
-    font-weight: bold;
+  font-weight: bold;
 }
 /**** /tipsSection ****/
 
 
 /**** summarySection ****/
 #summarySection #summary {
-    margin: 0 0 5px 0;
-    clear: both;
+  margin: 0 0 5px 0;
+  clear: both;
 }
 #summarySection .btn {
-    margin: 0 5px 5px 0;
+  margin: 0 5px 5px 0;
 }
-    /* section */
+  /* section */
 #summarySection .section {
-    clear: both;
+  clear: both;
 }
 #summarySection .section-isSufficient {
 }
 #summarySection .section-isVisited {
-    cursor: pointer;
+  cursor: pointer;
 }
 #summarySection .section-isVisited .sectionTitle:hover {
-    color: blue;
+  color: blue;
 }
 #summarySection .sectionTitle {
 	font-size: 1.1em;
@@ -130,15 +142,15 @@ header, footer { border: 0px solid green; }
 	margin: 5px 0 0 0;
 }
 #summarySection .sectionInner {
-    display: none;
+  display: none;
 }
 #summarySection .sectionInner-isCurrent {
-    display: block;
+  display: block;
 }
-    /* /section */
-    /* page */
+  /* /section */
+  /* page */
 #summarySection .page-isCurrent {
-    color: orange;
+  color: orange;
 }
 #summarySection .page-isSufficient {
 	padding: 0 22px 0 0;
@@ -149,59 +161,59 @@ header, footer { border: 0px solid green; }
 }
 #summarySection .pageTitlePrefix {
 	margin: 0 5px; 0 5px;
-    float: left;
+  float: left;
 }
 #summarySection .pageTitle {
 	margin: 0 0 0 5px;
 	cursor: pointer;
-    display: none;
+  display: none;
 }
 #summarySection .pageTitle:hover {
 	color: red;
 }
 #summarySection .page-isVisited .pageTitle {
-    display: block;
+  display: block;
 }
-    /* /page */
-    /* special case - referees */
+  /* /page */
+  /* special case - referees */
 #summarySection #s2-p1 .pageTitlePrefix:hover {
-    color: green;
+  color: green;
 }
 #summarySection #s2-p1 .pageTitle {
-    margin: 0 5px 0 0;
-    float: left;
+  margin: 0 5px 0 0;
+  float: left;
 }
 #summarySection #s2-p2 .pageTitle {
-    margin: 0 5px 0 0;
-    float: left;
+  margin: 0 5px 0 0;
+  float: left;
 }
-    /* /special case - referees */
+  /* /special case - referees */
 /**** /summarySection ****/
 
 
 /**** mainSection ****/
 #mainSection .field {
-    /* border: solid 1px yellow; */
+  /* border: solid 1px yellow; */
 }
 #mainSection .title {
-    font-weight: bold;
+  font-weight: bold;
 }
 #mainSection .textInputText, .multiSelectText, .phoneText, .countryCodeText, .skypeText {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 #mainSection .icon-pencil {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 #mainSection .isRequired {
-    color: red;
+  color: red;
 }
 #s1-p1-teamPhoto {
-    height: 60px;
+  height: 60px;
 }
 #s1-p1-teamPhoto img {
-    height: 60px;
+  height: 60px;
 }
 #s1-p1-lookingFor {
-    font-weight: bold;
+  font-weight: bold;
 }
 /**** /mainSection ****/

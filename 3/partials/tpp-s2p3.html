@@ -1,6 +1,55 @@
 <form novalidate ng-controller="mainController">
-    <div class="devHelper1" click="setLocation(2, 4)"></div>
-    
-    <button class="btn btn-primary" ng-click="setLocation(2, 4)">Next!</button>
+  <div class="devHelper2"></div>
+  
+  <div>
+    <label>Reference type
+      <select ui-select2="{allowClear: true }" placeholder="Select a reference type..." ng-model="user.referees[2].type.val" on-focus="focus(user.referees[2].type)" on-blur="blur(user.referees[2].type)">
+        <option value=""></option>
+        <option ng-repeat="referenceType in referenceTypes" value="{{referenceType.id}}">{{referenceType.name}}</option>
+      </select>
+    </label>
+  </div>
+  <div>
+    <label ng-class="user.referees[2].name.getClass()">Referee name
+      <input type="text" ng-model="user.referees[2].name.val" on-focus="focus(user.referees[2].name)" on-blur="blur(user.referees[2].name)">
+    </label>
+  </div>
+  <div>
+    <label ng-class="user.referees[2].email.getClass()">Referee email
+      <input type="text" ng-model="user.referees[2].email.val" on-focus="focus(user.referees[2].email)" on-blur="blur(user.referees[2].email)">
+    </label>
+  </div>
+  <div>
+    <label ng-class="user.referees[2].institution.getClass()">Referee's Institution
+      <input type="text" ng-model="user.referees[2].institution.val" on-focus="focus(user.referees[2].institution)" on-blur="blur(user.referees[2].institution)">
+    </label>
+  </div>
+  <div>
+    <label>Referee position
+      <select ui-select2="{allowClear: true }" placeholder="Select a position..." ng-model="user.referees[2].position.val" on-focus="focus(user.referees[2].position)" on-blur="blur(user.referees[2].position)">
+        <option value=""></option>
+        <option ng-repeat="refereePosition in refereePositions" value="{{refereePosition.id}}">{{refereePosition.name}}</option>
+      </select>
+    </label>
+  </div>
+  <div>
+    <label>Referee telephone code
+      <select ui-select2="{allowClear: true }" placeholder="Select a country code..." ng-model="user.referees[2].countryCode.val" on-focus="focus(user.referees[2].countryCode)" on-blur="blur(user.referees[2].countryCode)">
+        <option value=""></option>
+        <option ng-repeat="country in countries" value="{{country.id}}">{{country.name}}</option>
+      </select>
+    </label>
+  </div>
+  <div>
+    <label ng-class="user.referees[2].phoneNumber.getClass()">Referee's phone number
+      <input type="text" ng-model="user.referees[2].phoneNumber.val" on-focus="focus(user.referees[2].phoneNumber)" on-blur="blur(user.referees[2].phoneNumber)">
+    </label>
+  </div>
+
+  <div>
+    <button class="btn btn-primary" ng-click="setLocation(2, 4)" ng-disabled="!user.getPage(2, 3).getIsSufficient()">Continue</button>
+    <button class="btn" ng-click="doLater()">Do Later</button>
+    <button class="btn btn-primary" ng-click="setLocation(2, 4)" ng-disabled="!user.getPage(2, 3).getIsSufficient()">Add another referee</button>
+  </div>
 </form>
 
