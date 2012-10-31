@@ -4,7 +4,7 @@
 */
 function RouteCtrl($scope, $routeParams, userService) {
   userService.setLocation($routeParams.sectionId, $routeParams.pageId);
-  $scope.templateUrl = 'partials\\tpp-s' + $routeParams.sectionId + 'p' + $routeParams.pageId + '.html'
+  $scope.templateUrl = 'partials/tpp-s' + $routeParams.sectionId + 'p' + $routeParams.pageId + '.html'
 };
 
 angular.module('tpp', ['ui']).

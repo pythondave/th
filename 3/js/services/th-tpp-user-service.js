@@ -44,7 +44,7 @@ angular.module('tpp').
       languages: { val: [] }
     };
     
-    //isStored = false; //set this to override reset
+    isStored = false; //set this to override reset
     if (!isStored) { //if not stored, initialise stripped
       _user = initialUserValue;
     };
