@@ -74,7 +74,7 @@ angular.module('tpp').
       //3.2
     };
     
-    isStored = false; //set this to override reset
+    //isStored = false; //set this to override reset
     if (!isStored) { //if not stored, initialise stripped
       _user = initialUserValue;
     };
