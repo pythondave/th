@@ -1,34 +1,24 @@
-<form name="form" ng-controller="mainController">
+<form novalidate ng-controller="s1p1Controller" ng-cloak>
   <div class="devHelper2"></div>
 
   <div>(Static stuff)</div>
-  
-  
   <div>
-    <label>Role(s)
-      <!-- *** TODO: consider making a ui-select2 directive, OR improving the existing one -->
-      <select id="role" ui-select2 placeholder="Select a role..." multiple ng-model="user.roles.val" class="{{user.roles.getClass()}}" required>
-        <option ng-repeat="role in roles" value="{{role.id}}">{{role.name}}</option>
-      </select>
-    </label>
+    <label>Role(s)</label>
+    <div select-from-many multiple list="roles" field="user.roles" placeholder="Select one or more roles..."></div>
   </div>
   <div>
-    <label>Subject(s)
-      <select id="subject" ui-select2 required placeholder="Select a subject..." multiple ng-model="user.subjects.val"
-          class="{{user.subjects.getClass()}}" ng-mouseenter="alert(1)">
-        <option ng-repeat="subject in subjects" value="{{subject.id}}">{{subject.name}}</option>
-      </select>
-    </label>
+    <label>Subject(s)</label>
+    <div select-from-many multiple list="subjects" field="user.subjects" max-select="3" placeholder="Select one or more subjects..."></div>
   </div>
   <div>
     <label>
       <input type="checkbox" ng-model="user.subscribe.val" ng-class="user.subscribe.getClass()">
-      Email me suitable jobs <a title="Here's a helpful tip" ui-jq="tooltip" ui-options="{placement: 'right'}"><i class="icon-info-sign"></i></a>
+      Email me suitable jobs <!--<a title="Here's a helpful tip" ui-jq="tooltip" ui-options="{placement: 'right'}"><i class="icon-info-sign"></i></a>-->
     </label>
   </div>
   <div>
     <!-- *** TODO: consider making directives from the following -->
-    <button class="btn btn-primary" ng-click="setLocation(1, 2)" ng-disabled="!user.getPage(1, 1).getIsSufficient()">Continue</button>
+    <button class="btn btn-primary" ng-click="setLocation(1, 2)" ng-disabled="user.getPage(1, 1).getCompletionLevel()==0">Continue</button>
     <a ui-jq="tooltip" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non massa erat, vel accumsan lectus. Maecenas cursus arcu a velit semper auctor.">
       <button class="btn" ng-click="doLater()" ui-jq="tooltip">Do Later</button>
     </a>

@@ -62,54 +62,101 @@ angular.module('tpp').
       }
     };
   }).
-  directive('multiSelect1', function() {
-    return {
-      restrict: 'C', transclude: true, replace: true,
-      scope: { label:'@label' },
-      template:
-        '<div>' +
-          '<label>{{label}}</label>' +
-          '<select ui-select2 ng-model="select2" required>' +
-        '</div>'
-    };
-  }).
-  directive('select', function() {
-    return {
-      restrict: 'C', transclude: true, replace: true,
-      scope: { label:'@label' },
-      template:
-        '<div>' +
-          '<label>{{label}} - {{value}}</label>' +
-          '<select ui-select2 ng-model="value">' +
-            '<option>x</option>' +
-            '<option ng-repeat="subject in subjects">{{subject}}</option>' +
-          '</select>' +
-        '</div>'
-    };
-  }).
-  directive('checkboxes', function() {
+  directive('selectFromMany', function ($timeout) {
     return {
       restrict: 'A',
-      templateUrl: 'partials/directives/checkboxes.html',
+      templateUrl: 'partials/directives/selectFromMany.html',
+      scope: { list: '=', field: '=' },
+      link: function($scope, element, attr, ctrl) {
+        var selectElement = $(element.children()[0]);
+        var select2 = selectElement.select2();
+        
+        if (attr.multiple === '') {
+          angular.element(selectElement).attr('multiple', '');
+          if (!$scope.field.val) $scope.field.val = [];
+        }
+        
+        var isSufficient = $scope.field.isSufficient || function() {
+          var val = $scope.field.val;
+          return !(!val || val==='' || val.length===0);
+        };
+        
+        var setClass = function() {
+          var div = element.find('div').eq(0);
+          div.toggleClass('isSufficient', isSufficient());
+          div.removeClass('select2-container-active');
+        };
+        
+        $timeout(function() {
+          options = {};
+          options.placeholder = attr.placeholder;
+          options.allowClear = attr.allowClear || true;
+          options.maximumSelectionSize = attr.maxSelect;
+          options.width = attr.width || '300px';
+          if (isSufficient()) { options.containerCssClass = 'isSufficient'; }
+          select2.val($scope.field.val).select2(options);
+        });
+        
+        element.bind('open', function () {
+          var tip = ($scope.field.getTip ? $scope.field.getTip() : $scope.field.tip || '');
+          $scope.$emit('setTip', tip);
+        });
+        element.bind('close', function () { $scope.$emit('setTip'); });
+        element.bind('change', function () {
+          $scope.$apply(function() {
+            $scope.field.val = (select2.val() === null ? [] : select2.val());
+          });
+          setClass();
+          $scope.$emit('setTip');
+        });
+      }
+    };
+  }).
+  directive('selectManyFromFew', function() {
+    return {
+      restrict: 'A',
+      templateUrl: 'partials/directives/selectManyFromFew.html',
       scope: { list: '=', selection: '=' },
       transclude: true,
       link: function($scope, element, attr, ctrl) {
+
         //init list based on selection
         angular.forEach($scope.list, function(item) {
           if ($scope.selection.indexOf(item.id)>=0) { item.isSelected = true; }
         });
         
+        //if list changes, synch selection
+        $scope.$watch('list', function(newValue, oldValue) {
+          $scope.synchSelection();
+        }, true);
+
+        //if selection breaks the rules, change the list
+        $scope.$watch('selection', function(newValue, oldValue) {
+          var maxSelect = Number(attr.maxSelect);
+          if (maxSelect && $scope.selection.length > maxSelect) {
+            var item = getById($scope.list, $scope.selection[0]);
+            if (item) item.isSelected = false;
+          }
+        }, true);
+
         $scope.getClass = function(item) {
           return (item.isSelected ? (attr.checkedClass || 'btn-success') : '');
         };
         
-        //synch selection to list
+        //generic function
+        var getById = function(arrayOfObjects, id) {
+          for(var i=0; i<arrayOfObjects.length; i++) {
+            if (arrayOfObjects[i].id == id) return arrayOfObjects[i];          
+          }
+        };
+
+        //synch selection to list (and keep the order of selection)
         $scope.synchSelection = function() {
-          var arr = [];
           angular.forEach($scope.list, function(item) {
-            if (item.isSelected) arr.push(item.id);
+            var ind = $scope.selection.indexOf(item.id); //index of item in selection
+            if (item.isSelected && ind === -1) $scope.selection.push(item.id); //selected but didn't exist => add
+            if (!item.isSelected && ind > -1) $scope.selection.splice(ind, 1); //not selected but existed => remove
           });
-          $scope.selection = arr;
         };
       }
     };

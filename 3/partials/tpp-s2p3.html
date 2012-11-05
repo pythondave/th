@@ -1,4 +1,4 @@
-<form novalidate ng-controller="mainController">
+<form novalidate ng-controller="s2p1-3Controller">
   <div class="devHelper2"></div>
   
   <div>
@@ -47,9 +47,9 @@
   </div>
 
   <div>
-    <button class="btn btn-primary" ng-click="setLocation(2, 4)" ng-disabled="!user.getPage(2, 3).getIsSufficient()">Continue</button>
+    <button class="btn btn-primary" ng-click="setLocation(2, 4)" ng-disabled="user.getPage(2, 3).getCompletionLevel()==0">Continue</button>
     <button class="btn" ng-click="doLater()">Do Later</button>
-    <button class="btn btn-primary" ng-click="setLocation(2, 4)" ng-disabled="!user.getPage(2, 3).getIsSufficient()">Add another referee</button>
+    <button class="btn btn-primary" ng-click="setLocation(2, 4)" ng-disabled="user.getPage(2, 3).getCompletionLevel()==0">Add another referee</button>
   </div>
 </form>
 

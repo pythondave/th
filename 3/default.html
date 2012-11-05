@@ -3,6 +3,7 @@
 <head>
   <link rel="shortcut icon" href="img/favicon.ico">
 
+  <link rel="stylesheet" href="lib/jquery/jquery-ui-1.9.1.css" /> <!-- WIP -->
   <link rel="stylesheet" href="lib/twitter/bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="lib/select2/select2.css">
   <link rel="stylesheet" href="css/tpp.css">
@@ -14,16 +15,16 @@
     <aside id="pageAside">
       <div ui-scrollfix="-50" class="ui-scrollfix">
         <section id="tipsSection" ng-controller="tipsController">{{user.tip}}</section>
-        <section id="summarySection" ng-controller="summaryController" ng-include="'partials/tpp-summary.html'" onload="'xxx()'"></section>
+        <section id="summarySection" ng-controller="summaryController" ng-include="'partials/tpp-summary.html'"></section>
       </div>
     </aside>
   </div>
-  <footer id="pageFooter">
-  </footer>
+  <footer id="pageFooter"></footer>
   
   <!-- scripts -->
   <script src="lib/jquery/jquery-1.7.2.min.js"></script>
   <script src="lib/twitter/bootstrap/js/bootstrap.min.js"></script>
+  <script src="lib/jquery/jquery-ui-1.9.1.js"></script> <!-- WIP -->
   <script src="lib/select2/select2.js"></script>
   <script src="lib/angular/angular.js"></script>
   <script src="lib/angular/angular-ui.js"></script>

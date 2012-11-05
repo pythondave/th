@@ -1,13 +1,10 @@
-<form novalidate ng-controller="mainController">
+<form novalidate ng-controller="s1p2Controller">
   <div class="devHelper2"></div>
   
   <div>
     <label>Country code
-      <select ui-select2="{allowClear: true }" placeholder="Select a country code..." ng-model="user.countryCode.val" on-focus="focus(user.countryCode)" on-blur="blur(user.countryCode)">
-        <option value=""></option>
-        <option ng-repeat="country in countries" value="{{country.id}}">{{country.name}}</option>
-      </select>
-    </label>
+      <div select-from-many list="countries" field="user.countryCode" placeholder="Select a country code..."></div>
+    <label>
   </div>
   <div>
     <label ng-class="user.phoneNumber.getClass()">Phone number
@@ -20,7 +17,7 @@
     </label>
   </div>
   <div>
-    <button class="btn btn-primary" ng-click="setLocation(1, 3)" ng-disabled="!user.getPage(1, 2).getIsSufficient()">Continue</button>
+    <button class="btn btn-primary" ng-click="setLocation(1, 3)" ng-disabled="user.getPage(1, 2).getCompletionLevel()==0">Continue</button>
     <button class="btn" ng-click="doLater()">Do Later</button>
   </div>
 </form>

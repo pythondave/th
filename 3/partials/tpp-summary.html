@@ -1,5 +1,14 @@
 <div id="summary">
-  <button id="viewProfile" class="btn btn-primary" type="button">My Profile</button>
+<!--
+  <div class="oneStep orangeBut">
+    <a href="javascript:return true;" class="button">My profile</a>
+    <ul style="display: none;">
+      <li class="notCompleted"><span>View full profile</span></li>
+      <li><a href="myprofile_settings.html">My settings</a></li>
+    </ul>
+  </div>
+-->
+  <div>Teacher profile <strong>{{user.getPercentageComplete()}}%</strong> complete</div>
   <div ng-class="getClass(1)">
     <span ng-click="setLocation(1, 1)" ng-class="getClass(1, false, 2)">Essentials</span>
     <div ng-class="getClass(1, false, 3)">
@@ -18,7 +27,7 @@
     </div>
   </div>
   <div ng-class="getClass(2)">
-    <span ng-click="setLocation(2, 1)" ng-class="getClass(2, false, 2)">Important Information</span>
+    <span ng-click="setLocation(2, 1, false)" ng-class="getClass(2, false, 2)">Important Information</span>
     <div ng-class="getClass(2, false, 3)">
       <div ng-click="setLocation(2, 1)" ng-class="getClass(2, 1)">
         <span ng-class="getClass(2, 1, 2)">Ref 1</span>
@@ -33,18 +42,15 @@
         <span ng-class="getClass(2, 4, 2)">My job search</span>
       </div>
       <div ng-click="setLocation(2, 5)" ng-class="getClass(2, 5)">
-        <span ng-class="getClass(2, 5, 2)">Joint applications</span>
+        <span ng-class="getClass(2, 5, 2)">My preferences</span>
       </div>
       <div ng-click="setLocation(2, 6)" ng-class="getClass(2, 6)">
-        <span ng-class="getClass(2, 6, 2)">Joint applications</span>
-      </div>
-      <div ng-click="setLocation(2, 7)" ng-class="getClass(2, 7)">
-        <span ng-class="getClass(2, 7, 2)">Professional experience</span>
+        <span ng-class="getClass(2, 6, 2)">Professional experience</span>
       </div>
     </div>
   </div>
   <div ng-class="getClass(3)">
-    <span ng-click="setLocation(3, 1)" ng-class="getClass(3, false, 2)">Really Shine!</span>
+    <span ng-click="setLocation(3, 1, false)" ng-class="getClass(3, false, 2)">Really Shine!</span>
     <div ng-class="getClass(3, false, 3)">
       <div ng-click="setLocation(3, 1)" ng-class="getClass(3, 1)">
         <span ng-class="getClass(3, 1, 2)">Skills and languages</span>
@@ -57,7 +63,7 @@
 </div>
 <!-- TEMP -->
 <div style="background: silver; padding: 5px;">
-  <button class="btn btn-mini btn-danger" type="button" ng-click="resetUser()">Reset User</button>
+  <!--<button class="btn btn-mini btn-danger" type="button" ng-click="resetUser()">Reset User</button>-->
   <button class="btn btn-mini btn-danger" type="button" ng-click="deleteUser()">Delete User</button>
   <label>
     <input type="checkbox" ng-model="user.dev" > Show Dev

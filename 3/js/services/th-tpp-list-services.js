@@ -1,11 +1,33 @@
 /*
   list services:
+    yesNoService - returns yes or no
     roleService - returns a list of roles
     subjectService - returns a list of subjects
     countryService - returns a list of countries
+    educationLevelService - returns a list of education levels
+    referenceTypeService - returns a list of reference types
+    refereePositionService - returns a list of referee positions
+    computerSkillService - returns a list of computer skills
+    teachingSkillService - returns a list of teaching skills
+    languageService - returns a list of languages
+    preferenceLevelService - returns a list of preference levels
+    locationService - returns a list of locations
+    curriculumService - returns a list of curricula
+    ageLevelService - returns a list of age levels
+    birthYearService - returns a list of birth years
+    maritalStatusService - returns a list of marital statuses
+    ... - returns a list of ...
 */
 
 angular.module('tpp').
+  service('yesNoService', function() {
+    return {
+      yesNo: [
+        { id: 1, name: "Yes" },
+        { id: 0, name: "No" }
+      ]
+    }
+  }).
   service('roleService', function() {
     return {
       roles: [
@@ -375,7 +397,7 @@ angular.module('tpp').
       ]
     }
   }).
-  service('computerSkillsService', function() {
+  service('computerSkillService', function() {
     return {
       computerSkills: [
         { id: 21, name: "Word" },
@@ -396,7 +418,7 @@ angular.module('tpp').
       ]
     }
   }).
-  service('teachingSkillsService', function() {
+  service('teachingSkillService', function() {
     return {
       teachingSkills: [
         { id: 21, name: "Student centred learning" },
@@ -418,7 +440,7 @@ angular.module('tpp').
       ]
     }
   }).
-  service('languagesService', function() {
+  service('languageService', function() {
     return {
       languages: [
         { id: 21, name: "English" },
@@ -433,7 +455,143 @@ angular.module('tpp').
         { id: 30, name: "Other" }
       ]
     }
+  }).
+  service('preferenceLevelService', function() {
+    return {
+      preferenceLevels: [
+        { id: 21, name: "Essential" },
+        { id: 22, name: "Important" },
+        { id: 23, name: "Preferred" },
+        { id: 24, name: "Not important" },
+        { id: 25, name: "Not applicable" }
+      ]
+    }
+  }).
+  service('locationService', function() {
+    return {
+      locations: [
+        { id: 21, name: "Africa" },
+        { id: 22, name: "Central America" },
+        { id: 23, name: "North America" },
+        { id: 24, name: "South America" },
+        { id: 25, name: "Asia" },
+        { id: 26, name: "Middle East" }
+      ]
+    }
+  }).
+  service('curriculumService', function() {
+    return {
+      curricula: [
+        { id: 21, name: "International Baccalaureate (DP)" },
+        { id: 22, name: "International Baccalaureate (MYP)" },
+        { id: 23, name: "International Baccalaureate (PYP)" },
+        { id: 24, name: "A-Levels" },
+        { id: 25, name: "IGCSE" },
+        { id: 26, name: "SAT Reasoning Test" },
+        { id: 27, name: "American College Testing" },
+        { id: 28, name: "French Baccalaureate" },
+        { id: 29, name: "German Abitur" },
+        { id: 30, name: "Titulo de Bachiller" },
+        { id: 31, name: "Australian SSCE" },
+        { id: 32, name: "Indian School Certificate" },
+        { id: 33, name: "Advanced Placement" },
+        { id: 34, name: "Early Years Foundation Stage (EYFS)" },
+        { id: 35, name: "International Primary Curriculum (IPC)" },
+        { id: 36, name: "British National Curriculum" }
+      ]
+    }
+  }).
+  service('ageLevelService', function() {
+    return {
+      ageLevels: [
+        { id: 21, name: "Pre-School/KG" },
+        { id: 22, name: "Elementary/Primary" },
+        { id: 23, name: "Middle School" },
+        { id: 24, name: "Secondary" },
+        { id: 25, name: "High School" }
+      ]
+    }
+  }).
+  service('numberOfDependentChildrenService', function() {
+    return {
+      numberOfDependentChildren: [
+        { id: 0, name: "0" },
+        { id: 1, name: "1" },
+        { id: 2, name: "2" },
+        { id: 3, name: "3" },
+        { id: 4, name: "4" },
+        { id: '5+', name: "5+" }
+      ]
+    }
+  }).
+  service('birthYearService', function() {
+    return {
+      birthYears : [
+        { id: 1940, name: "1940" },
+        { id: 1941, name: "1941" },
+        { id: 1942, name: "1942" },
+        { id: 1943, name: "1943" },
+        { id: 1944, name: "1944" },
+        { id: 1945, name: "1945" },
+        { id: 1946, name: "1946" },
+        { id: 1947, name: "1947" },
+        { id: 1948, name: "1948" },
+        { id: 1949, name: "1949" },
+        { id: 1950, name: "1950" },
+        { id: 1951, name: "1951" },
+        { id: 1952, name: "1952" },
+        { id: 1953, name: "1953" },
+        { id: 1954, name: "1954" },
+        { id: 1955, name: "1955" },
+        { id: 1956, name: "1956" },
+        { id: 1957, name: "1957" },
+        { id: 1958, name: "1958" },
+        { id: 1959, name: "1959" },
+        { id: 1960, name: "1960" },
+        { id: 1961, name: "1961" },
+        { id: 1962, name: "1962" },
+        { id: 1963, name: "1963" },
+        { id: 1964, name: "1964" },
+        { id: 1965, name: "1965" },
+        { id: 1966, name: "1966" },
+        { id: 1967, name: "1967" },
+        { id: 1968, name: "1968" },
+        { id: 1969, name: "1969" },
+        { id: 1970, name: "1970" },
+        { id: 1971, name: "1971" },
+        { id: 1972, name: "1972" },
+        { id: 1973, name: "1973" },
+        { id: 1974, name: "1974" },
+        { id: 1975, name: "1975" },
+        { id: 1976, name: "1976" },
+        { id: 1977, name: "1977" },
+        { id: 1978, name: "1978" },
+        { id: 1979, name: "1979" },
+        { id: 1980, name: "1980" },
+        { id: 1981, name: "1981" },
+        { id: 1982, name: "1982" },
+        { id: 1983, name: "1983" },
+        { id: 1984, name: "1984" },
+        { id: 1985, name: "1985" },
+        { id: 1986, name: "1986" },
+        { id: 1987, name: "1987" },
+        { id: 1988, name: "1988" },
+        { id: 1989, name: "1989" },
+        { id: 1990, name: "1990" },
+        { id: 1991, name: "1991" },
+        { id: 1992, name: "1992" },
+        { id: 1993, name: "1993" },
+        { id: 1994, name: "1994" }
+      ]
+    }
+  }).
+  service('maritalStatusService', function() {
+    return {
+      maritalStatuses: [
+        { id: 21, name: "Single" },
+        { id: 22, name: "Married" },
+        { id: 23, name: "Living with Partner" },
+        { id: 24, name: "Other" }
+      ]
+    }
   });
-
-
-  

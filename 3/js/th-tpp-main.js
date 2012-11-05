@@ -1,78 +1,62 @@
-/* *** Main WIP - lots to learn and incorporate!
-
-  * learn about and incorporate forms
-*/
-function RouteCtrl($scope, $routeParams, userService) {
-  userService.setLocation($routeParams.sectionId, $routeParams.pageId);
-  $scope.templateUrl = 'partials/tpp-s' + $routeParams.sectionId + 'p' + $routeParams.pageId + '.html'
-};
+//main module and controllers
 
 angular.module('tpp', ['ui']).
   config(function($routeProvider, $locationProvider) {
+  
+    var routeController = function($scope, $routeParams, userService) {
+      userService.setLocation($routeParams.sectionId, $routeParams.pageId);
+      $scope.templateUrl = 'partials/tpp-s' + $routeParams.sectionId + 'p' + $routeParams.pageId + '.html'
+    };
+  
     $routeProvider.
       when('/:sectionId/:pageId', {
-        controller: RouteCtrl,
+        controller: routeController,
         template: '<div ng-include="templateUrl">Loading...</div>'
       }).
       otherwise({ redirectTo: '/1/1' });
-
+    
     $locationProvider.html5Mode(false); //*** WIP: get true working
   }).
-  controller('mainController', function($scope, $location, $routeParams, $timeout, userService,
-    roleService, subjectService, countryService, educationLevelService, referenceTypeService, refereePositionService,
-    computerSkillsService, teachingSkillsService, languagesService) {
-    //reminder: controllers should not touch the dom (instead use directives)
-
-    ////scope variables
-    $scope.user = userService.user;
+  run(function($rootScope, $location, $timeout, userService) { //$rootScope definitions
+    $rootScope.user = userService.user;
     
-    if ($location.$$path == '/1/1') { //*** TODO: consider having a different controller for each page, with common elements in rootScope
-      $scope.roles = roleService.roles;
-      $scope.subjects = subjectService.subjects;
-    };
-    if ($location.$$path == '/1/2' || $location.$$path == '/1/3') {
-    };
-    
-    $scope.countries = countryService.countries;
-    $scope.educationLevels = educationLevelService.educationLevels;
-    $scope.referenceTypes = referenceTypeService.referenceTypes;
-    $scope.refereePositions = refereePositionService.refereePositions;
-    $scope.computerSkills = computerSkillsService.computerSkills;
-    $scope.teachingSkills = teachingSkillsService.teachingSkills;
-    $scope.languages = languagesService.languages;
-    
-    angular.forEach($scope.educationLevels, function(v, k){
-      v.isSelected = $scope.user.educationLevels.val.indexOf(v.id)>=0;
+    $rootScope.$on('setTip', function(event, tip) {
+      var f = function() { $rootScope.user.tip = tip; $rootScope.$apply(); };
+      if ( !tip || tip === '' ) { f(); } else { $timeout( f ); }
     });
-    
-    $scope.change = function() {
-      var x = [];
-      angular.forEach($scope.educationLevels, function(v, k){
-        if (v.isSelected) x.push(v.id);
-      });
-      $scope.user.educationLevels.val = x;
+    $rootScope.focus = function(field) {
+      $timeout( function() { $rootScope.user.tip = field.getTip(); });
     };
-    ////
+    $rootScope.blur = function() { $rootScope.user.tip = ''; };
     
-    ////scope functions
-    $scope.focus = function(field) {
-      $scope.user.tip = field.getTip();
-    };
-    $scope.blur = function() {
-      $scope.user.tip = '';
-    };
-    
-    $scope.moveNext = function() {
+    $rootScope.moveNext = function() {
       var nextPage = userService.user.currentLocation.getNext();
-      $scope.setLocation(nextPage.sectionId, nextPage.id);
+      $rootScope.setLocation(nextPage.sectionId, nextPage.id);
     };
     
-    $scope.setLocation = function(sectionId, pageId) {
-      if (userService.setLocation(sectionId, pageId, true)) {
+    $rootScope.setLocation = function(sectionId, pageId, allowBeyondFurthestLocation) {
+      if (allowBeyondFurthestLocation === undefined) allowBeyondFurthestLocation = true; //default to true
+      if (userService.setLocation(sectionId, pageId, allowBeyondFurthestLocation)) {
         $location.path('/' + sectionId + '/' + pageId);
       };
     };
     
+    $rootScope.$watch('user', function(newValue) { //if anything changes on the user, save it
+      userService.save();
+    }, true);
+  }).
+  controller('s1p1Controller', function($scope, roleService, subjectService) {
+    $scope.roles = roleService.roles;
+    $scope.subjects = subjectService.subjects;
+  }).
+  controller('s1p2Controller', function($scope, countryService) {
+    $scope.countries = countryService.countries;
+  }).
+  controller('s1p3Controller', function($scope, countryService, educationLevelService) {
+    $scope.countries = countryService.countries;
+    $scope.educationLevels = educationLevelService.educationLevels;
+  }).
+  controller('s1p4Controller', function($scope) {
     $scope.setCVFiles = function(element) {
       $scope.$apply(function($scope) {
           $scope.user.cv.files = element.files;
@@ -83,40 +67,43 @@ angular.module('tpp', ['ui']).
           $scope.user.photo.files = element.files;
       });
     };
-    
-    $scope.$watch('user', function(newValue) { //if anything changes on the user, save it
-      userService.save();
-    }, true);
-    
-    //*** temporary hack until select2 control is improved by angular people (or by me when I have time)
-    $scope.$watch('user.roles', function(newValue) { tempSelect2Function(newValue.elemId) }, true);
-    $scope.$watch('user.subjects', function(newValue) { tempSelect2Function(newValue.elemId) }, true);
-
-    var tempSelect2Function = function(elemId) { //toggle isSufficient class
-      $timeout(function() {
-        var elems = $('#' + elemId).parent().children();
-        var select = elems.eq(0);
-        var div = elems.eq(1);
-        if (div) { div.toggleClass('isSufficient', select.hasClass('isSufficient')); }
-      });
-    };
-    //
-    
-    ////
+  }).
+  controller('s2p1-3Controller', function($scope, referenceTypeService, refereePositionService, countryService) {
+    $scope.referenceTypes = referenceTypeService.referenceTypes;
+    $scope.refereePositions = refereePositionService.refereePositions;
+    $scope.countries = countryService.countries;
+  }).
+  controller('s2p4Controller', function($scope, locationService, curriculumService, ageLevelService,
+      numberOfDependentChildrenService, birthYearService, maritalStatusService, yesNoService) {
+    $scope.locations = locationService.locations;
+    $scope.curricula = curriculumService.curricula;
+    $scope.ageLevels = ageLevelService.ageLevels;
+    $scope.numberOfDependentChildren = numberOfDependentChildrenService.numberOfDependentChildren;
+    $scope.birthYears = birthYearService.birthYears;
+    $scope.maritalStatuses = maritalStatusService.maritalStatuses;
+    $scope.yesNo = yesNoService.yesNo;
+  }).
+  controller('s2p5Controller', function($scope, preferenceLevelService) { //*** is there a better way to do this page? (i.e. rather than copying the service x5)
+    $scope.preferenceLevels1 = angular.copy(preferenceLevelService.preferenceLevels);
+    $scope.preferenceLevels2 = angular.copy(preferenceLevelService.preferenceLevels);
+    $scope.preferenceLevels3 = angular.copy(preferenceLevelService.preferenceLevels);
+    $scope.preferenceLevels4 = angular.copy(preferenceLevelService.preferenceLevels);
+    $scope.preferenceLevels5 = angular.copy(preferenceLevelService.preferenceLevels);
+  }).
+  controller('s2p6Controller', function($scope) {
+  }).
+  controller('s3p1Controller', function($scope, computerSkillService, teachingSkillService, languageService) {
+    $scope.computerSkills = computerSkillService.computerSkills;
+    $scope.teachingSkills = teachingSkillService.teachingSkills;
+    $scope.languages = languageService.languages;
+  }).
+  controller('s3p2Controller', function($scope) {
   }).
   controller('tipsController', function($scope, userService) {
-    ////scope variables
-    $scope.user = userService.user;
-    ////
   }).
-  controller('summaryController', function($scope, $location, userService) {
+  controller('summaryController', function($scope, $location, $route, userService) {
     //reminder: controllers should not touch the dom (instead use directives)
 
-    ////scope variables
-    $scope.user = userService.user;
-    ////
-
-    ////scope functions
     $scope.resetUser = function() {
       userService.resetUser();
       $location.path('');
@@ -127,18 +114,12 @@ angular.module('tpp', ['ui']).
       window.location.href = '/th/3/default.html';
     };
     
-    $scope.setLocation = function(sectionId, pageId) {
-      if (userService.setLocation(sectionId, pageId, false)) {
-        $location.path('/' + sectionId + '/' + pageId);
-      };
-    };
-    
     $scope.getClass = function(sectionId, pageId, typeId) {
       //returns the class of a particular section or page element based on user data
-      //class types include: isCurrent, isVisited (true after first visit) and isSufficient (true if all elements are sufficient)
+      //class types include: isCurrent, isVisited (true after first visit) and completionLevel2 (true if all elements are sufficient)
 
       typeId = typeId || 1;
-      var s, page, isCurrent, isVisited, isSufficient;
+      var s, page, isCurrent, isVisited, completionLevel2;
       var category = ( pageId ? 'page' : 'section' );
       var section = $scope.user.getSection(sectionId);
 
@@ -155,11 +136,10 @@ angular.module('tpp', ['ui']).
         if (typeId == 1) {
           s = 'page ' + ( page && page.getIsVisited() ? ' page-isVisited' : '' );
         } else if (typeId == 2) {
-          s = 'pageTitle' + (page.getIsCurrent() ? ' page-isCurrent' : '') + (page.getIsSufficient() ? ' page-isSufficient' : '');
+          s = 'pageTitle' + (page.getIsCurrent() ? ' page-isCurrent' : '') + (page.getCompletionLevel() === 2 ? ' page-completionLevel2' : '');
         };
       };
       
       return s;
     };
-    ////
   });

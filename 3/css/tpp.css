@@ -8,7 +8,7 @@
 
 /**** new ****/
 
-div[checkboxes] label { margin: 5px; }
+div[select-many-from-few] label { margin: 5px; }
 
 form div.isSufficient {
   padding-right: 25px;
@@ -27,7 +27,11 @@ form label.isSufficient:after {
 	background-size: 20px;
 }
 
-form input[type=checkbox].isSufficient:before {
+.hidden {
+  display: none;
+}
+
+input[type=checkbox].isSufficient:before {
   content: ""; display: inline-block; width: 12px; height: 15px;
   padding-right: 25px;
 	background-image: url(../img/green_tick_39x39.gif);
@@ -40,27 +44,16 @@ form input[type=checkbox].isSufficient:before {
   min-width: 200px;
 }
 
-form zz_input.ng-invalid.ng-dirty {
-  background-color: #FA787E;
-}
-form zz_input.ng-valid.ng-dirty {
-  background-color: #78FA89;
-}
-
 .next {
   margin: 20px 0 0 0;
 }
 
-form div {
+form>div {
   padding: 10px 0 0 0;
-  /* border: 1px solid red; */
 }
 
 /**** /new ****/
 
-
-div, section, aside { border: 0px solid red; }
-header, footer { border: 0px solid green; }
 
 /**** dev (comment/uncomment display to toggle) ****/
 .dev {
@@ -78,7 +71,6 @@ header, footer { border: 0px solid green; }
 	display: inline-block;
 	width: 65%;
 	height: 600px;
-	border: 1px solid grey;
 	margin: 5px 5px 5px 5px;
 	padding: 5px 5px 5px 5px;
 }
@@ -97,10 +89,6 @@ header, footer { border: 0px solid green; }
 	border: 1px solid grey;
 	margin: 5px 5px 5px 5px;
 	padding: 5px 5px 5px 5px;
-}
-#parAvion {
-	position: float;
-	width: 100px;
 }
 /**** /structure ****/
 
@@ -152,7 +140,7 @@ header, footer { border: 0px solid green; }
 #summarySection .page-isCurrent {
   color: orange;
 }
-#summarySection .page-isSufficient {
+#summarySection .page-completionLevel2 {
 	padding: 0 22px 0 0;
 	background-image: url(../img/green_tick_39x39.gif);
 	background-position: right;
@@ -175,45 +163,5 @@ header, footer { border: 0px solid green; }
   display: block;
 }
   /* /page */
-  /* special case - referees */
-#summarySection #s2-p1 .pageTitlePrefix:hover {
-  color: green;
-}
-#summarySection #s2-p1 .pageTitle {
-  margin: 0 5px 0 0;
-  float: left;
-}
-#summarySection #s2-p2 .pageTitle {
-  margin: 0 5px 0 0;
-  float: left;
-}
-  /* /special case - referees */
-/**** /summarySection ****/
 
-
-/**** mainSection ****/
-#mainSection .field {
-  /* border: solid 1px yellow; */
-}
-#mainSection .title {
-  font-weight: bold;
-}
-#mainSection .textInputText, .multiSelectText, .phoneText, .countryCodeText, .skypeText {
-  margin-right: 10px;
-}
-#mainSection .icon-pencil {
-  margin-left: 10px;
-}
-#mainSection .isRequired {
-  color: red;
-}
-#s1-p1-teamPhoto {
-  height: 60px;
-}
-#s1-p1-teamPhoto img {
-  height: 60px;
-}
-#s1-p1-lookingFor {
-  font-weight: bold;
-}
 /**** /mainSection ****/

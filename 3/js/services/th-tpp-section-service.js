@@ -27,29 +27,28 @@ angular.module('tpp').
     sectionsService.Page = Page;
     
     sectionsService.sections = [
-      new Section({ id: 1, name: 'Essentials', weighting: 5,
+      new Section({ id: 1, name: 'Essentials',
         pages: [
-          new Page({ id: 1, name: 'What are you looking for?', weighting: 4 }),
-          new Page({ id: 2, name: 'Contact Information', weighting: 2 }),
-          new Page({ id: 3, name: 'Key Details', weighting: 2 }),
-          new Page({ id: 4, name: 'CV & Photo', weighting: 2 })
+          new Page({ id: 1, name: 'What are you looking for?' }),
+          new Page({ id: 2, name: 'Contact Information' }),
+          new Page({ id: 3, name: 'Key Details' }),
+          new Page({ id: 4, name: 'CV & Photo' })
         ]
       }),
-      new Section({ id: 2, name: 'Important Information', weighting: 3,
+      new Section({ id: 2, name: 'Important Information',
         pages: [
-          new Page({ id: 1, name: 'Ref 1', weighting: 2 }),
-          new Page({ id: 2, name: 'Ref 2', weighting: 2 }),
-          new Page({ id: 3, name: 'Ref 3', weighting: 2 }),
-          new Page({ id: 4, name: 'My job search', weighting: 2 }),
-          new Page({ id: 5, name: 'Joint applications', weighting: 1 }),
-          new Page({ id: 6, name: 'Joint applications', weighting: 1 }),
-          new Page({ id: 7, name: 'Professional experience', weighting: 2 })
+          new Page({ id: 1, name: 'Ref 1' }),
+          new Page({ id: 2, name: 'Ref 2' }),
+          new Page({ id: 3, name: 'Ref 3' }),
+          new Page({ id: 4, name: 'My job search' }),
+          new Page({ id: 5, name: 'My preferences' }),
+          new Page({ id: 6, name: 'Professional experience' })
         ]
       }),
-      new Section({ id: 3, name: 'Really Shine!', weighting: 2,
+      new Section({ id: 3, name: 'Really Shine!',
         pages: [
-          new Page({ id: 1, name: 'Skills and languages', weighting: 1 }),
-          new Page({ id: 2, name: 'Supporting docs and videos', weighting: 1 })
+          new Page({ id: 1, name: 'Skills and languages' }),
+          new Page({ id: 2, name: 'Supporting docs and videos' })
         ]
       })
     ];

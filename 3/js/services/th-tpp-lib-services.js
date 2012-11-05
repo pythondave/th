@@ -25,6 +25,20 @@ angular.module('tpp').
             };
         };
 
+        lib.any = function(arr, func) {
+          for (var i=0; i<arr.length; i++) {
+            if (func(arr[i])) return true;
+          };
+          return false;
+        };
+
+        lib.all = function(arr, func) {
+          for (var i=0; i<arr.length; i++) {
+            if (!func(arr[i])) return false;
+          };
+          return true;
+        };
+
         return lib;
     });
     
