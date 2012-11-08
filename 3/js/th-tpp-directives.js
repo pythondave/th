@@ -45,7 +45,7 @@ angular.module('tpp').
     return {
       restrict: 'EAC',
       replace: true,
-      template: '<div ng-show="user.dev"><div ng-hide="dev.hideNext" class="moveNext"></div><div class="devHelper1"></div></div>'
+      template: '<div ng-show="user.dev"><div class="moveNext"></div><div class="devHelper1"></div></div>'
     }
   }).
   directive('textInput', function() {
