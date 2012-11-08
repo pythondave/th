@@ -14,33 +14,28 @@
     <div select-many-from-few list="educationLevels" selection="user.educationLevels.val" checked-class="btn-info"></div>
   </div>
   <!--one radio field-->
-  <div class="formField">
+  <div>
     <label>Availability</label>
     <div id="holder">
       <div>
-        <!--traffic lights radio buttons-->
-        <div class="button-holder">
-          <div class="imgRadio available">
-            <div class="trafficLightBox">
-              <input type="radio" id="green" name="availability" class="regular-radio" checked /><label for="green"></label>
-            </div>
-            <span>Available immediately</span>
-            Display my name and contact private
+        <div>
+          <input type="radio" name="availability" checked />
+          <span>Available immediately</span>
+          Display my name and contact private
+        </div>
+        <div class="imgRadio openToSuggestion">
+          <div class="trafficLightBox">
+            <input type="radio" id="amber" name="availability" class="regular-radio" /><label for="amber"></label>
           </div>
-          <div class="imgRadio openToSuggestion">
-            <div class="trafficLightBox">
-              <input type="radio" id="amber" name="availability" class="regular-radio" /><label for="amber"></label>
-            </div>
-            <span>Open to suggestion</span>
-            Keep my name and contact private
+          <span>Open to suggestion</span>
+          Keep my name and contact private
+        </div>
+        <div class="imgRadio notAvailable">
+          <div class="trafficLightBox">
+            <input type="radio" id="red" name="availability" class="regular-radio" /><label for="red"></label>
           </div>
-          <div class="imgRadio notAvailable">
-            <div class="trafficLightBox">
-              <input type="radio" id="red" name="availability" class="regular-radio" /><label for="red"></label>
-            </div>
-            <span>Not available</span>
-            Do not contact me for now.
-          </div>
+          <span>Not available</span>
+          Do not contact me for now.
         </div>
       </div>
     </div>

@@ -150,7 +150,7 @@ angular.module('tpp').
         user.countryCode.getTip = function() { return 'Country Code Tip' };
         //1.2
         user.phoneNumber.getTip = function() { return 'Phone Number Tip' };
-        user.skype.getTip = function() { return 'Skype Tip' };
+        user.skype.getTip = function() { return 'Most Heads are likely to want to carry out a Skype interview with you.  Test the video and sound beforehand.  If you don\'t have an account it won\'t take more than 10 mins to create one: http://www.skype.com' };
         //1.4
         user.cv.getTip = function() { return 'Add your CV so that you can start applying for jobs. It is advisable to add a CV as a PDF document.' };
         user.photo.getTip = function() { return 'International schools place a large importance on your photo as they often can\'t see you face-to-face. Make sure it is a professional looking photo (passport style) and that your face shows clearly.' };
