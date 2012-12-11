@@ -1,0 +1,32 @@
+/* css which applies only to the tip box */
+
+.tip-box {
+  height: 190px; 
+  width: 284px; 
+	overflow: hidden; 
+	color: #1e2766; 
+	font-size: 16px; 
+	line-height: 22px;
+	font-family: Georgia, Times New Roman, serif; 
+	font-style: italic;
+	float: right;
+	margin-bottom: 30px;
+  background-image: url(http://beta.teacherhorizons.com/static/prototypes/design/registration/static/images/board.jpg);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+	background-origin: border-box;
+
+  display: inline-block;
+
+  -webkit-box-sizing: border-box;
+ 	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.tip-box p {
+	padding: 25px 25px 0 25px;
+}
+
+/* main and alternate states */
+.tip-main-state { border-width: 0; }
+.tip-alternate-state { border-width: 95px; }
+

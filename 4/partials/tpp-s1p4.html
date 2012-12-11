@@ -1,0 +1,30 @@
+<form novalidate ng-controller="s1p4Controller">
+  <div class="devHelper2"></div>
+  
+  <div ng-mouseover="user.tip = user.cv.getTip()" ng-mouseleave="user.tip = ''">
+    <label>Add CV
+      <input type="file" multiple ng-model="user.cv" onchange="angular.element(this).scope().setCVFiles(this)"> <!-- hack -->
+      <div>
+        <span ng-repeat="file in user.cv.files"> | {{file.name}}</span>
+      </div>
+    </label>
+  </div>
+  <div ng-mouseover="user.tip = user.photo.getTip()" ng-mouseleave="user.tip = ''">
+    <label>Add Photo
+      <input type="file" multiple ng-model="user.photo" onchange="angular.element(this).scope().setPhotoFiles(this)"> <!-- hack -->
+      <div>
+        <span ng-repeat="file in user.photo.files"> | {{file.name}}</span>
+      </div>
+    </label>
+  </div>
+  <div ng-show="user.getPage(1, 4).getCompletionLevel()>0">
+    <p>Great work! You can now search jobs.</p>
+    <p>Once you've completed the next section, hundreds of schools will be able to see your profile!</p>
+  </div>
+
+  <div>
+    <button class="btn btn-primary" ng-click="setLocation(2, 1)" ng-disabled="user.getPage(1, 4).getCompletionLevel()==0">Continue</button>
+    <button class="btn" ng-click="doLater()">Do Later</button>
+  </div>
+</form>
+

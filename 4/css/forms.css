@@ -1,0 +1,44 @@
+/* css which can apply to any form */
+
+.formButtons {
+  margin-top: 40px;
+}
+
+div[select-many-from-few] label { margin: 5px; }
+
+.select2-container {
+  width: 305px;
+}
+.select2-container.isSufficient, .select2-choices.isSufficient {
+  width: 345px;
+}
+
+.select2width400px .select2-container, .select2width400px .select2-choices {
+  width: 400px;
+}
+.select2width400px .select2-container.isSufficient, .select2width400px .select2-choices.isSufficient {
+  width: 440px;
+}
+
+.flag {
+  padding-right: 3px;
+}
+
+.isSufficient {
+  padding: 0 40px 0 0;
+	background-image: url(../img/tick-green.png);
+	background-position: right;
+	background-repeat: no-repeat;
+}
+span.isSufficient {
+  padding: 7px 40px 5px 0;
+}
+
+input[type=checkbox].isSufficient:before {
+  content: ""; display: inline-block; width: 12px; height: 15px;
+  padding-right: 25px;
+	background-image: url(../img/tick-green.png);
+	background-position: right;
+	background-repeat: no-repeat;
+	background-size: 20px;
+}

@@ -1,0 +1,22 @@
+<form novalidate ng-controller="s3p1Controller">
+  <div class="devHelper2"></div>
+
+  <div>
+    <label>Computer skills</label>
+    <div select-many-from-few list="computerSkills" selection="user.computerSkills.val" checked-class="btn-info"></div>
+  </div>
+  <div>
+    <label>Teaching skills</label>
+    <div select-many-from-few list="teachingSkills" selection="user.teachingSkills.val" checked-class="btn-info"></div>
+  </div>
+  <div>
+    <label>Languages spoken fluently</label>
+    <div select-many-from-few list="languages" selection="user.languages.val" checked-class="btn-info"></div>
+  </div>
+  
+  <div>
+    <button class="btn btn-primary" ng-click="setLocation(3, 2)" ng-disabled="user.getPage(3, 1).getCompletionLevel()==0">Continue</button>
+    <button class="btn" ng-click="doLater()">Do Later</button>
+  </div>
+</form>
+

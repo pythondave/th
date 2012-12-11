@@ -1,0 +1,50 @@
+/* css which creates the basic structure of all pages */
+
+/* page structure */
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+body {
+  overflow: -moz-scrollbars-vertical;
+  overflow-y: scroll;
+}
+
+.pageContainer {
+	min-height: 100%;
+	position: relative;
+	width: 960px;
+  margin: 0 auto;
+}
+.pageHeader {
+	padding: 10px;
+	width: 960px;
+}
+.contentContainer {
+	padding: 10px;
+	padding-bottom: 30px; /* Height of the footer element */
+	width: 940px;
+}
+.pageFooter {
+	font-size: 0.8em;
+  padding: 0 0 7px 0;
+	width: 100%;
+  clear: both;
+	height: 25px;
+	position: absolute;
+	bottom: 0;
+  text-align: center;
+}
+
+/* content structure */
+.mainSection {
+  width: 570px;
+  margin: 10px 10px 40px 10px;
+}
+.pageAside {
+  position: fixed;
+  top: 0;
+  right: 30px;
+	margin: 10px;
+}
