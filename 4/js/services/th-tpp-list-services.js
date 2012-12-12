@@ -115,6 +115,9 @@ angular.module('tpp').
   }).
   service('countryService', function() {
     return {
+      countriesSelect2FormatFunction: function(item) { //*** TODO: move the images location + move towards using a single image for all flags + consider where best to put this function
+        return "<img class='flag' src='http://beta.teacherhorizons.com/static/prototypes/design/registration/static/images/flags/" + item.text.toLowerCase() + ".png'/>" + item.text;
+      },
       countries: [
         { id: 21, name: "United States" },
         { id: 22, name: "United Kingdom" },

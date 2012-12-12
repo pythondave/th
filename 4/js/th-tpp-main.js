@@ -71,12 +71,11 @@ angular.module('tpp', ['ui']).
   }).
   controller('s1p2Controller', function($scope, countryService) {
     $scope.countries = countryService.countries;
-    $scope.countriesSelect2FormatFunction = function(item) { //*** TODO: move the images location
-      return "<img class='flag' src='http://beta.teacherhorizons.com/static/prototypes/design/registration/static/images/flags/" + item.text.toLowerCase() + ".png'/>" + item.text;
-    };
+    $scope.countriesSelect2FormatFunction = countryService.countriesSelect2FormatFunction;
   }).
   controller('s1p3Controller', function($scope, countryService, educationLevelService) {
     $scope.countries = countryService.countries;
+    $scope.countriesSelect2FormatFunction = countryService.countriesSelect2FormatFunction;
     $scope.educationLevels = educationLevelService.educationLevels;
   }).
   controller('s1p4Controller', function($scope) {
@@ -95,6 +94,7 @@ angular.module('tpp', ['ui']).
     $scope.referenceTypes = referenceTypeService.referenceTypes;
     $scope.refereePositions = refereePositionService.refereePositions;
     $scope.countries = countryService.countries;
+    $scope.countriesSelect2FormatFunction = countryService.countriesSelect2FormatFunction;
   }).
   controller('s2p4Controller', function($scope, locationService, curriculumService, ageLevelService,
       numberOfDependentChildrenService, birthYearService, maritalStatusService, yesNoService) {

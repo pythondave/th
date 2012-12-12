@@ -8,7 +8,7 @@ angular.module('tpp').
     var userService = {};
     
     /*
-      there are 2 versions of the user object:
+      There are 2 versions of the user object:
       
         1. Full - for use of the general application
         2. Stripped - for saving (like full but with all non-changing values removed - e.g. functions)

@@ -1,8 +1,11 @@
-<form novalidate ng-controller="s2p6Controller">
-  <div class="devHelper2"></div>
-
+<form novalidate ng-controller="s2p6Controller" class="wip">
+  <header>
+    <h1>Important information</h1>
+    <h2>Professional experience</h2>
+  </header>
+  
   <!--one field, range slider, <span> used to indicate up value-->
-  <div class="formField firstBox">
+  <div class="formField">
     <label for="experience">Number of years teaching experience: 0-40</label>
     <div class="showDataSelect">
         <select name="experience" id="experience">
@@ -433,13 +436,13 @@
     <input id="available_date" type="date" value="2013-01-01" /> 
   </div>
 
-  <!--final section text, appear when section  is completed-->
-  <div class="finalText blue">
+  <!--final section text: appears when section completion level > 0-->
+  <div class="formText" ng-show="user.getPage(2, 6).getCompletionLevel()>0">
     <p>Brilliant - hundreds of schools can now search and see your profile!</p>
     <p>To make your profile really shine, complete this final section...</p>
   </div>
   
-  <div>
+  <div class="formButtons">
     <button class="btn btn-primary" ng-click="setLocation(3, 1)" ng-disabled="user.getPage(2, 6).getCompletionLevel()==0">Continue</button>
     <button class="btn" ng-click="doLater()">Do Later</button>
   </div>

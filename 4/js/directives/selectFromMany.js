@@ -1,7 +1,7 @@
 angular.module('tpp')
   .directive('selectFromMany', function ($timeout) {
     return {
-      restrict: 'A',
+      restrict: 'AC',
       templateUrl: 'partials/directives/selectFromMany.html',
       scope: { list: '=', field: '=', format: '=' },
       transclude: false,

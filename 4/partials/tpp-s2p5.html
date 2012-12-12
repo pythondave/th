@@ -1,28 +1,31 @@
 <form novalidate ng-controller="s2p5Controller">
-  <div class="devHelper2"></div>
+  <header>
+    <h1>Important information</h1>
+    <h2>My preferences</h2>
+  </header>
+  
+  <div class="formField">
+    <label>Reduced tuition fees for my children *</label>
+    <div class="select-many-from-few" list="preferenceLevels1" selection="user.reducedChildFees.val" checked-class="btn-info" max-select="1"></div>
+  </div>
+  <div class="formField">
+    <label>Ability to save money each month *</label>
+    <div class="select-many-from-few" list="preferenceLevels2" selection="user.saveMoneyAbility.val" checked-class="btn-info" max-select="1"></div>
+  </div>
+  <div class="formField">
+    <label>Accommodation (or support) provided *</label>
+    <div class="select-many-from-few" list="preferenceLevels3" selection="user.accommodationProvided.val" checked-class="btn-info" max-select="1"></div>
+  </div>
+  <div class="formField">
+    <label>Health insurance provided *</label>
+    <div class="select-many-from-few" list="preferenceLevels4" selection="user.healthInsuranceProvided.val" checked-class="btn-info" max-select="1"></div>
+  </div>
+  <div class="formField">
+    <label>Professional development support provided *</label>
+    <div class="select-many-from-few" list="preferenceLevels5" selection="user.ppdProvided.val" checked-class="btn-info" max-select="1"></div>
+  </div>
 
-  <div>
-    <label>Reduced tuition fees for my children</label>
-    <div select-many-from-few list="preferenceLevels1" selection="user.reducedChildFees.val" checked-class="btn-info" max-select="1"></div>
-  </div>
-  <div>
-    <label>Ability to save money each month</label>
-    <div select-many-from-few list="preferenceLevels2" selection="user.saveMoneyAbility.val" checked-class="btn-info" max-select="1"></div>
-  </div>
-  <div>
-    <label>Accommodation (or support) provided</label>
-    <div select-many-from-few list="preferenceLevels3" selection="user.accommodationProvided.val" checked-class="btn-info" max-select="1"></div>
-  </div>
-  <div>
-    <label>Health insurance provided</label>
-    <div select-many-from-few list="preferenceLevels4" selection="user.healthInsuranceProvided.val" checked-class="btn-info" max-select="1"></div>
-  </div>
-  <div>
-    <label>Professional development support provided</label>
-    <div select-many-from-few list="preferenceLevels5" selection="user.ppdProvided.val" checked-class="btn-info" max-select="1"></div>
-  </div>
-
-  <div>
+  <div class="formButtons">
     <button class="btn btn-primary" ng-click="setLocation(2, 6)" ng-disabled="user.getPage(2, 5).getCompletionLevel()==0">Continue</button>
     <button class="btn" ng-click="doLater()">Do Later</button>
   </div>

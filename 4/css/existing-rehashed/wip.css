@@ -1,3 +1,7 @@
+.wip {
+  background-color: #FBEFEF;
+}
+
 form input[type=text], .select2-choices  {
 	margin: 0 0;
 	padding: 0 5px;
@@ -37,11 +41,11 @@ form label {
 .formField {
 	margin: 10px 0 15px 0;
 }
-.formField1 {
-  margin-top: 20px;
-}
 .formField label {
   margin-bottom: 4px;
+}
+form header {
+  margin-bottom: 20px;
 }
 .btn {
 	width: auto;
@@ -82,4 +86,9 @@ form label {
 	height: 40px;
 	vertical-align: bottom;
 	margin-left: 10px;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
 }
