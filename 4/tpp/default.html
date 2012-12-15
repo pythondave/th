@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="shortcut icon" href="img/favicon.ico">
+  
+  <!--library css-->
+  <!--<link rel="stylesheet" href="lib/jquery-ui-1.9.1.custom/css/smoothness/jquery-ui-1.9.1.custom.css" />--> <!-- WIP -->
+  <link rel="stylesheet" href="lib/jquery-ui-1.8.3.valentina/css/ui.css" /> <!-- WIP -->
+  <link rel="stylesheet" href="lib/select2/select2.css">
+  
+  <!--existing/existing-rehashed css-->
+  <link rel="stylesheet" href="css/existing-rehashed/generic.css">
+
+  <!--project css-->
+  <!--<link rel="stylesheet" href="css/tpp.css">-->
+  <link rel="stylesheet" href="css/generic.css">
+  <link rel="stylesheet" href="css/structure.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/tip-box.css">
+  <link rel="stylesheet" href="css/summary.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/form-s1p1.css">
+  <link rel="stylesheet" href="css/form-s0p1.css">
+  
+  <link rel="stylesheet" href="css/existing-rehashed/wip.css">
+
+</head>
+<body ng-app="tpp">
+  <div class="pageContainer">
+    <header class="pageHeader">(Header)</header>
+    <div class="contentContainer">
+      <section class="mainSection" ng-view></section>
+      <aside class="pageAside">
+        <div ui-scrollfix="-50" class="ui-scrollfix">
+          <section id="tipsSection" ng-controller="tipsController" ng-include="'partials/tpp-tips.html'"></section>
+          <section id="summarySection" ng-controller="summaryController" ng-include="'partials/tpp-summary.html'"></section>
+        </div>
+      </aside>
+    </div>
+    <footer class="pageFooter">
+      <!-- *** TEMP -->
+      <div style="padding: 5px; width: 200px; display: none;" ng-controller="devController">
+        <!--<button class="btn btn-mini btn-danger" type="button" ng-click="resetUser()">Reset User</button>-->
+        <button class="btn btn-mini btn-danger" type="button" ng-click="deleteUser()">Delete User</button>
+        <label>
+          <input type="checkbox" ng-model="user.dev" > Show Dev
+        </label>
+      </div>
+      <!-- /TEMP -->
+      
+      <p>Teacherhorizons is a free online directory where international schools and teachers can promote themselves,
+         create networks and share information.</p>
+      <span class="footer">© Copyright TeacherHorizons 2010.
+        <a href="http://www.teacherhorizons.com/disclaimer">Terms &amp; Conditions</a>
+      </span>
+    </footer>
+  </div>
+  
+  <!--library scripts-->
+  <script src="lib/jquery/jquery-1.8.2.min.js"></script> <!-- WIP -->
+  <!--<script src="lib/twitter/bootstrap/js/bootstrap.min.js"></script>-->
+  <script src="lib/jquery-ui-1.9.1.custom/js/jquery-ui-1.9.1.custom.js"></script> <!-- WIP -->
+  <script src="lib/select2/select2.js"></script>
+  <script src="lib/angular/angular.js"></script>
+  <script src="lib/angular/angular-ui.js"></script>
+
+  <!--project scripts-->
+  <script src="js/th-tpp-main.js"></script>
+  <script src="js/services/th-tpp-lib-services.js"></script>
+  <script src="js/services/th-tpp-db-services.js"></script>
+  <script src="js/services/th-tpp-list-services.js"></script>
+  <script src="js/services/th-tpp-section-service.js"></script>
+  <script src="js/services/th-tpp-user-service.js"></script>
+  <script src="js/services/th-tpp-misc-services.js"></script>
+  <script src="js/th-tpp-directives.js"></script>
+  <script src="js/directives/selectFromMany.js"></script>
+  <script src="js/directives/selectManyFromFew.js"></script>
+  <script src="js/directives/selectFromSequence.js"></script>
+  <script src="js/directives/restrictInput.js"></script>
+  
+</body>
+</html>

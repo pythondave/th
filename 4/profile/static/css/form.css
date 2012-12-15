@@ -1,0 +1,572 @@
+/*standart*/
+section, header, footer, article {
+  display: block;
+}
+.clr {
+	clear: both;
+}
+.alignCenter {
+	text-align: center;
+}
+.alignLeft {
+	text-align: left;
+}
+.alignRight {
+	text-align: right;
+}
+.floatLeft {
+	float: left;
+}
+.floatRight {
+	float: right;
+}
+.zeroBottomSpace {
+	margin-bottom: 0 !important;
+	padding-bottom: 0 !important;
+}
+.zeroTopSpace {
+	margin-top: 0 !important;
+	padding-top: 0 !important;
+}
+.blue {
+	color: #1aa1e0;
+}
+.leftColumn {
+	width: 570px; 
+	margin: 10px;
+	float: left;
+}
+header h1, .school_profile h1.form {
+	font-size: 2.3em; 
+	font-weight: normal; 
+	border-bottom: dotted 1px #d2d1c9; 
+	padding-bottom: 18px; 
+	margin-bottom: 13px;
+	color: #2f3490;
+}
+.school_profile h1.form {
+	border-bottom: none;
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+header h1.blue {
+	color: #1aa1e0;
+}
+header h2 {
+	font-size: 1.6em;
+	font-weight: normal; 
+	padding-top: 0; 
+	margin-top: 0;
+}
+.regForm label {
+	display: block;
+	font-size: 1em;
+}
+.regForm input, .regForm select, .regForm .select2-container-multi .select2-choices  {
+	margin: 8px 0;
+	border: solid 1px #a8a8a8;
+	height: 25px;
+	-moz-box-shadow: inset 0px 3px 3px #f1f1f1;
+	-webkit-box-shadow: inset 0px 3px 3px #f1f1f1;
+	box-shadow: inset 0px 3px 3px #f1f1f1;
+	font-size: 1.1em;
+	padding: 0 5px;
+	width: 290px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.regForm .select2-container-multi .select2-choices  {
+	padding: 0; 
+	min-width: 298px;
+	width: auto;
+	margin-top: 0;
+}
+.regForm .select2-container {
+	margin: 7px 0;
+	min-width: 302px;
+}
+.regForm select {
+ 	width: 145px !important;
+ 	height: auto;
+ 	padding: 0;
+ }
+ .regForm .showDataSelect  {
+ 	width: 300px;
+ 	position: relative; 
+ 	padding-top: 5px;
+ 	height: 30px;
+ 	overflow-x: hidden;
+ 	margin-top: 10px;
+ 	padding-left: 10px;
+ }
+.regForm .showDataSelect select {
+	width: 75px !important;
+	border: none;
+	position: absolute;
+	right: -28px;
+	top: -8px;
+	box-shadow: none;
+	background-color: #fff;
+}
+.checkBoxes input, input[type="checkbox"], input[type="radio"] {
+	margin: 5px 5px 5px 0;
+	padding: 0;
+	vertical-align: baseline;
+	height: auto;
+	width: auto;
+	border: none;
+	box-shadow: none;
+	}
+.calendar input {
+	width: 145px;
+}
+.inlineBox label {
+	display: inline;
+}
+.imgRadio  {
+	margin: 10px 0;
+	width: 500px;
+}
+.imgRadio span {
+	display: block;
+	line-height: 22px;
+}
+.imgRadio  input  {
+	border: solid 1px red !important;
+	float: left;
+}
+ .available span {
+ 	color: #50b848;
+ }
+ .openToSuggestion span {
+ 	color: #f38134;
+ }
+ .notAvailable span {
+ 	color: #e4212e;
+
+ }
+.formField, .buttonField {
+	margin: 10px 0;
+}
+.buttonField input, .buttonField button, .buttonField a.button, a.button, button, input.button, input[type="submit"], input[type="reset"], input[type="button"] {
+	width: auto;
+	background-color: #1e2766;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	font-size: 15px;
+	height: 25px;
+	-moz-box-shadow: 1px 1px 1px #f1f1f1;
+	-webkit-box-shadow: 1px 1px 1px #f1f1f1;
+	box-shadow: 1px 1px 1px #f1f1f1;
+	color: #fff;
+	border: none;
+	font-weight: normal;
+	line-height: 25px;
+	vertical-align: middle;
+	margin-right: 10px;
+	padding: 0 15px 3px 15px;
+	cursor: pointer;
+	display: inline-block;
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+}
+.oneStep a.button, .oneStep a.button span  {
+  text-decoration: none !important;
+  font-size: 13px;
+  font-weight: 100 !important;
+  text-transform: none !important;
+  padding-left: 5px;
+}
+.oneStep a.button:hover span {
+  color: #fff !important;
+}
+.oneStep a.button {
+  padding-top: 3px;
+  padding-bottom: 1px;
+}
+ .buttonField input, .buttonField button, .buttonField a.button {
+ 	padding-bottom: 2px;
+ 	padding-top: 1px;
+ 	height: 28px;
+ }
+  .buttonField a.button, a.button {
+ 	padding: 1px 13px;
+ 	height: 26px;
+ }
+.fieldChecked {
+	background: url(../images/checked_text.png) no-repeat top left;
+	display: inline-block;
+	width: 30px;
+	height: 40px;
+	vertical-align: bottom;
+	margin-left: 10px;
+}
+.buttonField input:hover,  .buttonField button:hover, .buttonField a.button:hover, .buttonField input[type="submit"]:hover, .buttonField input[type="reset"]:hover, .buttonField input[type="button"]:hover {
+	background-color: #bdbcb0;
+}
+.buttonField .buttonSkip, .buttonField a.buttonSkip {
+	background-color: #dfded0;	
+}
+.buttonField input:focus, .buttonField button:focus, .buttonField a.button:focus, .buttonField input[type="submit"]:focus, .buttonField input[type="reset"]:focus, .buttonField input[type="button"]:focus {
+	background-color: #1e2766;
+	text-shadow: 1px 1px 0px gray;
+	-moz-box-shadow: inset 0px 0px 10px #000;
+	-webkit-box-shadow: inset 0px 0px 10px #000;
+	box-shadow: inset 0px 0px 10px #000;
+}
+.buttonField input.greyButton, .buttonField a.greyButton {
+	background-color: #1e2766;
+}
+.checkBoxes label, .checkButtons label {
+	margin-bottom: 8px;
+}
+ .checkButtons {
+ 	float: left;
+ 	margin-top: 0;
+ }
+.regForm p {
+	margin: 10px 0 15px 0;
+	padding: 0;
+}
+
+.finalText {
+	font-size: 18px;
+}
+
+
+/*right part*/
+.rightColumn {
+	width: 285px; 
+	float: right; 
+	margin: 10px;
+	position: relative;
+}
+.boardText {
+	height: 190px; 
+	width: 284px; 
+	overflow: hidden; 
+	color: #1e2766; 
+	font-size: 16px; 
+	line-height: 22px;
+	font-family: Georgia, Times New Roman, serif; 
+	font-style: italic;
+	float: right;
+	background: url(http://beta.teacherhorizons.com/static/prototypes/design/registration/static/images/board.jpg) no-repeat top left;
+	margin-bottom: 30px;
+  
+	
+}
+.boardText p {
+	padding: 30px;
+}
+.buttonBox {
+	margin: 30px 0 20px 0;
+}
+.buttonBox .button, .buttonBox button,  .buttonBox input[type="submit"],  .buttonBox input[type="button"], .buttonBox input[type="reset"] {
+	background-color: #f3b360;
+	margin-bottom: 5px;
+}
+.buttonBox button, .buttonBox input[type="submit"],  .buttonBox input[type="button"], .buttonBox input[type="reset"] {
+	padding: 0px 10px  1px 10px;
+	line-height: 14px;
+}
+.buttonBox .button:hover, .buttonBox .button.active,
+.buttonBox button:hover, .buttonBox input[type="submit"]:hover,  .buttonBox input[type="button"]:hover, .buttonBox input[type="reset"]:hover {
+	background-color: #f38b04;
+} 
+.buttonBox .button:focus, .buttonBox button:focus, .buttonBox input[type="submit"]:focus,  .buttonBox input[type="button"]:focus, .buttonBox input[type="reset"]:focus {
+	-moz-box-shadow: inset 0px 0px 10px #fff;
+	-webkit-box-shadow: inset 0px 0px 10px #fff;
+	box-shadow: inset 0px 0px 10px #fff;
+	text-shadow: 1px 1px 0px #666;
+	background-color: #f38b04;
+}
+.oneStep {
+	margin-bottom: 10px;
+}
+.oneStep .button, .oneStep button, .oneStep input[type="submit"], .oneStep input[type="button"], .oneStep input[type="reset"] {
+	width: 130px;
+	margin-top: 5px;
+  overflow: hidden;
+}
+.oneStep button, .oneStep input[type="submit"], .oneStep input[type="button"], .oneStep input[type="reset"] {
+	text-align: left;
+	padding: 1px 15px 2px 10px;
+	width: 146px;
+ }
+ .oneStep button {
+	line-height: 16px;
+}
+.orangeBut .button {
+  padding-left: 10px !important;
+  margin-left: 10px;
+}
+.oneStep a:hover, a.button:hover {
+	text-decoration: none;
+}
+
+.blueBut a {
+	background-color: #1aa1e0;
+}
+.greenBut a{
+	background-color: #b0dfac;
+}
+.lightBlueBut a {
+	background-color: #9ad6f1;
+}
+.pinkBut a,  .pinkBut button, .pinkBut input[type="submit"], .pinkBut input[type="button"], .pinkBut input[type="reset"] {
+	background-color: #aeb0d4;
+}
+.pinkBut a:hover, .pinkBut button:hover, .pinkBut input[type="submit"]:hover, .pinkBut input[type="button"]:hover, .pinkBut input[type="reset"]:hover,
+.pinkButCurr a, .pinkButCurr button, .pinkButCurr input[type="submit"], .pinkButCurr input[type="button"], .pinkButCurr input[type="reset"] {
+	background-color: #2f3490;
+}
+.oneStep a:focus, .oneStep button:focus, .oneStep input[type="submit"]:focus, .oneStep input[type="button"]:focus, .oneStep input[type="reset"]:focus {
+	text-shadow: 1px 1px 0px gray;
+	-moz-box-shadow: inset 0px 0px 10px #fff;
+	-webkit-box-shadow: inset 0px 0px 10px #fff;
+	box-shadow: inset 0px 0px 10px #fff;
+}
+.lightBlueBut a, .lightBlueBut button, .lightBlueBut input[type="submit"], .lightBlueBut input[type="button"], .lightBlueBut input[type="reset"]  {
+	background-color: #9ad6f1;
+}
+.lightBlueBut a:hover, .lightBlueBut button:hover, .lightBlueBut input[type="submit"]:hover, .lightBlueBut input[type="button"]:hover, .lightBlueBut input[type="reset"]:hover,
+.lightBlueButCurr a, .lightBlueButCurr button, .lightBlueButCurr input[type="submit"], .lightBlueButCurr input[type="button"], .lightBlueButCurr input[type="reset"] {
+	background-color: #1aa1e0;
+}
+.greenBut a{
+	background-color: #b0dfac;
+}
+.greenBut a:hover, .greenBut button:hover, .greenBut input[type="submit"]:hover, .greenBut input[type="button"]:hover, .greenBut input[type="reset"]:hover,
+.greenButCurr a, .greenButCurr button, .greenButCurr input[type="submit"], .greenButCurr input[type="button"], .greenButCurr input[type="reset"] {
+	background-color: #50b848;
+}
+.orangeBut {
+	padding-bottom: 10px;
+}
+.orangeBut a{
+	background-color: #f3b360;
+}
+.orangeBut a:hover, .orangeBut button:hover, .orangeBut input[type="submit"]:hover, .orangeBut input[type="button"]:hover, .orangeBut input[type="reset"]:hover,
+.orangeButCurr a, .orangeButCurr button, .orangeButCurr input[type="submit"], .orangeButCurr input[type="button"], .orangeButCurr input[type="reset"] {
+	background-color: #f38b04;
+}
+.oneStep ul {
+	width: 200px;
+	margin: 7px 0 0 10px;
+}
+.oneStep li {
+	width: auto;
+	display: block;
+	font-size: 1em;
+	color: #b1b0a5;
+	padding: 2px 0 2px 0;
+}
+.oneStep li a, .oneStep li span {
+	background-color: transparent;
+	color: #b1b0a5;
+	display: inline-block;
+	background: url(../images/li_checked.png) no-repeat top right;
+	padding: 2px 25px 2px 0;
+	height: 18px;
+	margin: 0;
+}
+.oneStep li span {
+	background: none;
+}
+.oneStep li a:hover {
+	background-color: transparent;
+	color: #666;
+}
+.pinkBut li a {
+	background: url(../images/li_checked_navy.png) no-repeat top right;
+}
+.greenBut li a {
+	background: url(../images/li_checked_green.png) no-repeat top right;
+}
+.orangeBut li a {
+	background: url(../images/li_checked_orange.png) no-repeat top right;
+}
+
+.oneStep li.currentSubStep, .oneStep li.notCompleted
+{
+	background-image: none;
+}
+
+.lightBlueBut li.currentSubStep span {
+	color: #1aa1e0;
+}
+.pinkBut li.currentSubStep span{
+	color: #2f3490;
+}
+.greenBut li.currentSubStep span{
+	color: #50b848;
+}
+.orangeBut li.currentSubStep span{
+	color: #f38b04;
+}
+
+.teacher-progress {
+	border: none;
+	font-size: 14px;
+	width: 284px;
+	padding: 0;
+	margin-left: 0;
+}
+.intro, .steps {
+	font-size: 14px;
+	line-height: 20px;
+}
+.intro img { 
+	float: right;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	margin-left: 40px;
+	margin-bottom: 20px;
+	height: 150px;
+}
+.intro  p {
+	margin: 0 0 10px 0;
+}
+.steps {
+	margin: 40px 0 20px 0;
+}
+.stepMark {
+	text-align: center; 
+	width: 150px;
+	float: left;
+	margin-bottom: 8px;
+	margin-top: 3px;
+}
+.addArrow {
+	background: url(../images/arrow.png) no-repeat 160px 7px ;
+	width: 210px;
+}
+.stepItem {
+	height: 35px; 
+	width: 150px; 
+	color: #fff; 
+	font-size: 21px; 
+	line-height: 35px; 
+	background-color: #2f3490;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+.secondStep .stepItem {
+	background-color: #1aa1e0;
+}
+.thirdStep .stepItem {
+	background-color: #50b848;
+}
+.stepMark  span {
+	color: #2f3490; 
+	display: block; 
+	width: 150px; 
+	margin-top: 5px;
+	font-size: 13px;
+	line-height: 12px;
+	font-weight: bold;
+}
+.secondStep  span {
+	color: #1aa1e0;
+}
+.thirdStep  span {
+	color: #50b848;
+}
+.steps p {
+	font-size: 0.9em;
+	margin: 0;
+}
+.trafficLightBox {
+	width: 30px; 
+	float: left;
+}
+
+.available .regular-radio:checked + label:after {
+	background: #50b848;
+}
+.openToSuggestion .regular-radio:checked + label:after {
+	background: #f38134;
+}
+.notAvailable .regular-radio:checked + label:after {
+	background: #e4212e;
+}
+.populate {
+	width:300px;
+}
+.flag {
+	padding-right: 5px;
+	display: inline-block;
+}
+.firstCheckBoxesBlock, .firstBox {
+	margin-top: 20px;
+}
+
+/*override of general styles*/
+.rotating-img {
+	height: 185px;
+}
+.select2-search-field .select2-input {
+	width: 145px !important;
+}
+.select2-search-choice div {
+	font-size: 12px !important;
+}
+.progress-bar  {
+	margin-bottom: 20px;
+}
+.ui-slider {
+	width: 80%;
+}
+/*override of select2 styles*/
+.select2-results .select2-result-label {
+	font-size: 0.8em;
+}
+.formField #holder {
+	float: left;
+}
+.firstCol {
+	width: 350px; 
+	float: left;
+}
+.secondCol {
+	width: 150px; 
+	float: left;
+}
+.regForm .firstCol select, .regForm .firstCol .select2-container-multi .select2-choices,
+.regForm .secondCol select, .regForm .secondCol .select2-container-multi .select2-choices {
+	width: 100px;
+}
+.regForm .firstCol .select2-container,  .regForm .secondCol .select2-container {
+	min-width: 100px;
+}
+.regForm .ui-widget-header {
+	background-color: #9AD6F1;
+}
+.additionalButBox {
+	border-top: 1px dotted #D2D1C9; 
+	padding-top: 20px;
+}
+.additionalButBox a.button {
+	font-weight: normal;
+	font-size: 12px;
+}
+.oneField {
+	margin: 20px 0;
+}
+.oneField strong {
+	background-color: #f2f2f2; 
+	padding: 3px; 
+	display: inline-block; 
+	width: 150px; 
+	text-transform: uppercase; 
+	font-size: 11px !important; 
+	margin-right: 20px;
+	font-weight: normal;
+}
+

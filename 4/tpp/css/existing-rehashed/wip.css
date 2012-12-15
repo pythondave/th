@@ -1,0 +1,104 @@
+.wip {
+  background-color: yellow; /* #FBEFEF; */
+}
+
+div[select-from-sequence], .select-from-sequence {
+  width: 250px;
+  display: inline-block;
+  margin: 15px 15px 0 15px;
+}
+div[select-from-sequence] + span, .select-from-sequence + span {
+  vertical-align: 2px;
+}
+form .ui-widget-header { background-color: #9AD6F1; }
+
+form input[type=text], .select2-choices  {
+	margin: 0 0;
+	padding: 0 5px;
+	border: solid 1px #a8a8a8;
+	height: 25px;
+	font-size: 1.1em;
+  width: 290px;
+	-webkit-box-shadow: inset 0px 3px 3px #f1f1f1;
+     -moz-box-shadow: inset 0px 3px 3px #f1f1f1;
+          box-shadow: inset 0px 3px 3px #f1f1f1;
+	-webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+}
+
+form h1 {
+  font-family: Calibri, Arial, Helvetica, sans-serif;
+	font-size: 2.3em;
+	font-weight: normal; 
+	border-bottom: dotted 1px #d2d1c9; 
+	padding-bottom: 18px;
+	margin-bottom: 13px;
+	color: #2f3490;
+  line-height: 24px;
+}
+header h2 {
+	font-size: 1.6em;
+	font-weight: normal; 
+	padding-top: 0; 
+	margin-top: 0;
+  margin-bottom: 10px;
+}
+form label {
+	display: block;
+	font-size: 1em;
+}
+.formField {
+	margin: 10px 0 15px 0;
+}
+.formField label {
+  margin-bottom: 4px;
+}
+form header {
+  margin-bottom: 20px;
+}
+.btn {
+	width: auto;
+	font-size: 15px;
+	height: 25px;
+	-webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+	-webkit-box-shadow: 1px 1px 1px #f1f1f1;
+     -moz-box-shadow: 1px 1px 1px #f1f1f1;
+          box-shadow: 1px 1px 1px #f1f1f1;
+	color: #fff;
+	border: none;
+	font-weight: normal;
+	line-height: 26px;
+	vertical-align: middle;
+	margin-right: 10px;
+	padding: 0 15px 3px 15px;
+	cursor: pointer;
+	display: inline-block;
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	background-color: #dfded0;
+}
+
+.btn-primary { background-color: #1e2766; }
+.btn:hover { background-color: #bdbcb0; }
+.btn-primary:hover { background-color: #bdbcb0; } /* TODO? */
+.btn[disabled] {
+  background-color: #dfded0;
+  cursor: default;
+  color: #aaaaaa;
+}
+
+.fieldChecked {
+	background: url(../../img/tick-green.png) no-repeat top left;
+	display: inline-block;
+	width: 30px;
+	height: 40px;
+	vertical-align: bottom;
+	margin-left: 10px;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}
