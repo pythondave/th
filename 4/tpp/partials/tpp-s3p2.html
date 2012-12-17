@@ -3,50 +3,45 @@
     <h1>Really shine!</h1>
     <h2>Supporting docs and videos</h2>
   </header>
-  
-  <div class="formField wip">
-    <label>Add Teaching certificate
-      <input type="file" ng-model="user.teachingCertificate" onchange="angular.element(this).scope().setTeachingCertificate(this)"> <!-- hack -->
-      <div>
-        {{user.teachingCertificate}}
-      </div>
-    </label>
+
+  <div class="formField">
+    <label>Add teaching certificate</label>
+    <div class="select-files" field="user.teachingCertificates"></div>
   </div>
-  <div class="formField wip">
-    <label>Add Degree certificates</label>
-    <input id="add_degree_certificates" type="file" onchange="document.getElementById('signChecked_34').style.display='inline-block';"> 
-    <span class="fieldChecked" style="display:none;" id="signChecked_34"></span>
+  <div class="formField">
+    <label>Add degree certificates</label>
+    <div class="select-files" field="user.degreeCertificates"></div>
   </div>
-  <div class="formField wip">
-    <label>Add Police clearance</label>
-    <input id="add_police_clearance" type="file" onchange="document.getElementById('signChecked_35').style.display='inline-block';"> 
-    <span class="fieldChecked" style="display:none;" id="signChecked_35"></span>
+  <div class="formField">
+    <label>Add police clearance</label>
+    <div class="select-files" field="user.policeClearanceCertificate"></div>
   </div>
-  <div class="formField wip">
-    <label>Add Performance review or recommendation</label>
-    <input id="add_recommendation" type="file" onchange="document.getElementById('signChecked_36').style.display='inline-block';"> 
-    <span class="fieldChecked" style="display:none;" id="signChecked_36"></span>
+  <div class="formField">
+    <label>Add performance review or recommendation <span class="wip">tip doesn't fit</span></label>
+    <div class="select-files" field="user.performanceReviewOrRecommendation"></div>
   </div>
-  <div class="formField wip">
-    <label>Add Teaching Philosophy Statement</label>
-    <input id="add_statement" type="file" onchange="document.getElementById('signChecked_37').style.display='inline-block';"> 
-    <span class="fieldChecked" style="display:none;" id="signChecked_37"></span>
+  <div class="formField">
+    <label>Add teaching philosophy statement <span class="wip">no tip</span></label>
+    <div class="select-files" field="user.teachingPhilosophyStatement"></div>
   </div>
-  <div class="formField wip">
-    <label>Add video</label>
-    <input type="file" onchange="document.getElementById('signChecked_38').style.display='inline-block';"> 
-    <span class="fieldChecked" style="display:none;" id="signChecked_38"></span>
+  <div class="formField">
+    <label>Add video <span class="wip">no tip</span></label>
+    <div class="select-files" field="user.videos"></div>
   </div>
   <!--final section text: appears when section completion level > 0-->
   <div class="formText" ng-show="user.getPage(3, 2).getCompletionLevel()>0">
     <p>That's it! To come top of school's searches, make sure your profile is 100% complete.</p>
     <p>Thanks for signing up and please tell your friends about us!</p>
   </div>
+  <span class="wip">Isn't everyone now 100% if they get to here? (unless the added then deleted stuff)</span><br/><br/>
 
   <div>
     <button class="btn btn-primary" ng-click="share()" ng-disabled="user.getPage(3, 2).getCompletionLevel()==0">Share</button>
     <button class="btn btn-primary" ng-click="setLocation(0, 1)" ng-disabled="user.getPage(3, 2).getCompletionLevel()==0">View my profile</button>
   </div>
-  <br/><span class="wip">Share?</span>
+  <br/><br/><span class="wip">Share?</span>
+  <br/><br/><span class="wip">Fields would be more consistent with other pages without the word 'Add'</span>
+  <br/><br/><span class="wip">For each field: one file or multiple files - how distinguish?</span>
+  <br/><br/><span class="wip">General: sometime full stops with tips, sometimes not</span>
 </form>
 

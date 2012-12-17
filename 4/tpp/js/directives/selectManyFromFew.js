@@ -5,10 +5,15 @@ angular.module('tpp')
     return {
       restrict: 'AC',
       templateUrl: 'partials/directives/selectManyFromFew.html',
-      scope: { list: '=', selection: '=' },
+      scope: { list: '=', field: '=' },
       transclude: true,
       link: function($scope, element, attr, ctrl) {
+        $scope.selection = $scope.field.val;
 
+        //bind events
+        element.bind('mouseenter', function() { $scope.$emit('mouseenter', $scope.field); });
+        element.bind('mouseleave', function() { $scope.$emit('mouseleave', $scope.field); });
+        
         //init list based on selection
         angular.forEach($scope.list, function(item) {
           if ($scope.selection.indexOf(item.id)>=0) { item.isSelected = true; }

@@ -2,6 +2,44 @@
   background-color: yellow; /* #FBEFEF; */
 }
 
+.files-wrapper {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  padding: 0 0 0 30px;
+}
+.files-wrapper input {
+  position: absolute;
+  left: -110px;
+  top: 0;
+  height: 30px;
+  opacity: 0;
+  /* IE 6/7/8 - use this conditionally */ filter: alpha(opacity=0);
+  cursor: pointer;
+}
+.files-wrapper .button {
+  display: block;
+  padding: 5px 10px;
+  font: normal 12px/1.5 Arial, sans-serif;
+  color: #fff;
+  background: #05abe0;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+}
+.files-wrapper .btn-wrapper {
+  float: left;
+  height: 28px;
+}
+.files-wrapper .list-wrapper {
+  float: left;
+  padding: 0 50px 6px 30px;
+}
+.files-wrapper .file {
+  height: 18px;
+  padding: 2px 0 2px 0;
+}
+
 div[select-from-sequence], .select-from-sequence {
   width: 250px;
   display: inline-block;
@@ -80,13 +118,33 @@ form header {
 	background-color: #dfded0;
 }
 
-.btn-primary { background-color: #1e2766; }
 .btn:hover { background-color: #bdbcb0; }
+.btn-primary { background-color: #1e2766; }
 .btn-primary:hover { background-color: #bdbcb0; } /* TODO? */
 .btn[disabled] {
   background-color: #dfded0;
   cursor: default;
   color: #aaaaaa;
+}
+.btn-select-files, .btn-select-files:hover {
+  background-color: whiteSmoke;
+  padding: 0 6px;
+  color: #000;
+  border: 1px solid silver;
+}
+.btn-delete-file {
+  background-color: whiteSmoke;
+  margin: 0 0 0 10px;
+  padding: 0 2px;
+  font-size: 10px;
+  height: 16px;
+  line-height: 10px;
+  color: #000;
+  border: 1px solid silver;
+}
+.btn-delete-file:hover {
+  background-color: #5A6187; 
+  color: #fff;
 }
 
 .fieldChecked {

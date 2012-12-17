@@ -4,18 +4,18 @@
     <h2>Professional experience</h2>
   </header>
   
-  <div class="formField">
-    <div>Number of years' teaching experience: 0-40 * <span class="wip">apostrophe?</span> <span class="wip">tick needed?</span></div>
+  <div class="formField" ng-mouseenter="mouseenter(user.numberOfYearsTeachingExperience)" ng-mouseleave="mouseleave(user.numberOfYearsTeachingExperience)">
+    <label>Number of years' teaching experience: 0-40 * <span class="wip">apostrophe?</span> <span class="wip">tick needed?</span></label>
     <div select-from-sequence="{ min: 0, max: 40, range: 'min', tip: '' }" ng-model="user.numberOfYearsTeachingExperience.val"></div>
     <span>{{user.numberOfYearsTeachingExperience.val}}</span>
   </div>
   <div class="formField">
     <label>International school experience? *</label>
-    <div class="select-many-from-few" list="yesNo" selection="user.internationalSchoolExperience.val" max-select="1" checked-class="btn-info"></div>
+    <div class="select-many-from-few" list="yesNo" field="user.internationalSchoolExperience" max-select="1" checked-class="btn-info"></div>
   </div>
   <div class="formField">
     <label>Curriculum experience *</label>
-    <div class="select-many-from-few" list="curricula" selection="user.curriculumExperience.val" checked-class="btn-info"></div>
+    <div class="select-many-from-few" list="curricula" field="user.curriculumExperience" checked-class="btn-info"></div>
   </div>
   <div class="formField">
     <label>Current employer * <span class="wip">what if none?</span></label>

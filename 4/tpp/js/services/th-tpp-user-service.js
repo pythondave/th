@@ -24,6 +24,7 @@ angular.module('tpp').
     var initialUserValue = {
       furthestLocation: { sectionId: 1, pageId: 1 },
       currentLocation: { sectionId: 1, pageId: 1 },
+      visibleSectionId : 1,
       //1.1
       roles: { val: [] },
       subjects: { val: [] },
@@ -36,10 +37,12 @@ angular.module('tpp').
       nationality: { val: '' },
       teachingQualificationCountry: { val: '' },
       educationLevels: { val: [] },
+      availability: { val: '' },
       hasCurrentJob: { val: true },
+      availableFrom: {},
       //1.4
-      cv: { files: {} },
-      photo: { files: {} },
+      cv: { val: [] },
+      photo: { val: [] },
       //2.1-2.3
       referees: [
         { type: { val: '' }, name: { val: '' }, email: { val: '' }, institution: { val: '' }, position: { val: '' }, countryCode: { val: '' }, phoneNumber: { val: '' } },
@@ -72,8 +75,14 @@ angular.module('tpp').
       //3.1
       computerSkills: { val: [] },
       teachingSkills: { val: [] },
-      languages: { val: [] }
+      languages: { val: [] },
       //3.2
+      teachingCertificates: { val: [] },
+      degreeCertificates: { val: [] },
+      policeClearanceCertificate: { val: [] },
+      performanceReviewOrRecommendation: { val: [] },
+      teachingPhilosophyStatement: { val: [] },
+      videos: { val: [] }
     };
     
     //isStored = false; //set this to override reset
@@ -103,6 +112,9 @@ angular.module('tpp').
         sectionsService.Section.prototype.getIsCurrent = function() {
           return (this.id === user.currentLocation.sectionId);
         };
+        sectionsService.Section.prototype.getIsVisible = function() {
+          return (this.id === user.visibleSectionId);
+        };
         sectionsService.Section.prototype.getIsSufficient = function() {
           return true;
         };
@@ -110,7 +122,7 @@ angular.module('tpp').
           return (this.id < user.furthestLocation.sectionId ? this.pages.length : user.furthestLocation.pageId);
         }
         sectionsService.Section.prototype.getHeightInPixels = function() {
-          return this.getNumberOfVisiblePages() * 23.75 - 9;
+          return (this.getIsVisible() ? this.getNumberOfVisiblePages() * 23.75 - 9 : 0);
         }
       };
 
@@ -145,47 +157,91 @@ angular.module('tpp').
         user.getPage(2, 5).fields = [user.reducedChildFees, user.saveMoneyAbility, user.accommodationProvided, user.healthInsuranceProvided, user.ppdProvided];
         user.getPage(2, 6).fields = [user.numberOfYearsTeachingExperience, user.internationalSchoolExperience, user.currentEmployer, user.currentCountry, user.currentRoles, user.currentSubjects];
         user.getPage(3, 1).fields = [user.computerSkills, user.teachingSkills, user.languages];
-        user.getPage(3, 2).fields = [];
+        user.getPage(3, 2).fields = [user.teachingCertificates, user.degreeCertificates, user.policeClearanceCertificate,
+                                     user.performanceReviewOrRecommendation, user.teachingPhilosophyStatement, user.videos];
         //
       };
-      
-
       
       var addFieldDecorators = function() {
         //*** TODO: consider putting the values here into a data structure
         //getTip
         //1.1
-        user.roles.getTip = function() { return 'Your Teacherhorizons profile will help you: Search jobs, showcase your skills and experience and be found for new opportunities' };
-        user.subjects.getTip = function() { return 'Tell us which positions you\'re interested in (add up to three and be realistic!)' };
+        user.roles.getTip = function() { return 'We\'re here to help! The more you share with us, the greater your chances of finding the best job for you. Once you\'ve completed this section, you can explore jobs worldwide!'; };
+        user.subjects.getTip = function() { return 'These whiteboard messages will help you create your profile. You can add up to three positions you\'re looking for - but be realistic!'; };
+        user.subscribe.getTip = function() { return 'Add up to three subjects you would like to teach - but be sure you are qualified to teach them all.'; };
         //1.2
-        user.countryCode.getTip = function() { return 'Country Code Tip' };
-        user.phoneNumber.getTip = function() { return 'Phone Number Tip' };
-        user.skype.getTip = function() { return 'Most Heads are likely to want to carry out a Skype interview with you.  Test the video and sound beforehand.  If you don\'t have an account it won\'t take more than 10 mins to create one: http://www.skype.com' };
+        user.countryCode.getTip = function() { return 'This is the phone dialing code for the country you are currently living in.'; };
+        user.phoneNumber.getTip = function() { return 'We may occasionally give you a call if a fantastic  opportunity comes up. We promise not to do this often - only if there\'s a great match!'; };
+        user.skype.getTip = function() { return 'Skype\'s important so we can speak to you and Heads can interview you. If you don\'t have it, it\'s free and takes ten mins to download. Test sound, mic, light beforehand!'; };
+        //1.3
+        user.nationality.getTip = function() { return 'Schools need this for visa reasons'; };
+        user.teachingQualificationCountry.getTip = function() { return 'This is the country of your teaching qualification / certification. Only qualified teachers will be considered for teaching roles.'; };
+        user.educationLevels.getTip = function() { return 'This is where you can add all your brilliant qualifications'; };
+        user.availability.getTip = function() { return 'This tells schools if you are actively looking for a job (green) and you can keep some details private by clicking yellow'; };
+        user.hasCurrentJob.getTip = function() { return 'Are you currently employed?'; };
+        user.availableFrom.getTip = function() { return 'Enter the earliest date you will be available to start a new job'; };
         //1.4
-        user.cv.getTip = function() { return 'Add your CV so that you can start applying for jobs. It is advisable to add a CV as a PDF document.' };
-        user.photo.getTip = function() { return 'International schools place a large importance on your photo as they often can\'t see you face-to-face. Make sure it is a professional looking photo (passport style) and that your face shows clearly.' };
+        user.cv.getTip = function() { return 'Adding your CV will significantly increase your chances of getting a job with us. Click \'Choose files\' to add your CV.'; };
+        user.photo.getTip = function() { return 'We recommend adding a photo as it gives personality to your profile. Make sure you look professional. Adding a photo is optional.' };
         //2.1
-        user.referees[0].name.getTip = function() { return 'Referee Name Tip' };
-        user.referees[0].email.getTip = function() { return 'Make sure this is correct, when entered it will send an automatic reference request questionnaire for the referee to complete.' };
-        user.referees[0].institution.getTip = function() { return 'Referee Institution Tip' };
-        user.referees[0].phoneNumber.getTip = function() { return 'Referee Phone Number Tip' };
+        user.referees[0].type.getTip = function() { return 'Your referees should be managers. At least one should be from a Head/ Principal, ideally your current one.  Most teachers should enter \'Supervisor (for most teachers)\''; };
+        user.referees[0].name.getTip = function() { return 'Please enter the first name and last name of the person who you\'re requesting a reference from.'; };
+        user.referees[0].email.getTip = function() { return 'A short reference questionnaire will be sent to your referee automatically -so make sure this email address is correct!'; };
+        user.referees[0].institution.getTip = function() { return 'Enter the school or organization where your chosen referee was your manager or supervisor'; };
+        user.referees[0].position.getTip = function() { return 'This is the position your referee held when s/he was your manager or supervisor'; };
+        user.referees[0].countryCode.getTip = function() { return 'This is the phone dialing code for the country your referee is currently living in. '; };
+        user.referees[0].phoneNumber.getTip = function() { return 'This is your referee\'s phone number. Some schools like to have a quick phone conversation to check references.'; };
         //2.2
-        user.referees[1].name.getTip = function() { return 'Referee Name Tip' };
-        user.referees[1].email.getTip = function() { return 'Make sure this is correct, when entered it will send an automatic reference request questionnaire for the referee to complete.' };
-        user.referees[1].institution.getTip = function() { return 'Referee Institution Tip' };
-        user.referees[1].phoneNumber.getTip = function() { return 'Referee Phone Number Tip' };
+        user.referees[1].type.getTip = user.referees[0].type.getTip;
+        user.referees[1].name.getTip = user.referees[0].name.getTip;
+        user.referees[1].email.getTip = user.referees[0].email.getTip;
+        user.referees[1].institution.getTip = user.referees[0].institution.getTip;
+        user.referees[1].position.getTip = user.referees[0].position.getTip;
+        user.referees[1].countryCode.getTip = user.referees[0].countryCode.getTip;
+        user.referees[1].phoneNumber.getTip = user.referees[0].phoneNumber.getTip;
         //2.3
-        user.referees[2].name.getTip = function() { return 'Referee Name Tip' };
-        user.referees[2].email.getTip = function() { return 'Make sure this is correct, when entered it will send an automatic reference request questionnaire for the referee to complete.' };
-        user.referees[2].institution.getTip = function() { return 'Referee Institution Tip' };
-        user.referees[2].phoneNumber.getTip = function() { return 'Referee Phone Number Tip' };
+        user.referees[2].type.getTip = user.referees[0].type.getTip;
+        user.referees[2].name.getTip = user.referees[0].name.getTip;
+        user.referees[2].email.getTip = user.referees[0].email.getTip;
+        user.referees[2].institution.getTip = user.referees[0].institution.getTip;
+        user.referees[2].position.getTip = user.referees[0].position.getTip;
+        user.referees[2].countryCode.getTip = user.referees[0].countryCode.getTip;
+        user.referees[2].phoneNumber.getTip = user.referees[0].phoneNumber.getTip;
         //2.4
+        user.locationsConsidered.getTip = function() { return 'Which parts of the world would you consider teaching in? The more the merrier!'; };
+        user.curriculaOfInterest.getTip = function() { return 'Select the curricula you\'d feel most comfortable teaching in your next job.'; };
+        user.ageLevels.getTip = function() { return 'Which age level of pupils are you qualified to teach?'; };
+        user.isJointApplication.getTip = function() { return 'Tick if you\'re planning to move with a husband / wife / partner'; };
+        user.partnersMemberNumber.getTip = function() { return 'You can find their member number at the top of their profile page '; };
+        user.numberOfDependentChildren.getTip = function() { return 'This is useful information for schools which may need to arrange additional visas.'; };
+        user.birthYear.getTip = function() { return 'Sorry for the painful question - you don\'t have to say but schools in some countries need this for visa reasons.'; };
+        user.maritalStatus.getTip = function() { return 'How many children are you bringing along for the adventure?'; };
         //2.5
+        user.reducedChildFees.getTip = function() { return 'How important is it to you that the school you will work in offers a significant discount on school fees for your children?'; };
+        user.saveMoneyAbility.getTip = function() { return 'We all want to save money but how much of a priority is it for your move abroad?'; };
+        user.accommodationProvided.getTip = function() { return 'Is it important to you that your next school provides extra allowance for accommodation in addition to your salary? '; };
+        user.healthInsuranceProvided.getTip = function() { return 'How important is the school covering health insurance to you?'; };
+        user.ppdProvided.getTip = function() { return 'This includes training and CPD opportunities and the likelihood of being promoted'; };
         //2.6
-        user.curriculumExperience.getTip = function() { return 'Enter up to 5 different curricula you have taught in the past 10 years' };
-        user.currentEmployer.getTip = function() { return 'currentEmployer tip...' };
+        user.numberOfYearsTeachingExperience.getTip = function() { return 'This is the number of complete years you have taught since you qualified.'; };
+        user.internationalSchoolExperience.getTip = function() { return 'Have you taught overseas before?'; };
+        user.curriculumExperience.getTip = function() { return 'Enter up to five different curricula you have taught in the past decade'; };
+        user.currentEmployer.getTip = function() { return 'Add the name of your current school or employer'; };
+        user.currentCountry.getTip = function() { return 'Enter the country you are currently living / working in'; };
+        user.currentRoles.getTip = function() { return 'Enter your current role'; };
+        user.currentSubjects.getTip = function() { return 'Enter the subject(s) you are teaching in your current school'; };
+        user.availableFrom.getTip = function() { return 'What date are you available to work from?'; };
         //3.1
+        user.computerSkills.getTip = function() { return 'Which of these pieces of software do you feel confident about using?'; };
+        user.teachingSkills.getTip = function() { return 'Let us know if you have experience in any of these areas'; };
+        user.languages.getTip = function() { return 'Having a second language can be seen by employers as massive plus. Do you speak any of these fluently?'; };
         //3.2
+        user.teachingCertificates.getTip = function() { return 'Take a photo or scan and add your teaching certificate / teaching degree / proof of qualified teacher status here'; };
+        user.degreeCertificates.getTip = function() { return 'Upload your degree certificates here'; };
+        user.policeClearanceCertificate.getTip = function() { return 'Just take a photo or scan your police clearance document and add it here.'; };
+        user.performanceReviewOrRecommendation.getTip = function() { return 'You can add letters of recommendation, written references, appraisals, performance reviews and lesson observations.  BANG on about importance of TH confidential references'; };
+        user.teachingPhilosophyStatement.getTip = function() { return ''; };
+        user.videos.getTip = function() { return ''; };
         
         //getIsSufficient
         //1.1
@@ -201,8 +257,8 @@ angular.module('tpp').
         user.teachingQualificationCountry.getIsSufficient = function() { return user.teachingQualificationCountry.val.length > 0; };
         user.educationLevels.getIsSufficient = function() { return user.educationLevels.val.length > 0; };
         //1.4
-        user.cv.getIsSufficient = function() { return user.cv.files.length > 0; };
-        user.photo.getIsSufficient = function() { return user.photo.files.length > 0; };
+        user.cv.getIsSufficient = function() { return user.cv.val.length > 0; };
+        user.photo.getIsSufficient = function() { return user.photo.val.length > 0; };
         //2.1
         user.referees[0].name.getIsSufficient = function() { return user.referees[0].name.val.length > 0; };
         user.referees[0].email.getIsSufficient = function() { return libService.isProbablyValidEmail(user.referees[0].email.val) };
@@ -248,7 +304,13 @@ angular.module('tpp').
         user.teachingSkills.getIsSufficient = function() { return user.teachingSkills.val.length > 0; };
         user.languages.getIsSufficient = function() { return user.languages.val.length > 0; };
         //3.2
-      
+        user.teachingCertificates.getIsSufficient = function() { return user.teachingCertificates.val.length > 0; };
+        user.degreeCertificates.getIsSufficient = function() { return user.degreeCertificates.val.length > 0; };
+        user.policeClearanceCertificate.getIsSufficient = function() { return user.policeClearanceCertificate.val.length > 0; };
+        user.performanceReviewOrRecommendation.getIsSufficient = function() { return user.performanceReviewOrRecommendation.val.length > 0; };
+        user.teachingPhilosophyStatement.getIsSufficient = function() { return user.teachingPhilosophyStatement.val.length > 0; };
+        user.videos.getIsSufficient = function() { return user.videos.val.length > 0; };
+
         //getClass
         //1.1
         user.roles.getClass = function() { return user.roles.getIsSufficient() ? 'isSufficient' : ''; };
@@ -279,7 +341,13 @@ angular.module('tpp').
         user.referees[2].phoneNumber.getClass = function() { return user.referees[2].phoneNumber.getIsSufficient() ? 'isSufficient' : ''; };
         //2.6
         user.currentEmployer.getClass = function() { return user.currentEmployer.getIsSufficient() ? 'isSufficient' : ''; };
-        //
+        //3.2
+        user.teachingCertificates.getClass = function() { return user.teachingCertificates.getIsSufficient() ? 'isSufficient' : ''; };
+        user.degreeCertificates.getClass = function() { return user.degreeCertificates.getIsSufficient() ? 'isSufficient' : ''; };
+        user.policeClearanceCertificate.getClass = function() { return user.policeClearanceCertificate.getIsSufficient() ? 'isSufficient' : ''; };
+        user.performanceReviewOrRecommendation.getClass = function() { return user.performanceReviewOrRecommendation.getIsSufficient() ? 'isSufficient' : ''; };
+        user.teachingPhilosophyStatement.getClass = function() { return user.teachingPhilosophyStatement.getIsSufficient() ? 'isSufficient' : ''; };
+        user.videos.getClass = function() { return user.videos.getIsSufficient() ? 'isSufficient' : ''; };        
       };
 
       var addMiscDecorators = function() {

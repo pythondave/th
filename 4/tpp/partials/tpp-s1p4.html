@@ -4,24 +4,13 @@
     <h2>CV & photo</h2>
   </header>
   
-  <span class="wip">need to implement a file directive for all file fields</span>
-  <div class="formField wip" ng-mouseover="user.tip = user.cv.getTip()" ng-mouseleave="user.tip = ''">
-    <label>Add CV
-      <input type="file" multiple ng-model="user.cv" onchange="angular.element(this).scope().setCVFiles(this)"> <!-- hack -->
-      <div>
-        <span ng-repeat="file in user.cv.files"> | {{file.name}}</span>
-      </div>
-      <span ng-class="user.cv.getClass()"></span>
-    </label>
+  <div class="formField">
+    <label>Add CV</label>
+    <div class="select-files" field="user.cv"></div>
   </div>
-  <div class="formField wip" ng-mouseover="user.tip = user.photo.getTip()" ng-mouseleave="user.tip = ''">
-    <label>Add Photo
-      <input type="file" multiple ng-model="user.photo" onchange="angular.element(this).scope().setPhotoFiles(this)"> <!-- hack -->
-      <div>
-        <span ng-repeat="file in user.photo.files"> | {{file.name}}</span>
-      </div>
-      <span ng-class="user.photo.getClass()"></span>
-    </label>
+  <div class="formField">
+    <label>Add Photo</label>
+    <div class="select-files" field="user.photo"></div>
   </div>
   <!--final section text: appears when section completion level > 0-->
   <div class="formText" ng-show="user.getPage(1, 4).getCompletionLevel()>0">

@@ -25,7 +25,7 @@
   overflow: hidden;
   opacity: 1;
 }
-.sectionInner-notCurrent {
+.sectionInner-notVisible {
   opacity: 0;
   height: 0;
   padding-top: 0;
@@ -93,7 +93,7 @@
 }
 
 /* section 0 (profile - including progress) */
-.section0 .sectionInner-isCurrent { height: 40px; }
+.section0 .sectionInner-isVisible { height: 40px; }
 .section0 .button { background-color: #f3b360; }
 .section0 .button:hover, .section0.section-isCurrent .button { background-color: #f38b04; }
 .section0 .pageTitle:hover, .section0 .page-isCurrent { color: #f38b04; }
@@ -107,21 +107,21 @@
 .progress-bar-complete {background:url(http://beta.teacherhorizons.com/static/images/content/percentage-complete-sprite.png) left -30px no-repeat; height:25px; }
 
 /* section 1 */
-.section1 .sectionInner-isCurrent { height: 90px; }
+.section1 .sectionInner-isVisible { height: 90px; }
 .section1 .button { background-color: #aeb0d4; }
 .section1 .button:hover, .section1.section-isCurrent .button { background-color: #2f3490; }
 .section1 .pageTitle:hover, .section1 .page-isCurrent { color: #2f3490; }
 .section1 .page-completionLevel2 { background-image: url(http://beta.teacherhorizons.com/static/prototypes/design/registration/static/images/li_checked_navy.png); }
 
 /* section 2 */
-.section2 .sectionInner-isCurrent { height: 142px; }
+.section2 .sectionInner-isVisible { height: 142px; }
 .section2 .button { background-color: #9ad6f1; }
 .section2.section-isVisited .button:hover, .section2.section-isCurrent .button { background-color: #1aa1e0; }
 .section2 .pageTitle:hover, .section2 .page-isCurrent { color: #1aa1e0; }
 .section2 .page-completionLevel2 { background-image: url(http://beta.teacherhorizons.com/static/prototypes/design/registration/static/images/li_checked.png); }
 
 /* section 3 */
-.section3 .sectionInner-isCurrent { height: 50px; }
+.section3 .sectionInner-isVisible { height: 50px; }
 .section3 .button { background-color: #b0dfac; }
 .section3.section-isVisited .button:hover, .section3.section-isCurrent .button { background-color: #50b848; }
 .section3 .pageTitle:hover, .section3 .page-isCurrent { color: #50b848; }

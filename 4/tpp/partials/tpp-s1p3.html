@@ -14,7 +14,7 @@
   </div>
   <div class="formField">
     <label>Education levels completed *</label>
-    <div class="select-many-from-few" list="educationLevels" selection="user.educationLevels.val" checked-class="btn-info"></div>
+    <div class="select-many-from-few" field="user.educationLevels" list="educationLevels"></div>
   </div>
   <div class="formField wip">
     <label>Availability</label>
@@ -43,7 +43,7 @@
     </div>
   </div>
   <div class="formField">
-    <label>
+    <label ng-mouseenter="mouseenter(user.hasCurrentJob)" ng-mouseleave="mouseleave(user.hasCurrentJob)">
       <input type="checkbox" ng-model="user.hasCurrentJob.val" ng-class="user.hasCurrentJob.getClass()"/>
       Currently in a job?
     </label>

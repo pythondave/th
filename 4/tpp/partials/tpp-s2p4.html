@@ -6,19 +6,19 @@
   
   <div class="formField">
     <label>Locations considered *</label>
-    <div class="select-many-from-few" list="locations" selection="user.locationsConsidered.val" checked-class="btn-info"></div>
+    <div class="select-many-from-few" list="locations" field="user.locationsConsidered"></div>
   </div>
   <div class="formField">
     <label>Curricula of interest *</label>
-    <div class="select-many-from-few" list="curricula" selection="user.curriculaOfInterest.val" checked-class="btn-info"></div>
+    <div class="select-many-from-few" list="curricula" field="user.curriculaOfInterest"></div>
   </div>
   <div class="formField">
     <label>Age levels *</label>
-    <div class="select-many-from-few" list="ageLevels" selection="user.ageLevels.val" checked-class="btn-info"></div>
+    <div class="select-many-from-few" list="ageLevels" field="user.ageLevels"></div>
   </div>
   <div class="formField">
     <label>Joint application *</label>
-    <div class="select-many-from-few" list="yesNo" selection="user.isJointApplication.val" max-select="1" checked-class="btn-info"></div>
+    <div class="select-many-from-few" list="yesNo" field="user.isJointApplication" max-select="1"></div>
   </div>
   <div class="formField wip" ng-hide="!(user.isJointApplication.val[0] == 1)">
     <label>Partner's member number *</label>
@@ -27,15 +27,15 @@
   </div>
   <div class="formField">
     <label>Number of dependent children *</label>
-    <div class="select-many-from-few" list="numberOfDependentChildren" selection="user.numberOfDependentChildren.val" max-select="1" checked-class="btn-info"></div>
+    <div class="select-many-from-few" list="numberOfDependentChildren" field="user.numberOfDependentChildren" max-select="1"></div>
   </div>
   <div class="formField">
     <label>Year of birth *</label>
     <div class="select-from-many" list="birthYears" field="user.birthYear" placeholder="Select your year of birth..."></div>
   </div>
   <div class="formField">
-    <label>Marital status *</label>
-    <div class="select-many-from-few" list="maritalStatuses" selection="user.maritalStatus.val" max-select="1" checked-class="btn-info"></div>
+    <label>Marital status * <span class="wip">tip?</span></label>
+    <div class="select-many-from-few" list="maritalStatuses" field="user.maritalStatus" max-select="1"></div>
   </div>
 
   <div class="formButtons">

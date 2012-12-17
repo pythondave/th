@@ -47,17 +47,18 @@
     <div class="select-from-many select2width400px" multiple list="subjects" field="user.subjects" max-select="3" placeholder="Select one or more subjects..."></div>
   </div>
   <div class="formField">
-    <label>
+    <label ng-mouseenter="mouseenter(user.subscribe)" ng-mouseleave="mouseleave(user.subscribe)">
       <input type="checkbox" ng-model="user.subscribe.val" ng-class="user.subscribe.getClass()">
-      Email me suitable jobs <!--<a title="Here's a helpful tip" ui-jq="tooltip" ui-options="{placement: 'right'}"><i class="icon-info-sign"></i></a>-->
+      Email me suitable jobs <span class="wip">tip?</span>
     </label>
   </div>
   
   <div class="formButtons">
-    <button class="btn btn-primary" ng-click="setLocation(1, 2)" ng-disabled="user.getPage(1, 1).getCompletionLevel()==0">Continue</button>
-    <button class="btn" ng-click="doLater()">Do Later</button>
+    <button class="btn btn-primary" ng-click="setLocation(1, 2)" ng-disabled="user.getPage(1, 1).getCompletionLevel()==0" ng-mouseenter="mouseenter(btnContinue)" ng-mouseleave="mouseleave(btnContinue)">Continue</button>
+    <button class="btn" ng-click="doLater()" ng-mouseenter="mouseenter(btnDoLater)" ng-mouseleave="mouseleave(btnDoLater)">Do Later</button>
   </div>
 
-  <br/><span class="wip">Need to implement max-select; tips could be slicker; </span>
+  <br/><span class="wip">I'm not sure I like the hover colour on the continue button</span>
+  <br/><br/><span class="wip">'Continue' and 'Do Later' tips implemented on this page. What do we think? What should the text be?</span>
 </form>
 

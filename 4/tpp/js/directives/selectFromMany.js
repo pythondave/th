@@ -27,9 +27,9 @@ angular.module('tpp')
         
         $timeout(function() {
           options = {};
+          options.maximumSelectionSize = attr.maxSelect;
           options.placeholder = attr.placeholder;
           options.allowClear = attr.allowClear || true;
-          //options.width = attr.width || '300px';
           if ($scope.format) {
             options.formatResult = $scope.format;
             options.formatSelection = $scope.format;
