@@ -43,10 +43,19 @@ angular.module('tpp', ['ui']).
       };
     //***************************
 
+    $rootScope.getScrollFix = function() {
+      return 185 + ($rootScope.user.currentLocation.isPage(1, 1) ? 35 : 0);
+    };
+    
     $rootScope.user = userService.user;
     
-    $rootScope.btnContinue = { getTip: function() { return 'Continue to the next page...'; } };
-    $rootScope.btnDoLater = { getTip: function() { return 'Go to the home page - you can come back to this later :)'; } };
+    $rootScope.btnContinue = { getTip: function() {
+      if ($rootScope.user.currentLocation.isPage(1, 1)) return 'Great start, on to the next section!'
+      return 'Continue to the next page...'; }
+    };
+    $rootScope.btnDoLater = { getTip: function() {
+      return 'Go to the home page - you can come back to this later :)'; }
+    };
     
     //tips
     $rootScope.$on('setTip', function(event, tip) {
@@ -90,14 +99,17 @@ angular.module('tpp', ['ui']).
       userService.save();
     }, true);
   }).
-  controller('s1p1Controller', function($scope, roleService, subjectService) {
+  controller('headerController', function($scope) { }).
+  controller('s1p1Controller', function($scope, roleService, subjectService, $window) {
     $scope.roles = roleService.roles;
     $scope.subjects = subjectService.subjects;
+    $window.scrollTo(0, 195);
   }).
-  controller('s1p2Controller', function($scope, countryService, $timeout) {
+  controller('s1p2Controller', function($scope, countryService, $timeout, $window) {
     $scope.setTip('');
     $scope.countries = countryService.countries;
     $scope.countriesSelect2FormatFunction = countryService.countriesSelect2FormatFunction;
+    $window.scrollTo(0, 195);
   }).
   controller('s1p3Controller', function($scope, countryService, educationLevelService) {
     $scope.countries = countryService.countries;
@@ -135,6 +147,10 @@ angular.module('tpp', ['ui']).
     $scope.roles = roleService.roles;
     $scope.subjects = subjectService.subjects;
     $scope.yesNo = yesNoService.yesNo;
+    
+    $scope.getEmployerPrefix = function() {
+      return ($scope.user.hasCurrentJob.val ? 'Current' : 'Most recent')
+    }
   }).
   controller('s3p1Controller', function($scope, computerSkillService, teachingSkillService, languageService) {
     $scope.computerSkills = computerSkillService.computerSkills;

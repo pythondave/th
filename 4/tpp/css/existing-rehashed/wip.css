@@ -13,8 +13,7 @@
   left: -110px;
   top: 0;
   height: 30px;
-  opacity: 0;
-  /* IE 6/7/8 - use this conditionally */ filter: alpha(opacity=0);
+  opacity: 0; /*IE<=8:*/ filter: alpha(opacity=0);
   cursor: pointer;
 }
 .files-wrapper .button {
@@ -48,7 +47,6 @@ div[select-from-sequence], .select-from-sequence {
 div[select-from-sequence] + span, .select-from-sequence + span {
   vertical-align: 2px;
 }
-form .ui-widget-header { background-color: #9AD6F1; }
 
 form input[type=text], .select2-choices  {
 	margin: 0 0;
@@ -120,7 +118,7 @@ form header {
 
 .btn:hover { background-color: #bdbcb0; }
 .btn-primary { background-color: #1e2766; }
-.btn-primary:hover { background-color: #bdbcb0; } /* TODO? */
+.btn-primary:hover { background-color: #FF1493; }
 .btn[disabled] {
   background-color: #dfded0;
   cursor: default;

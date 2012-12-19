@@ -1,12 +1,6 @@
 /* css specific to form s1p1 - introduction and steps */
  
 /* introduction */
-.introduction h1 {
-	border-bottom: none;
-	margin: 0;
-  line-height: 30px;
-}
-
 .introduction img { 
 	float: right;
 	-webkit-border-radius: 15px;
@@ -14,7 +8,7 @@
 	border-radius: 15px;
 	margin-left: 40px;
 	margin-bottom: 20px;
-	height: 140px; /* 160px; */
+	height: 100px; /* 160px; */
 }
 .introduction  p {
 	margin: 0 0 10px 0;
@@ -25,7 +19,7 @@
 .steps {
 	font-size: 14px;
 	line-height: 20px;
-	margin: 40px 0 10px 0;
+	margin: 0 0 10px 0;
 }
 .step {
 	text-align: center; 

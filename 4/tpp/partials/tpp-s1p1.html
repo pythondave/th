@@ -1,8 +1,5 @@
 <form novalidate ng-controller="s1p1Controller" ng-cloak>
   <div class="introduction">
-    <!--intro header-->
-    <h1>Welcome to Teacherhorizons - your ticket to teaching overseas!</h1>
-
     <!--intro text + image-->
     <article class="floatLeft">
       <p>
@@ -40,7 +37,7 @@
   
   <div class="formField">
     <label>Role(s) *</label>
-    <div class="select-from-many select2width400px" multiple list="roles" field="user.roles" placeholder="Select one or more roles..."></div>
+    <div class="select-from-many select2width400px" multiple list="roles" field="user.roles" max-select="3" placeholder="Select one or more roles..."></div>
   </div>
   <div class="formField">
     <label>Subject(s) *</label>
@@ -49,7 +46,7 @@
   <div class="formField">
     <label ng-mouseenter="mouseenter(user.subscribe)" ng-mouseleave="mouseleave(user.subscribe)">
       <input type="checkbox" ng-model="user.subscribe.val" ng-class="user.subscribe.getClass()">
-      Email me suitable jobs <span class="wip">tip?</span>
+      Email me suitable jobs
     </label>
   </div>
   
@@ -57,8 +54,5 @@
     <button class="btn btn-primary" ng-click="setLocation(1, 2)" ng-disabled="user.getPage(1, 1).getCompletionLevel()==0" ng-mouseenter="mouseenter(btnContinue)" ng-mouseleave="mouseleave(btnContinue)">Continue</button>
     <button class="btn" ng-click="doLater()" ng-mouseenter="mouseenter(btnDoLater)" ng-mouseleave="mouseleave(btnDoLater)">Do Later</button>
   </div>
-
-  <br/><span class="wip">I'm not sure I like the hover colour on the continue button</span>
-  <br/><br/><span class="wip">'Continue' and 'Do Later' tips implemented on this page. What do we think? What should the text be?</span>
 </form>
 

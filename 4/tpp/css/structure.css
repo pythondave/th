@@ -12,14 +12,11 @@ body {
 }
 
 .pageContainer {
-	min-height: 100%;
+	/*min-height: 100%;*/
+	min-height: 870px;
 	position: relative;
 	width: 960px;
   margin: 0 auto;
-}
-.pageHeader {
-	padding: 10px;
-	width: 960px;
 }
 .contentContainer {
 	padding: 10px;
@@ -40,11 +37,28 @@ body {
 /* content structure */
 .mainSection {
   width: 570px;
-  margin: 10px 10px 40px 10px;
+  margin: 0 0 40px 0;
+  float: left;
 }
+.ui-scrollfix .mainSection {
+  float: none;
+}
+
 .pageAside {
+  opacity: 1; /*IE<=8:*/ filter: alpha(opacity=0);
+  float: right;
+	/* margin: 10px; */
+}
+.ui-scrollfix .pageAside {
+  top: 10px;
+  right: 100px;
   position: fixed;
-  top: 0;
-  right: 30px;
-	margin: 10px;
+  opacity: 1;
+  /*
+  -webkit-transition: all 1000ms ease;
+     -moz-transition: all 1000ms ease;
+      -ms-transition: all 1000ms ease;
+       -o-transition: all 1000ms ease;
+          transition: all 1000ms ease;
+  */
 }

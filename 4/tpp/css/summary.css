@@ -26,7 +26,7 @@
   opacity: 1;
 }
 .sectionInner-notVisible {
-  opacity: 0;
+  opacity: 0; /*IE<=8:*/ filter: alpha(opacity=0);
   height: 0;
   padding-top: 0;
   padding-bottom: 0;

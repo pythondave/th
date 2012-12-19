@@ -1,15 +1,15 @@
 <form novalidate ng-controller="s1p4Controller">
   <header>
     <h1>Essentials</h1>
-    <h2>CV & photo</h2>
+    <h2>CV / Resume & photo</h2>
   </header>
   
   <div class="formField">
-    <label>Add CV</label>
+    <label>CV / Resume *</label>
     <div class="select-files" field="user.cv"></div>
   </div>
   <div class="formField">
-    <label>Add Photo</label>
+    <label>Photo</label>
     <div class="select-files" field="user.photo"></div>
   </div>
   <!--final section text: appears when section completion level > 0-->
@@ -20,7 +20,7 @@
   </div>
 
   <div class="formButtons">
-    <button class="btn btn-primary" ng-click="setLocation(2, 1)" ng-disabled="user.getPage(1, 4).getCompletionLevel()==0">Continue</button>
+    <button class="btn btn-primary" ng-click="setLocation(2, 1)">Continue</button>
     <button class="btn" ng-click="doLater()">Do Later</button>
   </div>
 </form>

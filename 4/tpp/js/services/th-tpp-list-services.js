@@ -407,16 +407,16 @@ angular.module('tpp').
         { id: 22, name: "Excel" },
         { id: 23, name: "Powerpoint" },
         { id: 24, name: "Publisher" },
-        { id: 25, name: "Interactive Whiteboards" },
+        { id: 25, name: "Interactive whiteboards" },
         { id: 26, name: "Outlook" },
         { id: 27, name: "MAC" },
         { id: 28, name: "GDCs" },
         { id: 29, name: "SIMS" },
-        { id: 30, name: "Moddle" },
+        { id: 30, name: "Moodle" },
         { id: 31, name: "VLEs" },
         { id: 32, name: "Web development" },
         { id: 33, name: "Twitter" },
-        { id: 34, name: "Social Media" },
+        { id: 34, name: "Social media" },
         { id: 35, name: "Photoshop" }
       ]
     }

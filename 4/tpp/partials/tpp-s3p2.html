@@ -5,43 +5,39 @@
   </header>
 
   <div class="formField">
-    <label>Add teaching certificate</label>
+    <label>Teaching certificate(s)</label>
     <div class="select-files" field="user.teachingCertificates"></div>
   </div>
   <div class="formField">
-    <label>Add degree certificates</label>
+    <label>Degree certificate(s)</label>
     <div class="select-files" field="user.degreeCertificates"></div>
   </div>
   <div class="formField">
-    <label>Add police clearance</label>
+    <label>Police clearance(s)</label>
     <div class="select-files" field="user.policeClearanceCertificate"></div>
   </div>
   <div class="formField">
-    <label>Add performance review or recommendation <span class="wip">tip doesn't fit</span></label>
+    <label>Performance review(s) or recommendation(s)</label>
     <div class="select-files" field="user.performanceReviewOrRecommendation"></div>
   </div>
   <div class="formField">
-    <label>Add teaching philosophy statement <span class="wip">no tip</span></label>
+    <label>Teaching philosophy statement(s)</label>
     <div class="select-files" field="user.teachingPhilosophyStatement"></div>
   </div>
   <div class="formField">
-    <label>Add video <span class="wip">no tip</span></label>
-    <div class="select-files" field="user.videos"></div>
+    <label>Video link</label>
+    <input type="text" ng-model="user.videos.val" on-focus="focus(user.videos)" on-blur="blur(user.videos)" ></input>
   </div>
+  
   <!--final section text: appears when section completion level > 0-->
   <div class="formText" ng-show="user.getPage(3, 2).getCompletionLevel()>0">
     <p>That's it! To come top of school's searches, make sure your profile is 100% complete.</p>
-    <p>Thanks for signing up and please tell your friends about us!</p>
+    <div>
+      <button class="btn btn-primary" ng-click="share()" ng-disabled="user.getPage(3, 2).getCompletionLevel()==0">Share</button>
+      <button class="btn btn-primary" ng-click="setLocation(0, 1)" ng-disabled="user.getPage(3, 2).getCompletionLevel()==0">View my profile</button>
+    </div>
+    <p>We want to keep this site free for teachers! In return we ask a cheeky favour - please share Teacherhorizons with your friends and we'll add 5% to your profile. Thanks!</p>
   </div>
-  <span class="wip">Isn't everyone now 100% if they get to here? (unless the added then deleted stuff)</span><br/><br/>
 
-  <div>
-    <button class="btn btn-primary" ng-click="share()" ng-disabled="user.getPage(3, 2).getCompletionLevel()==0">Share</button>
-    <button class="btn btn-primary" ng-click="setLocation(0, 1)" ng-disabled="user.getPage(3, 2).getCompletionLevel()==0">View my profile</button>
-  </div>
-  <br/><br/><span class="wip">Share?</span>
-  <br/><br/><span class="wip">Fields would be more consistent with other pages without the word 'Add'</span>
-  <br/><br/><span class="wip">For each field: one file or multiple files - how distinguish?</span>
-  <br/><br/><span class="wip">General: sometime full stops with tips, sometimes not</span>
 </form>
 

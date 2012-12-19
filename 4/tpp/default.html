@@ -27,14 +27,12 @@
 </head>
 <body ng-app="tpp">
   <div class="pageContainer">
-    <header class="pageHeader">(Header)</header>
-    <div class="contentContainer">
+    <header class="pageHeader" ng-controller="headerController" ng-include="'partials/header.html'"></header>
+    <div class="contentContainer" ui-scrollfix="{{getScrollFix()}}">
       <section class="mainSection" ng-view></section>
       <aside class="pageAside">
-        <div ui-scrollfix="-50" class="ui-scrollfix">
-          <section id="tipsSection" ng-controller="tipsController" ng-include="'partials/tpp-tips.html'"></section>
-          <section id="summarySection" ng-controller="summaryController" ng-include="'partials/tpp-summary.html'"></section>
-        </div>
+        <section id="tipsSection" ng-controller="tipsController" ng-include="'partials/tpp-tips.html'"></section>
+        <section id="summarySection" ng-controller="summaryController" ng-include="'partials/tpp-summary.html'"></section>
       </aside>
     </div>
     <footer class="pageFooter">
