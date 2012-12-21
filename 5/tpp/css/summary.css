@@ -1,0 +1,128 @@
+/* css which applies only to the summary menu */
+
+/* sections */
+.section {
+  margin: 0 0 10px 10px;
+  text-decoration: none;
+}
+.section div {
+  clear: both;
+}
+.section-isVisited .sectionTitle:hover {
+  color: blue;
+}
+.sectionTitle {
+  font-weight: normal;
+	text-transform: none;
+	margin: 0 0 0 0;
+  white-space: nowrap;
+}
+.sectionInner {
+  display: block;
+  padding: 10px 10px 5px 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  overflow: hidden;
+  opacity: 1;
+}
+.sectionInner-notVisible {
+  opacity: 0; /*IE<=8:*/ filter: alpha(opacity=0);
+  height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* section buttons */
+.section a.button:hover {
+  text-decoration: none;
+}
+.section a.button, .section a.button span  {
+  cursor: default;
+  text-decoration: none !important;
+  font-size: 13px;
+  font-weight: 100 !important;
+  text-transform: none !important;
+  padding-left: 5px;
+}
+.section a.button:hover span {
+  color: #fff !important;
+}
+.section-isVisited  a.button, .section-isVisited  a.button span  {
+  cursor: pointer;
+}
+.section a.button {
+  padding-top: 3px;
+  padding-bottom: 1px;
+}
+.section .button {
+  width: 130px;
+	margin-top: 5px;
+  overflow: hidden;
+}
+.section a.button:focus {
+  text-shadow: 1px 1px 0 gray;
+  
+  -webkit-box-shadow: inset 0 0 10px #fff;
+     -moz-box-shadow: inset 0 0 10px #fff;
+	        box-shadow: inset 0 0 10px #fff;
+}
+
+/* section pages */
+.section .pageTitlePrefix {
+  margin: 0 5px 0 5px;
+  float: left;
+}
+.section .pageTitle {
+	margin: 0 0 2px 5px;
+	cursor: pointer;
+  display: none;
+  color: #B1B0A5;
+  padding: 3px 26px 3px 0;
+}
+.section .page-isVisited .pageTitle {
+  display: block;
+}
+.section .page-completionLevel2 {
+  background-position: right -1px;
+	background-repeat: no-repeat;
+	background-size: 20px;
+  width: auto;
+  display: inline-block !important;
+}
+
+/* section 0 (profile - including progress) */
+.section0 .sectionInner-isVisible { height: 40px; }
+.section0 .button { background-color: #f3b360; }
+.section0 .button:hover, .section0.section-isCurrent .button { background-color: #f38b04; }
+.section0 .pageTitle:hover, .section0 .page-isCurrent { color: #f38b04; }
+
+.progressBar {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  margin: 10px 0 0 20px;
+}
+.progress-bar {height: 11px; margin:9px 0px; background:url(http://beta.teacherhorizons.com/static/images/content/percentage-complete-sprite.png) left top no-repeat; width:192px; overflow:hidden; }
+.progress-bar-complete {background:url(http://beta.teacherhorizons.com/static/images/content/percentage-complete-sprite.png) left -30px no-repeat; height:25px; }
+
+/* section 1 */
+.section1 .sectionInner-isVisible { height: 90px; }
+.section1 .button { background-color: #aeb0d4; }
+.section1 .button:hover, .section1.section-isCurrent .button { background-color: #2f3490; }
+.section1 .pageTitle:hover, .section1 .page-isCurrent { color: #2f3490; }
+.section1 .page-completionLevel2 { background-image: url(http://beta.teacherhorizons.com/static/prototypes/design/registration/static/images/li_checked_navy.png); }
+
+/* section 2 */
+.section2 .sectionInner-isVisible { height: 142px; }
+.section2 .button { background-color: #9ad6f1; }
+.section2.section-isVisited .button:hover, .section2.section-isCurrent .button { background-color: #1aa1e0; }
+.section2 .pageTitle:hover, .section2 .page-isCurrent { color: #1aa1e0; }
+.section2 .page-completionLevel2 { background-image: url(http://beta.teacherhorizons.com/static/prototypes/design/registration/static/images/li_checked.png); }
+
+/* section 3 */
+.section3 .sectionInner-isVisible { height: 50px; }
+.section3 .button { background-color: #b0dfac; }
+.section3.section-isVisited .button:hover, .section3.section-isCurrent .button { background-color: #50b848; }
+.section3 .pageTitle:hover, .section3 .page-isCurrent { color: #50b848; }
+.section3 .page-completionLevel2 { background-image: url(http://beta.teacherhorizons.com/static/prototypes/design/registration/static/images/li_checked_green.png); }

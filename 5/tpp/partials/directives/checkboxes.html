@@ -1,0 +1,3 @@
+<label ng-repeat="item in list" class="btn" ng-class="getClass(item)">
+  <input type="checkbox" ng-model="item.isSelected" ng-hide="true" ng-change="synchSelection()" />{{item.name}}
+</label>

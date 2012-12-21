@@ -1,0 +1,160 @@
+.wip {
+  background-color: yellow; /* #FBEFEF; */
+}
+
+.files-wrapper {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  padding: 0 0 0 30px;
+}
+.files-wrapper input {
+  position: absolute;
+  left: -110px;
+  top: 0;
+  height: 30px;
+  opacity: 0; /*IE<=8:*/ filter: alpha(opacity=0);
+  cursor: pointer;
+}
+.files-wrapper .button {
+  display: block;
+  padding: 5px 10px;
+  font: normal 12px/1.5 Arial, sans-serif;
+  color: #fff;
+  background: #05abe0;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+}
+.files-wrapper .btn-wrapper {
+  float: left;
+  height: 28px;
+}
+.files-wrapper .list-wrapper {
+  float: left;
+  padding: 0 50px 6px 30px;
+}
+.files-wrapper .file {
+  height: 18px;
+  padding: 2px 0 2px 0;
+}
+
+div[select-from-sequence], .select-from-sequence {
+  width: 250px;
+  display: inline-block;
+  margin: 15px 15px 0 15px;
+}
+div[select-from-sequence] + span, .select-from-sequence + span {
+  vertical-align: 2px;
+}
+
+form input[type=text], .select2-choices  {
+	margin: 0 0;
+	padding: 0 5px;
+	border: solid 1px #a8a8a8;
+	height: 25px;
+	font-size: 1.1em;
+  width: 290px;
+	-webkit-box-shadow: inset 0px 3px 3px #f1f1f1;
+     -moz-box-shadow: inset 0px 3px 3px #f1f1f1;
+          box-shadow: inset 0px 3px 3px #f1f1f1;
+	-webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+}
+
+form h1 {
+  font-family: Calibri, Arial, Helvetica, sans-serif;
+	font-size: 2.3em;
+	font-weight: normal; 
+	border-bottom: dotted 1px #d2d1c9; 
+	padding-bottom: 18px;
+	margin-bottom: 13px;
+	color: #2f3490;
+  line-height: 24px;
+}
+header h2 {
+	font-size: 1.6em;
+	font-weight: normal; 
+	padding-top: 0; 
+	margin-top: 0;
+  margin-bottom: 10px;
+}
+form label {
+	display: block;
+	font-size: 1em;
+}
+.formField {
+	margin: 10px 0 15px 0;
+}
+.formField label {
+  margin-bottom: 4px;
+}
+form header {
+  margin-bottom: 20px;
+}
+.btn {
+	width: auto;
+	font-size: 15px;
+	height: 25px;
+	-webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+	-webkit-box-shadow: 1px 1px 1px #f1f1f1;
+     -moz-box-shadow: 1px 1px 1px #f1f1f1;
+          box-shadow: 1px 1px 1px #f1f1f1;
+	color: #fff;
+	border: none;
+	font-weight: normal;
+	line-height: 26px;
+	vertical-align: middle;
+	margin-right: 10px;
+	padding: 0 15px 3px 15px;
+	cursor: pointer;
+	display: inline-block;
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	background-color: #dfded0;
+}
+
+.btn:hover { background-color: #bdbcb0; }
+.btn-primary { background-color: #1e2766; }
+.btn-primary:hover { background-color: #FF1493; }
+.btn[disabled] {
+  background-color: #dfded0;
+  cursor: default;
+  color: #aaaaaa;
+}
+.btn-select-files, .btn-select-files:hover {
+  background-color: whiteSmoke;
+  padding: 0 6px;
+  color: #000;
+  border: 1px solid silver;
+}
+.btn-delete-file {
+  background-color: whiteSmoke;
+  margin: 0 0 0 10px;
+  padding: 0 2px;
+  font-size: 10px;
+  height: 16px;
+  line-height: 10px;
+  color: #000;
+  border: 1px solid silver;
+}
+.btn-delete-file:hover {
+  background-color: #5A6187; 
+  color: #fff;
+}
+
+.fieldChecked {
+	background: url(../../img/tick-green.png) no-repeat top left;
+	display: inline-block;
+	width: 30px;
+	height: 40px;
+	vertical-align: bottom;
+	margin-left: 10px;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}

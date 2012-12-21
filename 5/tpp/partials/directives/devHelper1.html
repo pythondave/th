@@ -1,0 +1,10 @@
+<div ng-switch ng-init="expanded=false" ng-click="expanded=!expanded" on="expanded">
+    <pre ng-switch-when="true">{{user | json}}</pre>
+    <pre ng-switch-default>{{user}}</pre>
+</div>
+<!--
+<div>subject: {{user.subject}}</div>' +
+<div ng-repeat="section in user.sections">section: {{section}}
+    <div ng-repeat="page in section.pages">page: {{page}}</div>
+</div>
+-->
