@@ -19,7 +19,6 @@ body {
 /* pageContainer */
 .pageContainer {
   width: 960px;
-  min-height: 860px;
   position: relative;
   margin: 0 auto;
 }
@@ -27,6 +26,7 @@ body {
 /* children of pageContainer */
 .pageHeader {}
 .contentContainer {
+  overflow: hidden;
   padding: 10px;
   padding-bottom: 32px; /* Height of the footer element */
   width: 920px;

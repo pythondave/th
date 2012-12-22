@@ -172,7 +172,6 @@ angular.module('tpp').
         //*** TODO: consider putting the values here into a data structure
         //getTip
         //1.1
-        //user.xxx.getTip = function() { return 'We\'re here to help! The more you share with us, the greater your chances of finding the best job for you. Once you\'ve completed this section, you can explore jobs worldwide!'; };
         user.roles.getTip = function() { return 'These whiteboard messages will help you create your profile. You can add up to three roles you\'re looking for - but be realistic!'; };
         user.subjects.getTip = function() { return 'Add up to three subjects you would like to teach - but be sure you are qualified to teach them all'; };
         user.subscribe.getTip = function() { return 'We\'ll email you once a week with jobs that match your preferences above'; };
@@ -188,7 +187,7 @@ angular.module('tpp').
         user.hasCurrentJob.getTip = function() { return 'Are you currently employed?'; };
         user.availableFrom.getTip = function() { return 'Enter the earliest date you will be available to start a new job'; };
         //1.4
-        user.cv.getTip = function() { return 'Adding your CV / resume will significantly increase your chances of getting a job with us. Click \'Choose files\' to add your CV / resume.'; };
+        user.cv.getTip = function() { return 'Adding your CV / r&eacute;sum&eacute; will significantly increase your chances of getting a job with us. Click \'Choose files\' to add your CV / r&eacute;sum&eacute;.'; };
         user.photo.getTip = function() { return 'We recommend adding a photo as it gives personality to your profile. Make sure you look professional. Adding a photo is optional.' };
         //2.1
         user.referees[0].type.getTip = function() { return 'Your referees should be managers. At least one should be from a Head / Principal, ideally your current one.  Most teachers should enter \'Teacher (for most teachers)\''; };

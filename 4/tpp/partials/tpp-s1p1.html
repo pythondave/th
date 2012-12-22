@@ -53,9 +53,12 @@
     <button class="btn btn-primary" ng-click="setLocation(1, 2)" ng-disabled="user.getPage(1, 1).getCompletionLevel()==0" ng-mouseenter="mouseenter(btnContinue)" ng-mouseleave="mouseleave(btnContinue)">Continue</button>
     <button class="btn" ng-click="doLater()" ng-mouseenter="mouseenter(btnDoLater)" ng-mouseleave="mouseleave(btnDoLater)">Do Later</button>
   </div>
-  <br/><span class="wip">Tip for the page and the continue button seem to have different uses of the word 'section'?</span>
-  <br/><br/><span class="wip">What if have 3 subjects, not including 'Senior Manager', and then select 'Head of School', say?</span>
-  <br/><br/><span class="wip">Can you delete 'Senior Manager' if 'Head of School', say, is selected?</span>
-  <br/><br/><span class="wip">Can you add 'Senior Manager' if none of the linked roles are selected?</span>
-  <br/><br/><span class="wip">The list of linked roles in the spreadsheet doesn't match the actual options.</span>
+  
+  <div ng-show="user.wip.notes.show">
+    <br/><span class="wip">Tip for the page and the continue button seem to have different uses of the word 'section'?</span>
+    <br/><br/><span class="wip">What if have 3 subjects, not including 'Senior Manager', and then select 'Head of School', say?</span>
+    <br/><br/><span class="wip">Can you delete 'Senior Manager' if 'Head of School', say, is selected?</span>
+    <br/><br/><span class="wip">Can you add 'Senior Manager' if none of the linked roles are selected?</span>
+    <br/><br/><span class="wip">The list of linked roles in the spreadsheet doesn't match the actual options.</span>
+  </div>
 </form>

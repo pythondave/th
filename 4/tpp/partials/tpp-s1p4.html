@@ -1,11 +1,11 @@
 <form novalidate ng-controller="s1p4Controller">
   <header>
     <h1>Essentials</h1>
-    <h2>CV / Resume & photo</h2>
+    <h2>CV / r&eacute;sum&eacute; & photo</h2>
   </header>
   
   <div class="formField">
-    <label>CV / Resume *</label>
+    <label>CV / r&eacute;sum&eacute; *</label>
     <div class="select-files" field="user.cv"></div>
   </div>
   <div class="formField">
@@ -16,7 +16,7 @@
   <div class="formText" ng-show="user.getPage(1, 4).getCompletionLevel()>0">
     <p>Great work! You can now search jobs.</p>
     <p>Once you've completed the next section, hundreds of schools will be able to see your profile!</p>
-    <span class="wip">probably want this to fade in</span>
+    <span class="wip" ng-show="user.wip.notes.show">probably want this to fade in</span>
   </div>
 
   <div class="formButtons">

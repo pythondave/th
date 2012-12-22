@@ -94,6 +94,9 @@ angular.module('tpp', ['ui']).
     };
   }).
   controller('headerController', function($scope) { }).
+  controller('contentContainerController', function($scope, libService) {
+    $scope.getStyle = function() { return { minHeight: libService.window.getHeight()-40 } }; //helps to keep the footer at the bottom
+  }).
   controller('s1p1Controller', function($scope, roleService, subjectService, tipService, libService, $timeout) {
     tipService.setTip('We\'re here to help! The more you share with us, the greater your chances of finding the best job for you. Once you\'ve completed this section, you can explore jobs worldwide!', { instant: true });
     $scope.roles = roleService.roles;

@@ -69,16 +69,23 @@ angular.module('tpp').
           options.increment = options.increment || 5; //number of pixels to move
           options.interval = options.interval || 10; //loop speed in ms
           options.top = options.top || 100; //minumum window position which triggers stop
+          var lastPageYOffset; //needed in case we can't reach the top
           
           var intervalId = setInterval(function() {
               $window.scrollBy(0, options.increment);
-              if ($window.pageYOffset >= options.top) { clearInterval(intervalId); }
+              if ($window.pageYOffset >= options.top || lastPageYOffset === $window.pageYOffset) { clearInterval(intervalId); }
+              lastPageYOffset = $window.pageYOffset;
           }, options.interval);
         };
         
         lib.window.getWidth = function() {
           //returns the width of the browser window
           return $window.innerWidth || $window.document.body.clientWidth;
+        }
+        
+        lib.window.getHeight = function() {
+          //returns the height of the browser window
+          return $window.innerHeight || $window.document.body.clientHeight;
         }
 
         //misc

@@ -20,9 +20,9 @@
     <label>Joint application *</label>
     <div class="select-many-from-few" list="yesNo" field="user.isJointApplication" max-select="1"></div>
   </div>
-  <div class="formField wip" ng-hide="!(user.isJointApplication.val[0] == 1)">
+  <div class="formField" ng-class="user.wip.highlight&&'wip'" ng-hide="!(user.isJointApplication.val[0] == 1)">
     <label>Partner's member number *</label>
-    <input type="text" ng-model="user.partnersMemberNumber.val" on-focus="focus(user.partnersMemberNumber)" on-blur="blur(user.partnersMemberNumber)"  restrict-input="{type: 'digitsOnly'}">
+    <input type="text" ng-model="user.partnersMemberNumber.val" on-focus="focus(user.partnersMemberNumber)" on-blur="blur(user.partnersMemberNumber)" restrict-input="{type: 'digitsOnly'}">
     <span ng-class="user.partnersMemberNumber.getClass()"></span>
   </div>
   <div class="formField">

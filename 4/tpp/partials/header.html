@@ -1,5 +1,33 @@
 <div class="header-main">
   Header...
+  
+  <!-- *** TEMP -->
+  <style>
+    .header-wip { background-color: yellow; margin: 10px 30px 30px 30px; padding: 10px; width: 860px; height: 100px; }
+    .header-wip h2 { font-size: 16px; font-weight: bold; margin-bottom: 10px; }
+    .header-wip div { float: left; width: 220px; }
+    .header-wip h3 { font-size: 14px; font-weight: bold; }
+    .header-wip label { display: block; margin: 5px; }
+  </style>
+  <div class="header-wip">
+    <h2>WIP Options</h2>
+    <div>
+      <h3>WIP notes/highlights</h3>
+      <label><input type="checkbox" ng-model="user.wip.notes.show"> Show WIP notes</label>
+      <label><input type="checkbox" ng-model="user.wip.highlight"> Highhight WIP</label>
+    </div>
+    <div>
+      <h3>Reset</h3>
+      <label><input type="checkbox" ng-model="user.wip.reset.show"> Show reset link</label>
+    </div>
+    <div>
+      <h3>JSON</h3>
+      <label><input type="checkbox" ng-model="user.wip.json.show"> Show JSON</label>
+      <label><input type="checkbox" ng-model="user.wip.json.expanded"> Expanded</label>
+    </div>
+  </div>
+  <!-- /TEMP -->
+  
 </div>
 <div class="header-s1p1" ng-show="user.currentLocation.sectionId == 1 && user.currentLocation.pageId == 1">
   <!--intro header-->

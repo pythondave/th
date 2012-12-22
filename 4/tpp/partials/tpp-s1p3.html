@@ -16,7 +16,7 @@
     <label>Education levels completed *</label>
     <div class="select-many-from-few" field="user.educationLevels" list="educationLevels"></div>
   </div>
-  <div class="formField wip">
+  <div class="formField" ng-class="user.wip.highlight&&'wip'">
     <label>Availability</label>
     <div id="holder">
       <div>
@@ -48,7 +48,7 @@
       Currently in a job?
     </label>
   </div>
-  <div class="formField wip">
+  <div class="formField" ng-class="user.wip.highlight&&'wip'">
     <label>Available from</label>
     <input ui-date="{ dateFormat: 'D d M yy' }" ng-model="user.availableFrom" />
   </div>

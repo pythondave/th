@@ -5,7 +5,7 @@
   </header>
   
   <div class="formField" ng-mouseenter="mouseenter(user.numberOfYearsTeachingExperience)" ng-mouseleave="mouseleave(user.numberOfYearsTeachingExperience)">
-    <label>Number of years' teaching experience: 0-40</label>
+    <label>Number of years of teaching experience: 0-40</label>
     <div select-from-sequence="{ min: 0, max: 40, range: 'min', tip: '' }" ng-model="user.numberOfYearsTeachingExperience.val"></div>
     <span>{{user.numberOfYearsTeachingExperience.val}}</span>
   </div>
@@ -34,11 +34,11 @@
     <label>{{getEmployerPrefix()}} subject(s) *</label>
     <div class="select-from-many select2width400px" multiple list="subjects" field="user.currentSubjects" max-select="3" placeholder="Select one or more subjects..."></div>
   </div>
-  <div class="formField wip">
+  <div class="formField" ng-class="user.wip.highlight&&'wip'">
     <label>Start date with {{getEmployerPrefix() | lowercase}} employer *</label>
     <input ui-date="{ dateFormat: 'D d M yy' }" ng-model="user.currentStartDate.val" />
   </div>
-  <div class="formField wip" ng-show="!user.hasCurrentJob.val">
+  <div class="formField" ng-class="user.wip.highlight&&'wip'" ng-show="!user.hasCurrentJob.val">
     <label>End date with {{getEmployerPrefix() | lowercase}} employer *</label>
     <input ui-date="{ dateFormat: 'D d M yy' }" ng-model="user.currentEndDate.val" />
   </div>

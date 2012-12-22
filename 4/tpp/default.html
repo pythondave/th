@@ -28,24 +28,28 @@
 <body ng-app="tpp">
   <div class="pageContainer">
     <header class="pageHeader" ng-controller="headerController" ng-include="'partials/header.html'"></header>
-    <div class="contentContainer" ui-scrollfix="{{getScrollFix()}}">
+    <div class="contentContainer" ng-controller="contentContainerController" ui-scrollfix="{{getScrollFix()}}" ng-style="getStyle()">
       <section class="mainSection" ng-view></section>
       <aside class="pageAside" ng-controller="pageAsideController" ng-style="getStyle()">
         <section id="tipsSection" ng-controller="tipsController" ng-include="'partials/tpp-tips.html'"></section>
         <section id="summarySection" ng-controller="summaryController" ng-include="'partials/tpp-summary.html'"></section>
       </aside>
     </div>
-    <footer class="pageFooter">
-      <!-- *** TEMP -->
-      <div style="padding: 5px; width: 200px; display: none;" ng-controller="devController">
-        <!--<button class="btn btn-mini btn-danger" type="button" ng-click="resetUser()">Reset User</button>-->
-        <button class="btn btn-mini btn-danger" type="button" ng-click="deleteUser()">Delete User</button>
-        <label>
-          <input type="checkbox" ng-model="user.dev" > Show Dev
-        </label>
+    
+    <!-- *** TEMP -->
+    <div ng-cloak ng-show="user.wip.json.show || user.wip.reset.show" style="margin: -60px 0 0 0; clear: both; width: 600px;">
+      <div ng-show="user.wip.reset.show" style="background-color: cornsilk; border-style: outset; padding: 10px; margin: 10px;">
+        <a href="dev.html">Reset page</a> (use this page to reset the locally stored user data)
       </div>
-      <!-- /TEMP -->
-      
+      <div ng-show="user.wip.json.show" style="background-color: cornsilk; border-style: outset; padding: 10px; margin: 10px;">
+        <pre ng-show="user.wip.json.expanded">{{user | json}}</pre>
+        <div ng-hide="user.wip.json.expanded">{{user}}</div>
+      </div>
+      <br/><br/>
+    </div>
+    <!-- /TEMP -->
+
+    <footer class="pageFooter" ng-cloak>
       <p>Teacherhorizons is a free online directory where international schools and teachers can promote themselves,
          create networks and share information.</p>
       <span class="footer">© Copyright TeacherHorizons 2010.
