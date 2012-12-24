@@ -23,7 +23,7 @@
     <div>
       <h3>JSON</h3>
       <label><input type="checkbox" ng-model="user.wip.json.show"> Show JSON</label>
-      <label><input type="checkbox" ng-model="user.wip.json.expanded"> Expanded</label>
+      <label ng-show="user.wip.json.show"><input type="checkbox" ng-model="user.wip.json.expanded"> Expanded</label>
     </div>
   </div>
   <!-- /TEMP -->

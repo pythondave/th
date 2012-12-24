@@ -22,6 +22,7 @@ angular.module('tpp').
     var Page = function(options) { //page constructor
       this.id = options.id;
       this.name = options.name;
+      this.isPage = function(sectionId, pageId) { return (sectionId === this.sectionId && pageId === this.id); };
     };
     sectionsService.Section = Section;
     sectionsService.Page = Page;

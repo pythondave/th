@@ -138,34 +138,37 @@ angular.module('tpp').
         sectionsService.Page.prototype.getIsCurrent = function() {
           return (this.sectionId * 100 + this.id === user.currentLocation.sectionId * 100 + user.currentLocation.pageId);
         };
-        sectionsService.Page.prototype.getCompletionLevel = function() { //override this at the page level if this generic function doesn't fit
-          if (libService.arr.all(this.fields, function(field) { return field.getIsSufficient(); } )) return 2; //if all fields are sufficient
-          if (libService.arr.any(this.fields, function(field) { return field.getIsSufficient(); } )) return 1; //if any field is sufficient
-          return 0; //no fields are sufficient
-        };
-        sectionsService.Page.prototype.getPercentageComplete = function() {
-          //console.log('getPercentageComplete', this.sectionId, this.id, this.getCompletionLevel())
-          var x = (this.sectionId === 1 && this.id === 1 ? 10 : 5)
-          return (this.getCompletionLevel() > 0 ? x : 0);
-        };
+        //required fields
         user.getPage(0, 1).fields = [];
         user.getPage(0, 2).fields = [];
         user.getPage(1, 1).fields = [user.roles, user.subjects];
         user.getPage(1, 2).fields = [user.countryCode, user.phoneNumber, user.skype];
         user.getPage(1, 3).fields = [user.nationality, user.teachingQualificationCountry, user.educationLevels];
-        user.getPage(1, 4).fields = [user.cv, user.photo];
-        user.getPage(2, 1).fields = [user.referees[0].name, user.referees[0].email, user.referees[0].institution, user.referees[0].phoneNumber];
-        user.getPage(2, 2).fields = [user.referees[1].name, user.referees[1].email, user.referees[1].institution, user.referees[1].phoneNumber];
-        user.getPage(2, 3).fields = [user.referees[2].name, user.referees[2].email, user.referees[2].institution, user.referees[2].phoneNumber];
-        user.getPage(2, 4).fields = [user.locationsConsidered, user.curriculaOfInterest, user.ageLevels,
-                                     user.numberOfDependentChildren, user.birthYear, user.maritalStatus,
-                                     user.isJointApplication, user.partnersMemberNumber];
+        user.getPage(1, 4).fields = [user.cv];
+        user.getPage(2, 1).fields = [user.referees[0].type, user.referees[0].name, user.referees[0].email, user.referees[0].institution, user.referees[0].position];
+        user.getPage(2, 2).fields = [user.referees[1].type, user.referees[1].name, user.referees[1].email, user.referees[1].institution, user.referees[1].position];
+        user.getPage(2, 3).fields = [user.referees[2].type, user.referees[2].name, user.referees[2].email, user.referees[2].institution, user.referees[2].position];
+        user.getPage(2, 4).fields = [user.locationsConsidered, user.curriculaOfInterest, user.ageLevels, user.isJointApplication, user.partnersMemberNumber];
         user.getPage(2, 5).fields = [user.reducedChildFees, user.saveMoneyAbility, user.accommodationProvided, user.healthInsuranceProvided, user.ppdProvided];
         user.getPage(2, 6).fields = [user.numberOfYearsTeachingExperience, user.internationalSchoolExperience, user.currentEmployer, user.currentCountry, user.currentRoles, user.currentSubjects];
         user.getPage(3, 1).fields = [user.computerSkills, user.teachingSkills, user.languages];
         user.getPage(3, 2).fields = [user.teachingCertificates, user.degreeCertificates, user.policeClearanceCertificate,
                                      user.performanceReviewOrRecommendation, user.teachingPhilosophyStatement, user.videos];
         //
+        sectionsService.Page.prototype.getPercentageComplete = function() {
+          var percentage = (this.isPage(1, 1) ? 10 : 5);
+          return (this.getCompletionLevel() > 0 ? percentage : 0);
+        };
+        //page getCompletionLevel
+        sectionsService.Page.prototype.getCompletionLevel = function() { //override this at the page level if this generic function doesn't fit
+          if (libService.arr.all(this.fields, function(field) { return field.getIsSufficient(); } )) return 2; //if all fields are sufficient
+          if (libService.arr.any(this.fields, function(field) { return field.getIsSufficient(); } )) return 1; //if any field is sufficient
+          return 0; //no fields are sufficient
+        };
+        sectionsService.getPage(3, 2).getCompletionLevel = function() { //override
+          if (libService.arr.any(this.fields, function(field) { return field.getIsSufficient(); } )) return 2;
+          return 0; //no fields are sufficient
+        };
       };
       
       var addFieldDecorators = function() {
@@ -267,18 +270,21 @@ angular.module('tpp').
         user.cv.getIsSufficient = function() { return user.cv.val.length > 0; };
         user.photo.getIsSufficient = function() { return user.photo.val.length > 0; };
         //2.1
+        user.referees[0].type.getIsSufficient = function() { return user.referees[0].type.val.length > 0; };
         user.referees[0].name.getIsSufficient = function() { return user.referees[0].name.val.length >= 5; };
         user.referees[0].email.getIsSufficient = function() { return libService.misc.isProbablyValidEmail(user.referees[0].email.val) };
         user.referees[0].institution.getIsSufficient = function() { return user.referees[0].institution.val.length >= 3; };
         user.referees[0].position.getIsSufficient = function() { return user.referees[0].position.val.length > 0; };
         user.referees[0].phoneNumber.getIsSufficient = function() { return user.referees[0].phoneNumber.val.length >= 3; };
         //2.2
+        user.referees[1].type.getIsSufficient = function() { return user.referees[1].type.val.length > 0; };
         user.referees[1].name.getIsSufficient = function() { return user.referees[1].name.val.length >= 5; };
         user.referees[1].email.getIsSufficient = function() { return libService.misc.isProbablyValidEmail(user.referees[1].email.val) };
         user.referees[1].institution.getIsSufficient = function() { return user.referees[1].institution.val.length >= 3; };
         user.referees[1].position.getIsSufficient = function() { return user.referees[1].position.val.length > 0; };
         user.referees[1].phoneNumber.getIsSufficient = function() { return user.referees[1].phoneNumber.val.length >= 3; };
         //2.3
+        user.referees[2].type.getIsSufficient = function() { return user.referees[2].type.val.length > 0; };
         user.referees[2].name.getIsSufficient = function() { return user.referees[2].name.val.length >= 5; };
         user.referees[2].email.getIsSufficient = function() { return libService.misc.isProbablyValidEmail(user.referees[2].email.val) };
         user.referees[2].institution.getIsSufficient = function() { return user.referees[2].institution.val.length >= 3; };
@@ -292,7 +298,9 @@ angular.module('tpp').
         user.birthYear.getIsSufficient = function() { return user.birthYear.val.length > 0; };
         user.maritalStatus.getIsSufficient = function() { return user.maritalStatus.val.length > 0; };
         user.isJointApplication.getIsSufficient = function() { return user.isJointApplication.val.length > 0; };
-        user.partnersMemberNumber.getIsSufficient = function() { return user.partnersMemberNumber.val.length >= 6; };                                     
+        user.partnersMemberNumber.getIsSufficient = function() {
+          return user.isJointApplication.val[0] !== 1 || user.partnersMemberNumber.val.length >= 6;
+        };
         //2.5
         user.reducedChildFees.getIsSufficient = function() { return user.reducedChildFees.val.length > 0; };
         user.saveMoneyAbility.getIsSufficient = function() { return user.saveMoneyAbility.val.length > 0; };

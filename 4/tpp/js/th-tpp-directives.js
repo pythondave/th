@@ -21,11 +21,25 @@ angular.module('tpp').
       }
     };    
   }).
-  directive('devHelper1', function() {
+  directive('doLater', function() {
+    //*** WIP - create a popup
     return {
-      restrict: 'EAC',
+      restrict: 'C',
+      replace: true,
+      template: '<button class="btn" ng-click="navigateTo(0, 0)" tip="Go to the home page - you can come back to this later :)">Do Later</button>',
+      link: function($scope, element, attr, ctrl) {
+      }
+    }
+  }).
+  directive('tip', function() {
+    return {
+      restrict: 'A',
       replace: false,
-      templateUrl: 'partials/directives/devHelper1.html'
+      link: function($scope, element, attr, ctrl) {
+        var tipObject = { getTip: function() { return attr.tip; } };
+        element.bind('mouseenter', function() { $scope.mouseenter(tipObject); });
+        element.bind('mouseleave', function() { $scope.mouseleave(tipObject); });
+      }
     }
   }).
   directive('textInput', function() {

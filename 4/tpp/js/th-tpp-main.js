@@ -49,6 +49,7 @@ angular.module('tpp', ['ui']).
     //navigation    
     $rootScope.navigateTo = function(sectionId, pageId) {
       if (sectionId === 0) {
+        if (pageId === 0) { $window.location = 'http://www.teacherhorizons.com'; }
         if (pageId === 1) { $window.location = '../profile/profile_1.html'; }
         if (pageId === 2) { $window.location = '../settings/settings.html'; }
       }
@@ -59,19 +60,6 @@ angular.module('tpp', ['ui']).
       if (userService.setLocation(sectionId, pageId, allowBeyondFurthestLocation)) {
         $location.path('/' + sectionId + '/' + pageId);
       };
-    };
-    
-    $rootScope.doLater = function() {
-      $window.location = 'http://www.teacherhorizons.com'
-    };
-    
-    $rootScope.btnContinue = { getTip: function() {
-      if ($rootScope.user.currentLocation.isPage(1, 1)) return 'Great start, on to the next section!'
-      return 'Continue to the next page...'; }
-    };
-    
-    $rootScope.btnDoLater = { getTip: function() {
-      return 'Go to the home page - you can come back to this later :)'; }
     };
     
     //saving
