@@ -23,7 +23,6 @@
 angular.module('tpp', []).
   controller('devController', function($scope, $location, localStorageService) {
     $scope.reset = function() {
-      console.log(1);
       localStorageService.removeAllItems()
       window.location.href = 'default.html#1/1';
     };
