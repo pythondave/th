@@ -91,3 +91,13 @@ section, header, footer, article {
           transition: all 1000ms cubic-bezier(0.420, 0.000, 0.580, 1.000);
 }
 
+/* invisibility (for show/hide transitions) */
+.notVisible {
+  opacity: 0 !important; /*IE<=8:*/ filter: alpha(opacity=0) !important;
+  height: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  overflow: hidden;
+}

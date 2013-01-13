@@ -25,15 +25,15 @@
   <link rel="stylesheet" href="css/existing-rehashed/wip.css">
 
 </head>
-<body ng-app="tpp">
+<body class="ng-app:tpp" ng-app="tpp">
   <div class="pageContainer">
-    <header class="pageHeader" ng-controller="headerController" ng-include="'partials/header.html'"></header>
+    <div class="pageHeader" ng-controller="headerController" ng-include="'partials/header.html'"></div>
     <div class="contentContainer" ng-controller="contentContainerController" ui-scrollfix="{{getScrollFix()}}" ng-style="getStyle()">
-      <section class="mainSection" ng-view></section>
-      <aside class="pageAside" ng-controller="pageAsideController" ng-style="getStyle()">
-        <section id="tipsSection" ng-controller="tipsController" ng-include="'partials/tpp-tips.html'"></section>
-        <section id="summarySection" ng-controller="summaryController" ng-include="'partials/tpp-summary.html'"></section>
-      </aside>
+      <div class="mainSection" ng-view></div>
+      <div class="pageAside" ng-controller="pageAsideController" ng-style="getStyle()">
+        <div id="tipsSection" ng-controller="tipsController" ng-include="'partials/tpp-tips.html'"></div>
+        <div id="summarySection" ng-controller="summaryController" ng-include="'partials/tpp-summary.html'"></div>
+      </div>
     </div>
     
     <!-- *** TEMP -->
@@ -48,7 +48,7 @@
       <br/><br/>
     </div>
     <!-- /TEMP -->
-
+    
     <footer class="pageFooter" ng-cloak>
       <p>Teacherhorizons is a free online directory where international schools and teachers can promote themselves,
          create networks and share information.</p>
@@ -59,7 +59,7 @@
   </div>
   
   <!--library scripts-->
-  <script src="lib/jquery/jquery-1.8.2.min.js"></script> <!-- WIP -->
+  <script src="lib/jquery/jquery-1.8.3.js"></script> <!-- WIP -->
   <!--<script src="lib/twitter/bootstrap/js/bootstrap.min.js"></script>-->
   <script src="lib/jquery-ui-1.9.1.custom/js/jquery-ui-1.9.1.custom.js"></script> <!-- WIP -->
   <script src="lib/select2/select2.js"></script>

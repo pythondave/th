@@ -25,14 +25,6 @@
   overflow: hidden;
   opacity: 1;
 }
-.sectionInner-notVisible {
-  opacity: 0; /*IE<=8:*/ filter: alpha(opacity=0);
-  height: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-}
 
 /* section buttons */
 .section a.button:hover {

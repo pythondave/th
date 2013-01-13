@@ -8,13 +8,11 @@
     .btn { margin: 10px; }
   </style>
 </head>
-<body ng-app="tpp">
-  <section ng-controller="devController">
-    <div>
-      <p>Use this page to reset the locally stored user data (in case it's got into a bad state during development)</p>
-      <button class="btn btn-danger" type="button" ng-click="reset()">Reset</button>
-    </div>
-  </section>
+<body class="ng-app:tpp" ng-app="tpp" ng-controller="devController">
+  <div>
+    <p>Use this page to reset the locally stored user data (in case it's got into a bad state during development)</p>
+    <input type="button" class="btn btn-danger" ng-click="reset()" value="Reset"></input>
+  </div>
   
   <!-- scripts -->
   <script src="lib/angular/angular.js"></script>
@@ -23,6 +21,7 @@
 angular.module('tpp', []).
   controller('devController', function($scope, $location, localStorageService) {
     $scope.reset = function() {
+      console.log(1);
       localStorageService.removeAllItems()
       window.location.href = 'default.html#1/1';
     };

@@ -26,7 +26,7 @@ angular.module('tpp').
     return {
       restrict: 'C',
       replace: true,
-      template: '<button class="btn" ng-click="navigateTo(0, 0)" tip="Go to the home page - you can come back to this later :)">Do Later</button>',
+      template: '<span><input type="button" class="btn" ng-click="navigateTo(0, 0)" tip="Go to the home page - you can come back to this later :)" value="Do Later"></input></span>',
       link: function($scope, element, attr, ctrl) {
       }
     }

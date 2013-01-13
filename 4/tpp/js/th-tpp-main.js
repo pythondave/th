@@ -1,5 +1,18 @@
 //main module and controllers
 
+// *** IE8WIP - Shim: Add ECMA262-5 Array methods if not supported natively *** TODO: move this to somewhere better
+if (!('indexOf' in Array.prototype)) {
+    Array.prototype.indexOf = function(find, i /*opt*/) {
+        if (i===undefined) i= 0;
+        if (i<0) i+= this.length;
+        if (i<0) i= 0;
+        for (var n= this.length; i<n; i++)
+            if (i in this && this[i]===find)
+                return i;
+        return -1;
+    };
+}
+
 angular.module('tpp', ['ui']).
   config(function($routeProvider, $locationProvider) {
     var routeController = function($scope, $routeParams, userService, tipService) {
@@ -78,12 +91,13 @@ angular.module('tpp', ['ui']).
       $rootScope.windowWidth = newValue;
     });
     $window.onresize = function() {
-      $rootScope.$apply();
+      //$rootScope.$apply(); //*** IE8WIP *** TODO: add this back once can get to play nicely with IE8
     };
   }).
   controller('headerController', function($scope) { }).
   controller('contentContainerController', function($scope, libService) {
-    $scope.getStyle = function() { return { minHeight: libService.window.getHeight()-40 } }; //helps to keep the footer at the bottom
+    $scope.getStyle = function() { return { minHeight: 700-40 } }; //helps to keep the footer at the bottom
+    //$scope.getStyle = function() { return { minHeight: libService.window.getHeight()-40 } }; //helps to keep the footer at the bottom //*** IE8WIP *** TODO: add this back once can get to play nicely with IE8
   }).
   controller('s1p1Controller', function($scope, roleService, subjectService, tipService, libService, $timeout) {
     tipService.setTip('We\'re here to help! The more you share with us, the greater your chances of finding the best job for you. Once you\'ve completed this section, you can explore jobs worldwide!', { instant: true });
@@ -116,7 +130,12 @@ angular.module('tpp', ['ui']).
     $scope.countriesSelect2FormatFunction = countryService.countriesSelect2FormatFunction;
     $scope.educationLevels = educationLevelService.educationLevels;
   }).
-  controller('s1p4Controller', function($scope) { }).
+  controller('s1p4Controller', function($scope) {
+    $scope.showMessage = function() { return $scope.user.getPage(1, 4).getCompletionLevel()>0 };
+    $scope.getClass = function() {
+      return ( $scope.user.getPage(1, 4).getCompletionLevel()>0 ? 'isVisibleTemp' : 'notVisible' );
+    };
+  }).
   controller('s2p1-3Controller', function($scope, referenceTypeService, refereePositionService, countryService) {
     $scope.referenceTypes = referenceTypeService.referenceTypes;
     $scope.refereePositions = refereePositionService.refereePositions;
@@ -200,7 +219,7 @@ angular.module('tpp', ['ui']).
           s = 'sectionTitle';
         } else if (typeId == 3) { //sectionInner
           s = 'sectionInner ease-in-out-500';
-          s += (section.id === $scope.user.visibleSectionId ? ' sectionInner-isVisible' : ' sectionInner-notVisible');
+          s += (section.id === $scope.user.visibleSectionId ? ' sectionInner-isVisible' : ' notVisible');
         };
       } else if (category == 'page') {
         page = section.pages[pageId-1];
@@ -214,16 +233,5 @@ angular.module('tpp', ['ui']).
       };
       
       return s;
-    };
-  }).
-  controller('devController', function($scope, userService) {
-    $scope.resetUser = function() {
-      userService.resetUser();
-      $location.path('');
-    };
-    
-    $scope.deleteUser = function() {
-      userService.deleteUser();
-      window.location.href = 'default.html';
     };
   });
