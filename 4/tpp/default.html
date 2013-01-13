@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta http-equiv="x-ua-compatible" content="IE=8">
+  
   <link rel="shortcut icon" href="img/favicon.ico">
   
   <!--library css-->
@@ -27,6 +29,7 @@
 </head>
 <body class="ng-app:tpp" ng-app="tpp">
   <div class="pageContainer">
+    <!-- IE8WIP - check css files don't reference HTML5 tags: header, footer, section etc. -->
     <div class="pageHeader" ng-controller="headerController" ng-include="'partials/header.html'"></div>
     <div class="contentContainer" ng-controller="contentContainerController" ui-scrollfix="{{getScrollFix()}}" ng-style="getStyle()">
       <div class="mainSection" ng-view></div>
