@@ -1,8 +1,8 @@
 <form novalidate ng-controller="s1p4Controller">
-  <header>
+  <div>
     <h1>Essentials</h1>
     <h2>CV / r&eacute;sum&eacute; & photo</h2>
-  </header>
+  </div>
   
   <div class="formField">
     <label>CV / r&eacute;sum&eacute; *</label>
@@ -13,7 +13,7 @@
     <div class="select-files" field="user.photo"></div>
   </div>
   <!--final section text: appears when section completion level > 0-->
-  <div class="formText ease-in-out-1000" ng-class="{ notVisible: !showMessage() }" ng-style="{ height: showMessage()&&'80px' }">
+  <div class="formText ease-in-out-1000" ng-class="{ hideVertically: !showMessage() }" ng-style="{ height: showMessage()&&'80px' }">
     <p>Great work! You can now search jobs.</p>
     <p>Once you've completed the next section, hundreds of schools will be able to see your profile!</p>
   </div>

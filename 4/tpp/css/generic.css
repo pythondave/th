@@ -91,13 +91,23 @@ section, header, footer, article {
           transition: all 1000ms cubic-bezier(0.420, 0.000, 0.580, 1.000);
 }
 
-/* invisibility (for show/hide transitions) */
-.notVisible {
+/* hidden elements */
+.hideVertically { /* Example usage: Show/hide transitions */
   opacity: 0 !important; /*IE<=8:*/ filter: alpha(opacity=0) !important;
   height: 0 !important;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
+  overflow: hidden;
+}
+
+.hideHorizontally { /* Example usage: Hidden radio buttons or checkboxes (see http://stackoverflow.com/questions/1252690/ie-hidden-radio-button-not-checked-when-the-corresponding-label-is-clicked) */
+  opacity: 0 !important; /*IE<=8:*/ filter: alpha(opacity=0) !important;
+  width: 0  !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
   overflow: hidden;
 }

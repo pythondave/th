@@ -29,7 +29,6 @@
 </head>
 <body class="ng-app:tpp" ng-app="tpp">
   <div class="pageContainer">
-    <!-- IE8WIP - check css files don't reference HTML5 tags: header, footer, section etc. -->
     <div class="pageHeader" ng-controller="headerController" ng-include="'partials/header.html'"></div>
     <div class="contentContainer" ng-controller="contentContainerController" ui-scrollfix="{{getScrollFix()}}" ng-style="getStyle()">
       <div class="mainSection" ng-view></div>
@@ -40,7 +39,7 @@
     </div>
     
     <!-- *** TEMP -->
-    <div ng-cloak ng-show="user.wip.json.show || user.wip.reset.show" style="margin: -60px 0 0 0; clear: both; width: 600px;">
+    <div ng-show="user.wip.json.show || user.wip.reset.show" style="margin: -60px 0 0 0; clear: both; width: 600px;">
       <div ng-show="user.wip.reset.show" style="background-color: cornsilk; border-style: outset; padding: 10px; margin: 10px;">
         <a href="dev.html">Reset page</a> (use this page to reset the locally stored user data)
       </div>
@@ -52,13 +51,13 @@
     </div>
     <!-- /TEMP -->
     
-    <footer class="pageFooter" ng-cloak>
+    <div class="pageFooter">
       <p>Teacherhorizons is a free online directory where international schools and teachers can promote themselves,
          create networks and share information.</p>
       <span class="footer">© Copyright TeacherHorizons 2010.
         <a href="http://www.teacherhorizons.com/disclaimer">Terms &amp; Conditions</a>
       </span>
-    </footer>
+    </div>
   </div>
   
   <!--library scripts-->

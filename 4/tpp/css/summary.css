@@ -104,6 +104,7 @@
 .section1 .button:hover, .section1.section-isCurrent .button { background-color: #2f3490; }
 .section1 .pageTitle:hover, .section1 .page-isCurrent { color: #2f3490; }
 .section1 .page-completionLevel2 { background-image: url(http://beta.teacherhorizons.com/static/prototypes/design/registration/static/images/li_checked_navy.png); }
+  /* *** WIP -> move images */
 
 /* section 2 */
 .section2 .sectionInner-isVisible { height: 142px; }

@@ -39,7 +39,7 @@ angular.module('tpp').
       educationLevels: { val: [] },
       availability: { val: '' },
       hasCurrentJob: { val: true },
-      availableFrom: {},
+      availableFrom: { },
       //1.4
       cv: { val: [] },
       photo: { val: [] },
@@ -72,8 +72,8 @@ angular.module('tpp').
       currentCountry: { val: '' },
       currentRoles: { val: [] },
       currentSubjects: { val: [] },
-      currentStartDate: { val: '' },
-      currentEndDate: { val: '' },
+      currentStartDate: { },
+      currentEndDate: { },
       //3.1
       computerSkills: { val: [] },
       teachingSkills: { val: [] },
@@ -87,7 +87,6 @@ angular.module('tpp').
       videos: { val: [] }
     };
     
-    //isStored = false; //set this to override reset
     if (!isStored) { //if not stored, initialise stripped
       _user = initialUserValue;
     };
@@ -390,9 +389,31 @@ angular.module('tpp').
       addMiscDecorators();
     };
     addDecorators(_user);
+
+    // Date Fields *** TODO: refactor and document a little more - needed because JSON stores strings rather than date objects, and done this way to avoid JavaScript date madness
+    var setDateFieldVal = function(dateField) { //use when extracting
+      if (!dateField.y) return;
+      dateField.val = new Date(dateField.y, dateField.m-1, dateField.d);
+    };
+    var setDateFieldNumericValues = function(dateField) { //use when saving
+      if (!dateField.val) return;
+      if (typeof dateField.val != 'object') return;
+      dateField.y = dateField.val.getFullYear();
+      dateField.m = dateField.val.getMonth()+1;
+      dateField.d = dateField.val.getDate();
+    };
+    setDateFieldVal(_user.availableFrom);
+    setDateFieldVal(_user.currentStartDate);
+    setDateFieldVal(_user.currentEndDate);
+    //
+
     userService.user = _user;
 
     userService.save = function() {
+      setDateFieldNumericValues(_user.availableFrom);
+      setDateFieldNumericValues(_user.currentStartDate);
+      setDateFieldNumericValues(_user.currentEndDate);
+      
       var stripped = angular.copy(_user);
       delete stripped.sections;
       localStorageService.setItem('user', stripped);

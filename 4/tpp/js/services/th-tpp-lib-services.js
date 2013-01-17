@@ -62,8 +62,12 @@ angular.module('tpp').
         
         //window functions
         lib.window = {};
+
+        lib.window.getPageYOffset = function(options) { //browser workaround
+          return $window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+        }
         
-        lib.window.scroll = function(options) {
+        lib.window.smoothScroll = function(options) {
           //animates the scrolling of the browser window
           options = options || {};
           options.increment = options.increment || 5; //number of pixels to move
@@ -72,9 +76,12 @@ angular.module('tpp').
           var lastPageYOffset; //needed in case we can't reach the top
           
           var intervalId = setInterval(function() {
-              $window.scrollBy(0, options.increment);
-              if ($window.pageYOffset >= options.top || lastPageYOffset === $window.pageYOffset) { clearInterval(intervalId); }
-              lastPageYOffset = $window.pageYOffset;
+            $window.scrollBy(0, options.increment);
+            var pageYOffset = lib.window.getPageYOffset();
+            if (pageYOffset >= options.top || lastPageYOffset === pageYOffset) { //at or past the top or hasn't moved
+              clearInterval(intervalId);
+            }
+            lastPageYOffset = lib.window.getPageYOffset();
           }, options.interval);
         };
         
@@ -85,7 +92,7 @@ angular.module('tpp').
         
         lib.window.getHeight = function() {
           //returns the height of the browser window
-          return $window.innerHeight || $window.document.body.clientHeight;
+          return $window.innerHeight || jQuery(window).height() || $window.document.body.clientHeight; //*** TODO: remove the jQuery dependency
         }
 
         //misc

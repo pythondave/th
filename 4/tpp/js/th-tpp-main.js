@@ -11,7 +11,7 @@ if (!('indexOf' in Array.prototype)) {
                 return i;
         return -1;
     };
-}
+} 
 
 angular.module('tpp', ['ui']).
   config(function($routeProvider, $locationProvider) {
@@ -83,7 +83,7 @@ angular.module('tpp', ['ui']).
     //page change event
     $rootScope.$on('$viewContentLoaded', function () {
       tipService.reset();
-      libService.window.scroll({ top: 192, increment: 3, interval: 5 }); //scroll
+      libService.window.smoothScroll({ top: 192, increment: 3, interval: 5 }); //scroll
     });
     
     //window resizing
@@ -91,13 +91,14 @@ angular.module('tpp', ['ui']).
       $rootScope.windowWidth = newValue;
     });
     $window.onresize = function() {
-      //$rootScope.$apply(); //*** IE8WIP *** TODO: add this back once can get to play nicely with IE8
+      if (!$rootScope.$$phase) { $rootScope.$apply(); }
     };
   }).
   controller('headerController', function($scope) { }).
   controller('contentContainerController', function($scope, libService) {
-    $scope.getStyle = function() { return { minHeight: 700-40 } }; //helps to keep the footer at the bottom
-    //$scope.getStyle = function() { return { minHeight: libService.window.getHeight()-40 } }; //helps to keep the footer at the bottom //*** IE8WIP *** TODO: add this back once can get to play nicely with IE8
+    $scope.getStyle = function() {
+      return { minHeight: libService.window.getHeight()-40 }
+    }; //helps to keep the footer at the bottom
   }).
   controller('s1p1Controller', function($scope, roleService, subjectService, tipService, libService, $timeout) {
     tipService.setTip('We\'re here to help! The more you share with us, the greater your chances of finding the best job for you. Once you\'ve completed this section, you can explore jobs worldwide!', { instant: true });
@@ -133,7 +134,7 @@ angular.module('tpp', ['ui']).
   controller('s1p4Controller', function($scope) {
     $scope.showMessage = function() { return $scope.user.getPage(1, 4).getCompletionLevel()>0 };
     $scope.getClass = function() {
-      return ( $scope.user.getPage(1, 4).getCompletionLevel()>0 ? 'isVisibleTemp' : 'notVisible' );
+      return ( $scope.user.getPage(1, 4).getCompletionLevel()>0 ? 'isVisibleTemp' : 'hideVertically' );
     };
   }).
   controller('s2p1-3Controller', function($scope, referenceTypeService, refereePositionService, countryService) {
@@ -219,7 +220,7 @@ angular.module('tpp', ['ui']).
           s = 'sectionTitle';
         } else if (typeId == 3) { //sectionInner
           s = 'sectionInner ease-in-out-500';
-          s += (section.id === $scope.user.visibleSectionId ? ' sectionInner-isVisible' : ' notVisible');
+          s += (section.id === $scope.user.visibleSectionId ? ' sectionInner-isVisible' : ' hideVertically');
         };
       } else if (category == 'page') {
         page = section.pages[pageId-1];
