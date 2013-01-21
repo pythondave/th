@@ -16,30 +16,21 @@
     <label>Education levels completed *</label>
     <div class="select-many-from-few" field="user.educationLevels" list="educationLevels"></div>
   </div>
-  <div class="formField" ng-class="user.wip.highlight&&'wip'">
+  <div class="formField" ng-mouseenter="mouseenter(user.availability)" ng-mouseleave="mouseleave(user.availability)">
     <label>Availability</label>
-    <div id="holder">
-      <div>
-        <div>
-          <input type="radio" name="availability" checked />
-          <span>Available immediately</span>
-          Display my name and contact private
-        </div>
-        <div class="imgRadio openToSuggestion">
-          <div class="trafficLightBox">
-            <input type="radio" id="amber" name="availability" class="regular-radio" /><label for="amber"></label>
-          </div>
-          <span>Open to suggestion</span>
-          Keep my name and contact private
-        </div>
-        <div class="imgRadio notAvailable">
-          <div class="trafficLightBox">
-            <input type="radio" id="red" name="availability" class="regular-radio" /><label for="red"></label>
-          </div>
-          <span>Not available</span>
-          Do not contact me for now.
-        </div>
-      </div>
+    <div class="trafficLights">
+      <label>
+        <input type="radio" name="availability" ng-model="user.availability.val" value="green" />
+        <p><span class="trafficLightGreen">Actively looking for a school</span><br/>(Schools can read all about me)</p>
+      </label>
+      <label>
+        <input type="radio" name="availability" ng-model="user.availability.val" value="amber" />
+        <p><span class="trafficLightAmber">Open to suggestion</span><br/>(Keep my name and contact private)</p>
+      </label>
+      <label>
+        <input type="radio" name="availability" ng-model="user.availability.val" value="red" />
+        <p><span class="trafficLightRed">Not currently looking</span><br/>(Private. Do not contact me for now)</p>
+      </label>
     </div>
   </div>
   <div class="formField">
@@ -48,7 +39,7 @@
       Currently in a job?
     </label>
   </div>
-  <div class="formField" ng-class="user.wip.highlight&&'wip'">
+  <div class="formField" ng-class="user.wip.highlight&&'wip'" ng-mouseenter="mouseenter(user.availableFrom)" ng-mouseleave="mouseleave(user.availableFrom)">
     <label>Available from</label>
     <input ui-date="{ dateFormat: 'D d M yy' }" ng-model="user.availableFrom.val" />
   </div>

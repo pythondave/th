@@ -19,12 +19,18 @@ angular.module('tpp').
 
     var _user = localStorageService.getItem('user'); //get stripped from local storage (if present)
     var isStored = !!_user;
+    userService.storageType = localStorageService.storageType; //local or ses
 
     //initial user object
     var initialUserValue = {
       furthestLocation: { sectionId: 1, pageId: 1 },
       currentLocation: { sectionId: 1, pageId: 1 },
       visibleSectionId : 1,
+      //0.2 - settings
+      firstName: { val: '' },
+      secondName: { val: '' },
+      email: { val: '' },
+      password: { val: '' },
       //1.1
       roles: { val: [] },
       subjects: { val: [] },
@@ -37,7 +43,7 @@ angular.module('tpp').
       nationality: { val: '' },
       teachingQualificationCountry: { val: '' },
       educationLevels: { val: [] },
-      availability: { val: '' },
+      availability: { val: 'green' },
       hasCurrentJob: { val: true },
       availableFrom: { },
       //1.4
@@ -173,6 +179,11 @@ angular.module('tpp').
       var addFieldDecorators = function() {
         //*** TODO: consider putting the values here into a data structure
         //getTip
+        //0.2
+        user.firstName.getTip = function() { return ''; };
+        user.secondName.getTip = function() { return ''; };
+        user.email.getTip = function() { return ''; };
+        user.password.getTip = function() { return ''; };        
         //1.1
         user.roles.getTip = function() { return 'These whiteboard messages will help you create your profile. You can add up to three roles you\'re looking for - but be realistic!'; };
         user.subjects.getTip = function() { return 'Add up to three subjects you would like to teach - but be sure you are qualified to teach them all'; };
@@ -185,7 +196,7 @@ angular.module('tpp').
         user.nationality.getTip = function() { return 'Schools need this for visa reasons'; };
         user.teachingQualificationCountry.getTip = function() { return 'This is the country of your teaching qualification / certification. Only qualified teachers will be considered for teaching roles.'; };
         user.educationLevels.getTip = function() { return 'This is where you can add all your brilliant qualifications'; };
-        user.availability.getTip = function() { return 'This tells schools if you are actively looking for a job (green) and you can keep some details private by clicking yellow'; };
+        user.availability.getTip = function() { return 'This tells schools if you are actively looking for a job (green) and you can keep some details private by clicking amber'; };
         user.hasCurrentJob.getTip = function() { return 'Are you currently employed?'; };
         user.availableFrom.getTip = function() { return 'Enter the earliest date you will be available to start a new job'; };
         //1.4
@@ -253,6 +264,11 @@ angular.module('tpp').
         user.videos.getTip = function() { return 'Here you can add a personal video - an interview with you or a video of you teaching. Just paste a YouTube link.'; };
    
         //getIsSufficient
+        //0.2
+        user.firstName.getIsSufficient = function() { return user.firstName.val.length > 0; }
+        user.secondName.getIsSufficient = function() { return user.secondName.val.length > 0; }
+        user.email.getIsSufficient = function() { return libService.misc.isProbablyValidEmail(user.email.val) };
+        user.password.getIsSufficient = function() { return user.password.val.length >= 6; }
         //1.1
         user.roles.getIsSufficient = function() { return user.roles.val.length > 0; };
         user.subjects.getIsSufficient = function() { return user.subjects.val.length > 0; };
@@ -326,6 +342,11 @@ angular.module('tpp').
         user.videos.getIsSufficient = function() { return user.videos.val.length > 0; };
 
         //getClass
+        //0.2
+        user.firstName.getClass = function() { return user.firstName.getIsSufficient() ? 'isSufficient' : ''; };
+        user.secondName.getClass = function() { return user.secondName.getIsSufficient() ? 'isSufficient' : ''; };
+        user.email.getClass = function() { return user.email.getIsSufficient() ? 'isSufficient' : ''; };
+        user.password.getClass = function() { return user.password.getIsSufficient() ? 'isSufficient' : ''; };
         //1.1
         user.roles.getClass = function() { return user.roles.getIsSufficient() ? 'isSufficient' : ''; };
         user.subjects.getClass = function() { return user.subjects.getIsSufficient() ? 'isSufficient' : ''; };

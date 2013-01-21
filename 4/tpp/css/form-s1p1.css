@@ -4,8 +4,8 @@
 .introduction img { 
 	float: right;
 	-webkit-border-radius: 15px;
-	-moz-border-radius: 15px;
-	border-radius: 15px;
+     -moz-border-radius: 15px;
+          border-radius: 15px;
 	margin-left: 40px;
 	margin-bottom: 20px;
 	height: 100px; /* 160px; */

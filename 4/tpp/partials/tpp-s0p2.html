@@ -1,0 +1,52 @@
+<form novalidate ng-controller="s1p1Controller" ng-cloak>
+  <!--standard form elements-->
+  <div>
+    <h1>My profile</h1>
+    <h2>My settings</h2>
+  </div>
+  
+  <div class="formField">
+    <label>First Name</label>
+    <input type="text" ng-model="user.firstName.val" on-focus="focus(user.firstName)" on-blur="blur(user.firstName)">
+    <span ng-class="user.firstName.getClass()"></span>
+  </div>
+  <div class="formField">
+    <label>Second Name</label>
+    <input type="text" ng-model="user.secondName.val" on-focus="focus(user.secondName)" on-blur="blur(user.secondName)">
+    <span ng-class="user.secondName.getClass()"></span>
+  </div>
+  <div class="formField">
+    <label>Email</label>
+    <input type="text" ng-model="user.email.val" on-focus="focus(user.email)" on-blur="blur(user.email)" restrict-input="{type: 'validEmailCharsOnly'}">
+    <span ng-class="user.email.getClass()"></span>
+  </div>
+  <div class="formField">
+    <label>Password</label>
+    <input type="text" ng-model="user.password.val" on-focus="focus(user.password)" on-blur="blur(user.password)">
+    <span ng-class="user.password.getClass()"></span>
+  </div>
+  <div class="formField" ng-mouseenter="mouseenter(user.availability)" ng-mouseleave="mouseleave(user.availability)">
+    <label>Availability</label>
+    <div class="trafficLights">
+      <label>
+        <input type="radio" name="availability" ng-model="user.availability.val" value="green" />
+        <p><span class="trafficLightGreen">Actively looking for a school</span><br/>(Schools can read all about me)</p>
+      </label>
+      <label>
+        <input type="radio" name="availability" ng-model="user.availability.val" value="amber" />
+        <p><span class="trafficLightAmber">Open to suggestion</span><br/>(Keep my name and contact private)</p>
+      </label>
+      <label>
+        <input type="radio" name="availability" ng-model="user.availability.val" value="red" />
+        <p><span class="trafficLightRed">Not currently looking</span><br/>(Private. Do not contact me for now)</p>
+      </label>
+    </div>
+  </div>
+  
+  <div ng-show="user.wip.notes.show">
+    <br/><span class="wip">This page probably needs some more design input:</span>
+    <br/><br/><span class="wip">Required fields? Tips? Sufficiency rules?</span>
+    <br/><br/><span class="wip">Password field is different to what sites generally do</span>
+    <br/><br/><span class="wip">Note that Val's availability traffic light did not appear to work in IE8, so I've gone with something simpler for the moment</span>
+  </div>
+</form>

@@ -2,15 +2,15 @@
 
 // *** IE8WIP - Shim: Add ECMA262-5 Array methods if not supported natively *** TODO: move this to somewhere better
 if (!('indexOf' in Array.prototype)) {
-    Array.prototype.indexOf = function(find, i /*opt*/) {
-        if (i===undefined) i= 0;
-        if (i<0) i+= this.length;
-        if (i<0) i= 0;
-        for (var n= this.length; i<n; i++)
-            if (i in this && this[i]===find)
-                return i;
-        return -1;
-    };
+  Array.prototype.indexOf = function(find, i /*optional*/) {
+    if (i===undefined) i= 0;
+    if (i<0) i+= this.length;
+    if (i<0) i= 0;
+    for (var n= this.length; i<n; i++)
+      if (i in this && this[i]===find)
+        return i;
+    return -1;
+  };
 } 
 
 angular.module('tpp', ['ui']).
@@ -25,7 +25,7 @@ angular.module('tpp', ['ui']).
     $routeProvider.
       when('/:sectionId/:pageId', {
         controller: routeController,
-        template: '<div ng-include="templateUrl">Loading...</div>'
+        template: '<div ng-include="templateUrl">Loading...</div>' //*** TODO: put a typical loading image here
       }).
       otherwise({ redirectTo: '/1/1' });
     
@@ -35,6 +35,7 @@ angular.module('tpp', ['ui']).
     // *** TODO: tidy this function
     
     $rootScope.user = userService.user;
+    $rootScope.storageType = userService.storageType;
   
     $rootScope.getScrollFix = function() {
       return 190 + ($rootScope.user.currentLocation.isPage(1, 1) ? 40 : 0);
@@ -64,7 +65,7 @@ angular.module('tpp', ['ui']).
       if (sectionId === 0) {
         if (pageId === 0) { $window.location = 'http://www.teacherhorizons.com'; }
         if (pageId === 1) { $window.location = '../profile/profile_1.html'; }
-        if (pageId === 2) { $window.location = '../settings/settings.html'; }
+        //if (pageId === 2) { $window.location = '../settings/settings.html'; }
       }
     };
     

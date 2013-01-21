@@ -92,7 +92,7 @@ span.isSufficient {
 }
 .select-many-from-few .btn-info {
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #fafafa;
+  background-color: #5a6187;
   box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
 	border-radius: 4px;
 	display: inline-block;
@@ -117,3 +117,22 @@ input[type=checkbox].isSufficient:before {
 	background-repeat: no-repeat;
 	background-size: 20px;
 }
+
+/* traffic lights */
+.trafficLights {
+  margin: 10px 0 20px 0;
+}
+.trafficLights input {
+  cursor: pointer;
+}
+.trafficLights label {
+  cursor: pointer;
+  padding: 5px 0 0 0;
+  width: 260px;
+}
+.trafficLights p {
+  margin: -20px 0 0 20px;
+}
+.trafficLightGreen { color: #50b848; }
+.trafficLightAmber { color: #f38134; }
+.trafficLightRed { color: #e4212e; }
